@@ -8,6 +8,7 @@ gem 'maruku' # Markup xlator
 gem 'koala' # Facebook integration
 gem 'httparty'
 gem "json_pure"
+gem 'thin'
 
 # Sass & Compass
 gem 'sass', '~> 3.1.12'
