@@ -1,0 +1,200 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+a {
+  color: #3366cc;
+}
+a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+a:active {
+  outline: none;
+}
+
+body {
+  font-family: Quattrocento Sans;
+  font-weight: bolder;
+  font-size: 14px;
+  background: #ff69b4;
+  color: #0d0d0d;
+}
+body img#helcross {
+  z-index: 2;
+  position: fixed;
+  left: 220px;
+  top: 0px;
+}
+body .feature-heading {
+  font-family: Quattrocento Sans;
+  font-weight: bolder;
+  position: fixed;
+  left: 360px;
+  top: 20px;
+  font-size: 40px;
+  line-height: 80px;
+  width: 140px;
+}
+body h1 {
+  font: 24px Loved by the King;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 300%;
+}
+body .blog {
+  width: 562.5px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+body ul.nav_main {
+  -moz-border-radius-topright: 14px;
+  -webkit-border-top-right-radius: 14px;
+  -o-border-top-right-radius: 14px;
+  -ms-border-top-right-radius: 14px;
+  -khtml-border-top-right-radius: 14px;
+  border-top-right-radius: 14px;
+  position: absolute;
+  top: 45px;
+  left: 558.5px;
+  height: 35px;
+  width: 412.5px;
+  background: #e7e7e7;
+}
+body ul.nav_main li {
+  display: inline;
+  line-height: 30px;
+  padding: 0 20px;
+}
+body ul.nav_main li a {
+  text-shadow: black 1px 1px 2px;
+  font: 24px Loved by the King;
+  color: black;
+  text-decoration: none;
+}
+body ul.nav_main li a:hover {
+  text-shadow: black 3px 3px 2px;
+}
+body #content {
+  -moz-border-radius-bottomleft: 14px;
+  -webkit-border-bottom-left-radius: 14px;
+  -o-border-bottom-left-radius: 14px;
+  -ms-border-bottom-left-radius: 14px;
+  -khtml-border-bottom-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  left: 220px;
+  top: 80px;
+  width: 750px;
+  height: 500px;
+  line-height: 150%;
+}
+body #content .feature {
+  display: none;
+}
+body #content .feature.showing {
+  height: 500px;
+  display: block;
+}
+body .scroll-pane {
+  overflow: auto;
+}
+body #gallery {
+  width: 750px;
+  height: 500px;
+  background-color: gray;
+  overflow: hidden;
+}
+body #gallery .left-button, body #gallery .right-button {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
+body #gallery .left-button {
+  left: 0px;
+}
+body #gallery .right-button {
+  right: 0px;
+}
+body #gallery .image.showing {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+body #gallery .image.showing img {
+  max-height: 500px;
+}
+body #gallery .image.showing .caption {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  opacity: 0.75;
+  font: 24px Loved by the King;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: -46px;
+  height: 46px;
+  line-height: 40px;
+  width: 300px;
+  padding-top: 0;
+  border-top: 0;
+  font-weight: bold;
+}
+body #gallery .image {
+  display: none;
+}

@@ -1,4 +1,7 @@
-require "sinatra"
+require 'rubygems'
+require 'sinatra'
+require 'haml'
+require 'maruku'
 require 'koala'
 
 enable :sessions
@@ -13,6 +16,9 @@ set :show_exceptions, false
 # See https://developers.facebook.com/docs/reference/api/permissions/
 # for a full list of permissions
 FACEBOOK_SCOPE = 'user_likes,user_photos,user_photo_video_tags'
+                         
+ENV["FACEBOOK_APP_ID"] = "368471183197357"
+ENV["FACEBOOK_SECRET"] = "6e66e0c89172e31a387be4ce063d0833"
 
 unless ENV["FACEBOOK_APP_ID"] && ENV["FACEBOOK_SECRET"]
   abort("missing env vars: please set FACEBOOK_APP_ID and FACEBOOK_SECRET with your app credentials")
@@ -24,6 +30,9 @@ before do
     redirect "https://#{request.env['HTTP_HOST']}"
   end
 end
+
+# Helpers
+require './lib/partials'
 
 helpers do
   def host
@@ -54,7 +63,15 @@ error(Koala::Facebook::APIError) do
   redirect "/auth/facebook"
 end
 
-get "/" do
+# Set Sinatra variables
+set :app_file, __FILE__
+set :root, File.dirname(__FILE__)
+set :views, 'views'
+set :public_folder, 'public'
+set :haml, {:format => :html5} # default Haml format is :xhtml
+
+# Application routes
+get '/' do
   # Get base API Connection
   @graph  = Koala::Facebook::API.new(session[:access_token])
 
@@ -70,7 +87,7 @@ get "/" do
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
   end
-  erb :index
+  haml :index, :layout => :'layouts/application'
 end
 
 # used by Canvas apps - redirect the POST to be a regular GET

@@ -1,0 +1,53 @@
+!!!
+%html{html_attrs, xmlns:fb="http://ogp.me/ns/fb#"}
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes")
+    <title><%= @app['name'] %></title>
+
+    %meta{:name => "lang", :content => "en"}
+    %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
+
+    %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
+
+    %link(rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css")
+    /[if IEMobile]
+      %link(rel="stylesheet" href="mobile.css" media="screen" type="text/css")
+
+    -# These are Open Graph tags.  They add meta data to your
+    -# site that facebook uses when your content is shared
+    -# over facebook.  You should fill these tags in with
+    -# your data.  To learn more about Open Graph, visit
+    -# 'https://developers.facebook.com/docs/opengraph/'
+    %meta{:property=>"og:title", :content=>"#{@app['name']}"}
+    %meta{:property=>"og:type", :content=>"website"}
+    %meta{:property=>"og:url", :content=>"<%= url %>"}
+    %meta{:property=>"og:image", :content=>"#{url('/logo.png')}"}
+    %meta{:property=>"og:site_name", :content=>"#{@app['name']}"}
+    %meta{:property=>"og:description", :content=>"My First App"}
+    %meta{:property=>"fb:app_id", :content=>"#{@app['name']}"}
+
+    %script{:type=>"text/javascript", :src=>"http://code.jquery.com/jquery-1.5.min.js"}
+    %script{:type=>"text/javascript", :src=>"/javascripts/lib/fb.js"}
+    /[if IE]
+      %script{:type=>"text/javascript"} var tags = ['header', 'section']; while(tags.length); document.createElement(tags.pop());
+
+    %script{:type=>"text/javascript", :src=>"/javascripts/lib/modernizr-1.6.min.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/lib/gallery.js"}
+    %link{:href=>"http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King", :rel=>"stylesheet", :type=>"text/css"}    
+    -# jScrollPane Stylesheet:
+    -# %link(type="text/css" href="/stylesheets/jquery.jscrollpane.css" rel="stylesheet" media="all")
+    -# Provides mousewheel support for jScrollPane
+    %script(type="text/javascript" src="/javascripts/lib/jquery.mousewheel.js")
+    %script(type="text/javascript" src="/javascripts/lib/jquery.jscrollpane.min.js")
+  %body
+    %div(id="fb-root")
+    %script(type="text/javascript" src="/javascripts/lib/fb-init.js")
+    %script(type="text/javascript")
+      setFbAsyncInit(#{@app['id']}, #{url_no_scheme('/channel.html')});
+    %img#helcross{:src=>"/images/helcross.png"}
+    = partial :nav_main
+    #content
+      = yield
+    = partial :analytics

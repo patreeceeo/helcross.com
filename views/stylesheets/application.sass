@@ -1,0 +1,151 @@
+@import compass/reset
+@import compass/utilities
+@import compass/css3
+@import compass/css3/opacity
+
+=font-cursive
+  font: 24px Loved by the King 
+
+=font-sans
+  font-family: Quattrocento Sans
+  font-weight: bolder
+
+$pink: #ff69b4
+
+$spacing: 20px
+$radius: 14px
+$border: 1px solid $pink
+
+$feature-width: 750px
+
+$gallery-width: $feature-width
+$gallery-height: 500px
+
+$logo-width: 120px + $spacing
+
+$left-offset: 200px + $spacing
+
+$title-width: 120px + $spacing
+
+$nav-main-width: $feature-width * 0.55
+
+$logo-z-index: 2
+$content-z-index: 1
+
+$caption-height: 40px
+
+$feature-height: $gallery-height
+
+a
+  color: #3366CC
+  &:hover
+    color: #3366CC
+    text-decoration: none
+  &:focus
+  &:active
+    outline: none
+  &:visited
+
+body
+  +font-sans
+  font-size: 14px
+  background: $pink
+  color: #0d0d0d
+  img#helcross
+    z-index: $logo-z-index
+    position: fixed  
+    left: $left-offset
+    top: 0px
+  .feature-heading
+    +font-sans
+    position: fixed
+    left: $left-offset + $logo-width
+    top: 20px
+    font-size: 40px
+    line-height: 80px
+    width: $title-width
+  h1
+    +font-cursive 
+    font-weight: bold
+    font-size: 28px
+    line-height: 300%
+  .blog
+    // position: absolute
+    width: $feature-width * 0.75 
+    // right: 0px
+    margin: 0 auto
+    margin-top: $spacing
+  ul.nav_main
+    +border-top-right-radius($radius)
+    position: absolute
+    top: 80px - 35px
+    left: $left-offset + ($feature-width - $nav-main-width) + 1px
+    height: 35px
+    width: $nav-main-width 
+    background: #e7e7e7
+    // border: 1px solid #ccc
+    li
+      display: inline
+      line-height: 30px
+      padding: 0 20px
+      a
+        +single-text-shadow(black, 1px, 1px, 2px)
+        +font-cursive
+        color: #000
+        text-decoration: none
+        &:hover
+          +single-text-shadow(black, 3px, 3px, 2px)
+          // text-decoration: underline
+  #content
+    +border-bottom-left-radius($radius)
+    background-color: white
+    z-index: $content-z-index
+    position: fixed
+    left: $left-offset
+    top: 80px
+    width: $feature-width
+    height: $feature-height 
+    line-height: 150%
+    .feature
+      display: none
+    .feature.showing
+      height: $feature-height
+      display: block
+  .scroll-pane
+    overflow: auto
+  #gallery
+    width: $gallery-width
+    height: $gallery-height
+    background-color: gray
+    overflow: hidden
+    .left-button, .right-button
+      position: absolute
+      top: 50%
+      margin-top: -20px
+      height: 20px
+      width: 20px
+      background-color: white
+    .left-button
+      left: 0px
+    .right-button
+      right: 0px
+    .image.showing
+      display: block
+      position: relative
+      text-align: center
+      img
+        max-height: $gallery-height
+      .caption
+        +opacity(0.75)  
+        +font-cursive
+        background-color: white
+        margin: 0 auto
+        margin-top: -$caption-height * 1.15
+        height: $caption-height * 1.15
+        line-height: $caption-height
+        width: 300px
+        padding-top: 0
+        border-top: 0
+        font-weight: bold
+    .image
+      display: none
