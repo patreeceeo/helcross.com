@@ -45,7 +45,7 @@
     %div(id="fb-root")
     %script(type="text/javascript" src="/javascripts/lib/fb-init.js")
     %script(type="text/javascript")
-      setFbAsyncInit("#{@app['id']}", "#{url_no_scheme('/channel.html')}");
+      setFbAsyncInit(#{@app['id']}, #{url_no_scheme('/channel.html')});
     %img#helcross{:src=>"/images/helcross.png"}
     = partial :nav_main
     #content
