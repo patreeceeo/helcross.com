@@ -10,6 +10,7 @@ gem 'httparty'
 gem "json_pure"
 group :deployment do
   gem 'thin'
+  gem 'rack', '1.4.0', :git =>  "git://github.com/rack/rack.git" 
 end
 
 # Sass & Compass
