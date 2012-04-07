@@ -1,9 +1,9 @@
 
-function setFbAsyncInit(app, url) {
+function setFbAsyncInit(_appId, _channelUrl) {
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : "<%= @app['id'] %>",                     // App ID
-      channelUrl : "<%= url_no_scheme('/channel.html') %>", // Channel File
+      appId      : _appId,                     // App ID
+      channelUrl : _channelUrl, // Channel File
       status     : true,                                    // check login status
       cookie     : true,                                    // enable cookies to allow the server to access the session
       xfbml      : true                                     // parse XFBML
