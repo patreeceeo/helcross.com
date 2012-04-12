@@ -198,3 +198,7 @@ body #gallery .image.showing .caption {
 body #gallery .image {
   display: none;
 }
+body #gallery #auth-status {
+  width: 40px;
+  display: inline;
+}
