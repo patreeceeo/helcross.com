@@ -3,15 +3,19 @@
     %a{:onclick => "show('#gallery', '.feature');", :href=>"#"} Home
   %li
     %a{:onclick => "show('#about', '.feature');", :href=>"#"} About
-  %li 
-    -# %a{:href => "/forums"} +You
-
-  %a(href='/auth/facebook' class="fb_button fb_button_medium")
-    %span(class="fb_button_text") Log In
-
+  -# %li 
+  -#   -# %a{:href => "/forums"} +You
+  -# %li
   %li
     %a{:href => "/store"} +Store
   %li
     %a{:href => "/surf"} +Surf
 
 
+%div(id="auth-status")
+  %div(id="auth-loggedout")
+    %a(href="#" id="auth-loginlink") Login
+  %div(id="auth-loggedin" style="display:none")
+    Hi, 
+    %span(id="auth-displayname") 
+      %a(href="#" id="auth-logoutlink") Logout
