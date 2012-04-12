@@ -200,5 +200,5 @@ body #gallery .image {
 }
 body #gallery #auth-status {
   width: 40px;
-  display: inline;
+  display: inline-block !important;
 }
