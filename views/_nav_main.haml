@@ -1,19 +1,11 @@
 %ul.nav_main
   %li
-    %a{:onclick => "show('#gallery', '.feature');", :href=>"#"} Home
+    %a(onclick="showPage('home');" href="#") Home
   %li
-    %a{:onclick => "show('#about', '.feature');", :href=>"#"} About
+    %a(onclick="showPage('about');" href="#") About
   %li
-    %a{:href => "/store"} +Store
+    %a(onclick="showPage('store');" href="#") +Store
   %li
-    %a{:href => "/surf"} +Surf
-
-  %div(id="auth-status")
-    %div(id="auth-loggedout")
-      %a(href="#" id="auth-loginlink") Login
-    %div(id="auth-loggedin" style="display:none")
-      Hi, 
-      %span(id="auth-displayname") 
-        %a(href="#" id="auth-logoutlink") Logout
-
+    %a(onclick="showPage('surf');" href="#") +Surf
+  = partial :fb_login
 

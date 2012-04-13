@@ -16,7 +16,9 @@ $spacing: 20px
 $radius: 14px
 $border: 1px solid $pink
 
-$feature-width: 750px
+$feature-width: 800px
+
+$header-height: 44px
 
 $gallery-width: $feature-width
 $gallery-height: 500px
@@ -27,7 +29,7 @@ $left-offset: 200px + $spacing
 
 $title-width: 120px + $spacing
 
-$nav-main-width: $feature-width * 0.55
+$nav-main-width: $feature-width - $logo-width
 
 $logo-z-index: 2
 $content-z-index: 1
@@ -35,7 +37,7 @@ $content-z-index: 1
 $caption-height: 40px
 
 $feature-height: $gallery-height
-
+$blog-heading-margin-top: 28px
 a
   color: #3366CC
   &:hover
@@ -53,12 +55,12 @@ body
   color: #0d0d0d
   img#helcross
     z-index: $logo-z-index
-    position: fixed  
+    position: absolute  
     left: $left-offset
     top: 0px
   .feature-heading
     +font-sans
-    position: fixed
+    position: absolute 
     left: $left-offset + $logo-width
     top: 20px
     font-size: 40px
@@ -68,21 +70,21 @@ body
     +font-cursive 
     font-weight: bold
     font-size: 28px
-    line-height: 300%
+    // line-height: 300%
+    margin-top: $blog-heading-margin-top
   .blog
     // position: absolute
     width: $feature-width * 0.75 
     // right: 0px
     margin: 0 auto
-    margin-top: $spacing
+    margin-top: $logo-width * 0.66 - $blog-heading-margin-top
   ul.nav_main
-    +border-top-right-radius($radius)
     position: absolute
-    top: 80px - 35px
-    left: $left-offset + ($feature-width - $nav-main-width) + 1px
+    top: $header-height - 35px
+    left: $left-offset + $logo-width
     height: 35px
     width: $nav-main-width 
-    background: #e7e7e7
+    // background: #e7e7e7
     // border: 1px solid #ccc
     li
       display: inline
@@ -98,22 +100,25 @@ body
           // text-decoration: underline
   #content
     +border-bottom-left-radius($radius)
+    +border-top-right-radius($radius)
     background-color: white
     z-index: $content-z-index
-    position: fixed
+    position: absolute
     left: $left-offset
-    top: 80px
+    top: $header-height
     width: $feature-width
-    height: $feature-height 
+    // height: $feature-height 
+    height: auto
     line-height: 150%
     .feature
+      +border-bottom-left-radius($radius)
+      +border-top-right-radius($radius)
       display: none
     .feature.showing
-      height: $feature-height
+      height: auto
+      // height: $feature-height
       display: block
-  .scroll-pane
-    overflow: auto
-  #gallery
+  .gallery
     width: $gallery-width
     height: $gallery-height
     background-color: gray
@@ -149,6 +154,31 @@ body
         font-weight: bold
     .image
       display: none
-    #auth-status
-      width: 40px
-      display: inline-block !important
+
+
+#notifications
+  +border-bottom-right-radius($radius)
+  +border-top-left-radius($radius)
+  position: fixed
+  right: $spacing*2
+  bottom: $spacing
+  background-color: black
+  height: 133px
+  width: 133px
+  h1
+    display: none
+    color: white
+    font-size: 50px
+    padding: 0
+    border: 0
+    margin: 0
+    margin-top: 72px
+    margin-left: -2px
+  h1.showing
+    display: block
+
+#auth-status
+  margin: 0 !important
+  display: inline !important
+  width: auto
+  float: right

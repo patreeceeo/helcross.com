@@ -74,14 +74,14 @@ body {
 }
 body img#helcross {
   z-index: 2;
-  position: fixed;
+  position: absolute;
   left: 220px;
   top: 0px;
 }
 body .feature-heading {
   font-family: Quattrocento Sans;
   font-weight: bolder;
-  position: fixed;
+  position: absolute;
   left: 360px;
   top: 20px;
   font-size: 40px;
@@ -92,26 +92,19 @@ body h1 {
   font: 24px Loved by the King;
   font-weight: bold;
   font-size: 28px;
-  line-height: 300%;
+  margin-top: 28px;
 }
 body .blog {
-  width: 562.5px;
+  width: 600px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 64.4px;
 }
 body ul.nav_main {
-  -moz-border-radius-topright: 14px;
-  -webkit-border-top-right-radius: 14px;
-  -o-border-top-right-radius: 14px;
-  -ms-border-top-right-radius: 14px;
-  -khtml-border-top-right-radius: 14px;
-  border-top-right-radius: 14px;
   position: absolute;
-  top: 45px;
-  left: 558.5px;
+  top: 9px;
+  left: 360px;
   height: 35px;
-  width: 412.5px;
-  background: #e7e7e7;
+  width: 660px;
 }
 body ul.nav_main li {
   display: inline;
@@ -134,32 +127,47 @@ body #content {
   -ms-border-bottom-left-radius: 14px;
   -khtml-border-bottom-left-radius: 14px;
   border-bottom-left-radius: 14px;
+  -moz-border-radius-topright: 14px;
+  -webkit-border-top-right-radius: 14px;
+  -o-border-top-right-radius: 14px;
+  -ms-border-top-right-radius: 14px;
+  -khtml-border-top-right-radius: 14px;
+  border-top-right-radius: 14px;
   background-color: white;
   z-index: 1;
-  position: fixed;
+  position: absolute;
   left: 220px;
-  top: 80px;
-  width: 750px;
-  height: 500px;
+  top: 44px;
+  width: 800px;
+  height: auto;
   line-height: 150%;
 }
 body #content .feature {
+  -moz-border-radius-bottomleft: 14px;
+  -webkit-border-bottom-left-radius: 14px;
+  -o-border-bottom-left-radius: 14px;
+  -ms-border-bottom-left-radius: 14px;
+  -khtml-border-bottom-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  -moz-border-radius-topright: 14px;
+  -webkit-border-top-right-radius: 14px;
+  -o-border-top-right-radius: 14px;
+  -ms-border-top-right-radius: 14px;
+  -khtml-border-top-right-radius: 14px;
+  border-top-right-radius: 14px;
   display: none;
 }
 body #content .feature.showing {
-  height: 500px;
+  height: auto;
   display: block;
 }
-body .scroll-pane {
-  overflow: auto;
-}
-body #gallery {
-  width: 750px;
+body .gallery {
+  width: 800px;
   height: 500px;
   background-color: gray;
   overflow: hidden;
 }
-body #gallery .left-button, body #gallery .right-button {
+body .gallery .left-button, body .gallery .right-button {
   position: absolute;
   top: 50%;
   margin-top: -20px;
@@ -167,21 +175,21 @@ body #gallery .left-button, body #gallery .right-button {
   width: 20px;
   background-color: white;
 }
-body #gallery .left-button {
+body .gallery .left-button {
   left: 0px;
 }
-body #gallery .right-button {
+body .gallery .right-button {
   right: 0px;
 }
-body #gallery .image.showing {
+body .gallery .image.showing {
   display: block;
   position: relative;
   text-align: center;
 }
-body #gallery .image.showing img {
+body .gallery .image.showing img {
   max-height: 500px;
 }
-body #gallery .image.showing .caption {
+body .gallery .image.showing .caption {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
   opacity: 0.75;
   font: 24px Loved by the King;
@@ -195,10 +203,47 @@ body #gallery .image.showing .caption {
   border-top: 0;
   font-weight: bold;
 }
-body #gallery .image {
+body .gallery .image {
   display: none;
 }
-body #gallery #auth-status {
-  width: 40px;
-  display: inline-block !important;
+
+#notifications {
+  -moz-border-radius-bottomright: 14px;
+  -webkit-border-bottom-right-radius: 14px;
+  -o-border-bottom-right-radius: 14px;
+  -ms-border-bottom-right-radius: 14px;
+  -khtml-border-bottom-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  -moz-border-radius-topleft: 14px;
+  -webkit-border-top-left-radius: 14px;
+  -o-border-top-left-radius: 14px;
+  -ms-border-top-left-radius: 14px;
+  -khtml-border-top-left-radius: 14px;
+  border-top-left-radius: 14px;
+  position: fixed;
+  right: 40px;
+  bottom: 20px;
+  background-color: black;
+  height: 133px;
+  width: 133px;
+}
+#notifications h1 {
+  display: none;
+  color: white;
+  font-size: 50px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  margin-top: 72px;
+  margin-left: -2px;
+}
+#notifications h1.showing {
+  display: block;
+}
+
+#auth-status {
+  margin: 0 !important;
+  display: inline !important;
+  width: auto;
+  float: right;
 }

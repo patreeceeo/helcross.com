@@ -7,9 +7,10 @@
     %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
     %title=@app['name']
 
-    %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
 
     %link(rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css")
+    %link(rel="stylesheet" href="stylesheets/base.css" type="text/css")
+    %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
     /[if IEMobile]
       %link(rel="stylesheet" href="mobile.css" media="screen" type="text/css")
 
@@ -36,11 +37,6 @@
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
     %script{:type => "text/javascript", :src => "/javascripts/lib/gallery.js"}
     %link{:href=>"http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King", :rel=>"stylesheet", :type=>"text/css"}    
-    -# jScrollPane Stylesheet:
-    -# %link(type="text/css" href="/stylesheets/jquery.jscrollpane.css" rel="stylesheet" media="all")
-    -# Provides mousewheel support for jScrollPane
-    %script(type="text/javascript" src="/javascripts/lib/jquery.mousewheel.js")
-    %script(type="text/javascript" src="/javascripts/lib/jquery.jscrollpane.min.js")
   %body
     %div(id="fb-root")
     %script(type="text/javascript")

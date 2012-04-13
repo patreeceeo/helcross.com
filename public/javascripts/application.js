@@ -16,6 +16,7 @@ $(document).ready(function() {
     console.log("clicked right");
     showNext("#gallery .image");
   });
+
 });
 
 

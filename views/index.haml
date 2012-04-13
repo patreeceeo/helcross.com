@@ -1,14 +1,15 @@
-#gallery.feature.showing
-  .feature-heading Home
+#home.gallery.feature.showing
   = partial :gallery
 - Dir.foreach("./public/content/words/") do |entry|
   - if entry != ".." and entry != "."
     - page = entry.chomp(".md.txt")
-    %div( id=page class="feature scroll" )
-      .feature-heading= page.capitalize 
+    %div{:id=>page, :class=>"feature"}
       .blog
         = content :"#{page}"
   
-
-
-
+#notifications
+  %h1#home Home
+  - Dir.foreach("./public/content/words/") do |entry|
+    - if entry != ".." and entry != "."
+      - page = entry.chomp(".md.txt")
+      %h1{:id=>"h1-"+page}=page.capitalize
