@@ -32,7 +32,9 @@ before do
 end
 
 # Helpers
+require './lib/helpers'
 require './lib/partials'
+
 
 helpers do
   def host

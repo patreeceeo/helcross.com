@@ -1,0 +1,10 @@
+#auth-status
+  %span.if-logged-in
+    Hi, 
+    %span#auth-displayname 
+    !
+
+  %span#auth-loggedout.if-logged-out
+    %a#auth-loginlink.button(href="#") Login
+  %span#auth-loggedin.if-logged-in
+    %a#auth-logoutlink.button(href="#") Logout

@@ -3,13 +3,13 @@
 - Dir.foreach("./public/content/words/") do |entry|
   - if entry != ".." and entry != "."
     - page = entry.chomp(".md.txt")
-    %div{:id=>page, :class=>"feature"}
+    %div{:id=>page.downcase, :class=>"feature"}
       .blog
         = content :"#{page}"
   
 #notifications
-  %h1#home Home
+  %h1#h1-home Home
   - Dir.foreach("./public/content/words/") do |entry|
     - if entry != ".." and entry != "."
       - page = entry.chomp(".md.txt")
-      %h1{:id=>"h1-"+page}=page.capitalize
+      %h1{:id=>"h1-"+page.downcase}=crossify(page)

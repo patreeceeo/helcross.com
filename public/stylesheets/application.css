@@ -99,26 +99,28 @@ body .blog {
   margin: 0 auto;
   margin-top: 64.4px;
 }
-body ul.nav_main {
+body header {
   position: absolute;
   top: 9px;
   left: 360px;
   height: 35px;
   width: 660px;
 }
-body ul.nav_main li {
+body header ul {
+  display: inline;
+}
+body header ul li {
   display: inline;
   line-height: 30px;
   padding: 0 20px;
 }
-body ul.nav_main li a {
-  text-shadow: black 1px 1px 2px;
+body header ul li a {
   font: 24px Loved by the King;
-  color: black;
+  color: black !important;
   text-decoration: none;
 }
-body ul.nav_main li a:hover {
-  text-shadow: black 3px 3px 2px;
+body header ul li a:hover {
+  text-shadow: white 2px 2px 1px;
 }
 body #content {
   -moz-border-radius-bottomleft: 14px;
@@ -224,8 +226,8 @@ body .gallery .image {
   right: 40px;
   bottom: 20px;
   background-color: black;
-  height: 133px;
-  width: 133px;
+  height: 150px;
+  width: 150px;
 }
 #notifications h1 {
   display: none;
@@ -234,7 +236,7 @@ body .gallery .image {
   padding: 0;
   border: 0;
   margin: 0;
-  margin-top: 72px;
+  margin-top: 88px;
   margin-left: -2px;
 }
 #notifications h1.showing {
@@ -244,6 +246,46 @@ body .gallery .image {
 #auth-status {
   margin: 0 !important;
   display: inline !important;
-  width: auto;
-  float: right;
+  width: auto !important;
+  float: right !important;
+  font: 24px Loved by the King;
+}
+
+.if-logged-in.showing, .if-logged-out.showing {
+  display: inline !important;
+}
+
+.if-logged-in, .if-logged-out {
+  display: none !important;
+}
+
+.button:link, .button:visited {
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -o-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -khtml-border-radius: 14px;
+  border-radius: 14px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97afe2), color-stop(100%, #6073a1));
+  background-image: -webkit-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -moz-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -o-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -ms-linear-gradient(top, #97afe2, #6073a1);
+  background-image: linear-gradient(top, #97afe2, #6073a1);
+  -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  font-family: Quattrocento Sans;
+  font-weight: bolder;
+  text-shadow: 0, 1px, 1px, rgba(255, 255, 255, 0.2);
+  background-color: #7a90c0;
+  border: none;
+  color: #1d222c;
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: top;
+  line-height: 28px;
+  padding: 0 25px;
+  text-decoration: none;
 }

@@ -4,8 +4,10 @@
   %li
     %a(onclick="showPage('about');" href="#") About
   %li
-    %a(onclick="showPage('store');" href="#") +Store
+    -# %a(onclick="showPage('cross-surf');" href="#") +Surf
   %li
-    %a(onclick="showPage('surf');" href="#") +Surf
-  = partial :fb_login
+    %a(onclick="showPage('cross-store');" href="#") +Store
+  %li
+    %a.if-logged-in(onclick="showPage('cross-you');" href="#") +You
+
 

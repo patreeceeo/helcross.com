@@ -9,8 +9,9 @@
 
 
     %link(rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css")
-    %link(rel="stylesheet" href="stylesheets/base.css" type="text/css")
+    -# %link(rel="stylesheet" href="stylesheets/base.css" type="text/css")
     %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
+    %link{:href=>"http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King", :rel=>"stylesheet", :type=>"text/css"}    
     /[if IEMobile]
       %link(rel="stylesheet" href="mobile.css" media="screen" type="text/css")
 
@@ -28,23 +29,24 @@
     %meta{:property=>"fb:app_id", :content=>"#{@app['name']}"}
 
     %script{:type=>"text/javascript", :src=>"http://code.jquery.com/jquery-1.5.min.js"}
-    %script{:type=>"text/javascript", :src=>"/javascripts/lib/fb.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
+    =lib_script "fb"
     /[if IE]
       %script{:type=>"text/javascript"} 
         var tags = ['header', 'section']; while(tags.length); document.createElement(tags.pop());
 
-    %script{:type=>"text/javascript", :src=>"/javascripts/lib/modernizr-1.6.min.js"}
-    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
-    %script{:type => "text/javascript", :src => "/javascripts/lib/gallery.js"}
-    %link{:href=>"http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King", :rel=>"stylesheet", :type=>"text/css"}    
+    =lib_script "modernizr-1.6.min"
+    =lib_script "gallery"
   %body
     %div(id="fb-root")
     %script(type="text/javascript")
       var hc_appId = '#{@app['id']}';
       var hc_channelUrl = '#{url_no_scheme('/channel.html')}';
-    %script(type="text/javascript" src="/javascripts/lib/fb-init.js")
+    =lib_script "fb-init"
     %img#helcross{:src=>"/images/helcross.png"}
-    = partial :nav_main
+    %header
+      = partial :nav_main
+      = partial :authorize
     #content
       = yield
     = partial :analytics

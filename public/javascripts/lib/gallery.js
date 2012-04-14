@@ -67,7 +67,6 @@ function showPrev(stor) {
 
 function showNext(stor) {
   var to_hide = $(stor+".showing");
-  console.log("to_hide: ",to_hide);
   to_hide.removeClass("showing");
 
   var index = to_hide.index();
@@ -81,21 +80,17 @@ function showNext(stor) {
 }
 
 function leftKey() {
-  showPrev("#gallery .image");
+  showPrev(".gallery .image");
 }
 
 function rightKey() {
-  showNext("#gallery .image");
+  showNext(".gallery .image");
 }
 
 function topKey() {
-  // showPrev("#content .feature");
-  // showPrev("#notifications h1"); 
   showPrevPage();
 }
 
 function bottomKey() {
-  // showNext("#content .feature");
-  // showNext("#notifications h1");
   showNextPage();
 }
