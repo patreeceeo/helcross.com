@@ -51,7 +51,7 @@ $(function(){
     );
   });
 
-  $('#add-page-tab') {
+  $('#add-page-tab').click(function() {
     log("you clicked #add-page-tab");
     FB.ui({
       method: 'pagetab',
@@ -63,4 +63,5 @@ $(function(){
         logResponse(response);
       }
     }); 
-  };
+  });
+});

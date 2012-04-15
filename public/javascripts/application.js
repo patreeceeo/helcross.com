@@ -1,4 +1,5 @@
 // var appMode = "development";
+var appMode = "";
 var fbUser = null;
 
 function log(message) {
@@ -25,7 +26,7 @@ $(document).ready(function() {
     showNext(".gallery .image");
   });
   
-  if(appMode == "development")
+  // if(appMode == "development")
     appHandleEvent("logout");
 });
 

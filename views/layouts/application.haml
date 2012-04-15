@@ -45,7 +45,7 @@
   %body
     %div(id="fb-root")
     =lib_script "fb-init"
-    %img#helcross{:src=>"/images/helcross.png"}
+    %img#helcross(src="/images/helcross.png" onclick="showPage('home')")
     %header
       = partial :nav_main
       = partial :authorize

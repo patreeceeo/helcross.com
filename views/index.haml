@@ -5,7 +5,6 @@
   - if entry != ".." and entry != "."
     - page = entry.chomp(".md.txt")
     .feature{:id=>page.downcase}
-      #helcross-v-spacer
       .blog
         = content :"words/#{page}"
   
