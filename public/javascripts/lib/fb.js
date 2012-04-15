@@ -52,6 +52,7 @@ $(function(){
   });
 
   $('#add-page-tab') {
+    log("you clicked #add-page-tab");
     FB.ui({
       method: 'pagetab',
       redirect_uri: app_url,
