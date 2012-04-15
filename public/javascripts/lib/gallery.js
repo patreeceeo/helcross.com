@@ -16,7 +16,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#notifications h1").first().addClass("showing");
+  showFirst(".gallery .image")
+  showFirst(".gallery .blog")
+  showPage("home")
+  // $("#notifications h1").first().addClass("showing");
 });
 
 function showPage(name) {
@@ -81,10 +84,12 @@ function showNext(stor) {
 
 function leftKey() {
   showPrev(".gallery .image");
+  showPrev(".gallery .blog");
 }
 
 function rightKey() {
   showNext(".gallery .image");
+  showNext(".gallery .blog");
 }
 
 function topKey() {

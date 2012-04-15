@@ -1,13 +1,20 @@
 -# The elements that make up a gallery must be inside their own container element
-.left-button
-.right-button
-%div 
-  .image.showing 
-    %img{:src=>"/content/images/hel_plus_congress.jpg", :alt=>"Helen + Congress"}
-    .caption Helen + Congress
-  .image
-    %img{:src=>"/content/images/me.jpg"}
-    .caption Me!
-  .image
-    %img{:src=>"/content/images/three_boards.jpg"}
-    .caption Paddle Out!
+
+.gallery
+  .image-container
+    .left-button
+    .right-button
+    %div 
+      - Dir.foreach("./public/content/images/") do |entry|
+        - if entry != ".." and entry != "."and entry =~ /\.jpg$/
+          .image
+            %img{:src=>"/content/images/"+entry}
+  .blog-container
+    - Dir.foreach("./public/content/images/") do |entry|
+      - if entry != ".." and entry != "." and entry =~ /\.jpg$/
+        - page = entry.chomp(".jpg")
+        -if File.exist?("./public/content/images/#{page}.md.txt")
+          .blog 
+            = content :"images/#{page}"
+        - else
+          .blog

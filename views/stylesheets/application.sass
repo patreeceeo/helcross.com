@@ -17,14 +17,15 @@ $spacing: 20px
 $radius: 14px
 $border: 1px solid $pink
 
-$feature-width: 800px
-
 $header-height: 44px
 
-$gallery-width: $feature-width
-$gallery-height: 500px
+$feature-width: 800px
+$feature-height: 500px
 
-$logo-width: 120px + $spacing
+$gallery-width: $feature-width - $radius*2
+$gallery-height: $feature-height - $radius*2
+
+$logo-width: 120px
 
 $left-offset: 200px + $spacing
 
@@ -37,8 +38,8 @@ $content-z-index: 1
 
 $caption-height: 40px
 
-$feature-height: $gallery-height
 $blog-heading-margin-top: 28px
+
 a
   color: #3366CC
   &:hover
@@ -55,14 +56,19 @@ body
   background: $pink
   color: #0d0d0d
   img#helcross
+    width: $logo-width
+    height: auto
     z-index: $logo-z-index
     position: absolute  
-    left: $left-offset
+    left: $left-offset - $logo-width/2
     top: 0px
+  #helcross-v-spacer
+    width: 100%
+    height: $logo-width * 0.66 - $blog-heading-margin-top
   .feature-heading
     +font-sans
     position: absolute 
-    left: $left-offset + $logo-width
+    left: $left-offset + $logo-width + $spacing
     top: 20px
     font-size: 40px
     line-height: 80px
@@ -78,7 +84,6 @@ body
     width: $feature-width * 0.75 
     // right: 0px
     margin: 0 auto
-    margin-top: $logo-width * 0.66 - $blog-heading-margin-top
   header
     position: absolute
     top: $header-height - 35px
@@ -121,41 +126,50 @@ body
       // height: $feature-height
       display: block
   .gallery
-    width: $gallery-width
-    height: $gallery-height
-    background-color: gray
-    overflow: hidden
-    .left-button, .right-button
-      position: absolute
-      top: 50%
-      margin-top: -20px
-      height: 20px
-      width: 20px
-      background-color: white
-    .left-button
-      left: 0px
-    .right-button
-      right: 0px
-    .image.showing
-      display: block
-      position: relative
-      text-align: center
-      img
-        max-height: $gallery-height
-      .caption
-        +opacity(0.75)  
-        +font-cursive
-        background-color: white
-        margin: 0 auto
-        margin-top: -$caption-height * 1.15
-        height: $caption-height * 1.15
-        line-height: $caption-height
-        width: 300px
-        padding-top: 0
-        border-top: 0
-        font-weight: bold
-    .image
+    .image-container
+      margin: $radius
+      width: $gallery-width
+      height: $gallery-height
+      background-color: gray
+      overflow: hidden
+      .left-button, .right-button
+        height: $gallery-height 
+        z-index: $logo-z-index
+        cursor: pointer
+        position: absolute
+        width: 60px
+        background-color: rgba(255, 255, 255, 0)
+        &:hover
+          background-color: rgba(255, 255, 255, 0.25)
+      .left-button
+        left: 0px
+      .right-button
+        right: 0px
+      .image
+        display: none
+      .image.showing
+        display: block
+        position: relative
+        text-align: center
+        img
+          height: $gallery-height
+          width: auto
+        .caption
+          +opacity(0.75)  
+          +font-cursive
+          background-color: white
+          margin: 0 auto
+          margin-top: -$caption-height * 1.15
+          height: $caption-height * 1.15
+          line-height: $caption-height
+          width: 300px
+          padding-top: 0
+          border-top: 0
+          font-weight: bold
+    .blog
       display: none
+    .blog.showing
+      display: block
 
 
 #notifications

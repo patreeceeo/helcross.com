@@ -1,11 +1,13 @@
-#home.gallery.feature.showing
+#home.feature.showing
   = partial :gallery
+
 - Dir.foreach("./public/content/words/") do |entry|
   - if entry != ".." and entry != "."
     - page = entry.chomp(".md.txt")
-    %div{:id=>page.downcase, :class=>"feature"}
+    .feature{:id=>page.downcase}
+      #helcross-v-spacer
       .blog
-        = content :"#{page}"
+        = content :"words/#{page}"
   
 #notifications
   %h1#h1-home Home

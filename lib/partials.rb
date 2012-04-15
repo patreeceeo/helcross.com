@@ -21,7 +21,7 @@ module Sinatra
     end
 
      def content(name)
-       file = File.open("./public/content/words/#{name}.md.txt")
+       file = File.open("./public/content/#{name}.md.txt")
        contents = file.read
        doc = Maruku.new(contents)
        doc.to_html

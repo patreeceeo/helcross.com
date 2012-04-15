@@ -37,11 +37,13 @@
 
     =lib_script "modernizr-1.6.min"
     =lib_script "gallery"
+    %script(type="text/javascript")
+      var app_url = '#{@app['url']}';
+      var app_id = '#{@app['id']}';
+      var app_channelUrl = '#{url_no_scheme('/channel.html')}';
+    =lib_script "fb"
   %body
     %div(id="fb-root")
-    %script(type="text/javascript")
-      var hc_appId = '#{@app['id']}';
-      var hc_channelUrl = '#{url_no_scheme('/channel.html')}';
     =lib_script "fb-init"
     %img#helcross{:src=>"/images/helcross.png"}
     %header

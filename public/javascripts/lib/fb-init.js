@@ -25,8 +25,8 @@ function fbHandleEvent (response) {
 // Init the SDK upon load
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : hc_appId, // App ID
-    channelUrl : '//'+window.location.hostname+'/channel', // Path to your Channel File
+    appId      : app_id, // App ID
+    channelUrl : app_channelUrl, // Path to your Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
