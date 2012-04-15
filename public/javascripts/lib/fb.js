@@ -8,11 +8,10 @@ $(function(){
   // Set up so we handle click on the buttons
   var dataUrl = this.location.href;
   $('#post-to-wall').click(function() {
-    FB.ui (
-      {
+    FB.ui ({
       method : 'feed',
-      link   : dataUrl;
-    },
+      link   : dataUrl
+      },
     function (response) {
       // If response is null the user canceled the dialog
       if (response != null) {
