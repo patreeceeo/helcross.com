@@ -6,11 +6,12 @@ function logResponse(response) {
 
 $(function(){
   // Set up so we handle click on the buttons
+  var dataUrl = this.location.href;
   $('#post-to-wall').click(function() {
     FB.ui (
       {
       method : 'feed',
-      link   : $(this).attr('data-url')
+      link   : dataUrl;
     },
     function (response) {
       // If response is null the user canceled the dialog
@@ -25,7 +26,7 @@ $(function(){
     FB.ui(
       {
       method : 'send',
-      link   : $(this).attr('data-url')
+      link   : dataUrl
     },
     function (response) {
       // If response is null the user canceled the dialog
@@ -40,7 +41,7 @@ $(function(){
     FB.ui(
       {
       method  : 'apprequests',
-      message : $(this).attr('data-message')
+      message : dataUrl
     },
     function (response) {
       // If response is null the user canceled the dialog
@@ -55,7 +56,7 @@ $(function(){
     log("you clicked #add-page-tab");
     FB.ui({
       method: 'pagetab',
-      redirect_uri: app_url,
+      redirect_uri: dataUrl
     },
     function (response) {
       // If response is null the user canceled the dialog

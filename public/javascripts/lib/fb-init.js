@@ -49,21 +49,5 @@ window.fbAsyncInit = function() {
       FB.logout();
   }); 
 
-  // fbUpdateLoginStatus();
 }
-
-// function fbUpdateLoginStatus() {
-//   FB.getLoginStatus(function(response) {
-//     if (response.status == 'connected') {
-//       var uid = response.authResponse.userID;
-//       var accessToken = response.authResponse.accessToken;
-//       appHandleEvent("login");
-//     } else if (response.status == 'not_authorized') {
-
-//       appHandleEvent("logout");
-//     } else {
-//       appHandleEvent("logout");
-//     }
-//   });
-// }
 
