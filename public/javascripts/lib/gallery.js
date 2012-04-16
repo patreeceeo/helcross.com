@@ -26,7 +26,7 @@ function showPage(name) {
   show("#h1-"+name, "#notifications h1")
   show("#"+name, ".feature") 
   if(name == "cross-you")
-    appLoadForum();
+    appRenderForum(fbGetForum("Hel +"), "#cross-you");
 }
 
 function showNextPage() {

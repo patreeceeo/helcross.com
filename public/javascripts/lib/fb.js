@@ -64,7 +64,12 @@ $(function(){
       }
     }); 
   });
-
-
-
 });
+
+function fbGetForum(name) {
+  var r;
+  FB.api("/175117605866523/feed?limit=1&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(cbr) {
+    r = cbr;
+  });
+  return r;
+}

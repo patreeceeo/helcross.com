@@ -33,7 +33,6 @@ $(document).ready(function() {
 
 
 function appHandleEvent(e) {
-  log("appHandleEvent");
   if (e == "login") {
     if (fbUser && fbUser.name) {
       $('#auth-displayname').text(fbUser.name);
@@ -48,10 +47,24 @@ function appHandleEvent(e) {
   }
 }
 
-function appLoadForum() {
-  log("appLoadForum");
-  // Load posts from group and add them to forum
-  FB.api("/175117605866523/feed?limit=1&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(r) {
-    $("#cross-you").append("<p>"+r.data[0].description+"</p>");
-  });
+function appRenderForumPost(post, stor) {
+  // var source = "
+  //   {{#post
+  //   <div class='post'>
+      
+  // var t = Handlebars.compile(source);
+  // $(stor).append("<p>"+r.data[0].description+"</p>"); 
+}
+
+function appRenderForum(forum, stor) {
+  var source = "\
+    {{#forum.data}}\
+      <div class='post'>\
+        <h1>{{name}}</h1>\
+        <h2>{{from.name}}</h2>\
+        <p>{{description}}</p>\
+      </div>";
+      
+  var t = Handlebars.compile(source);
+  $(stor).append(t(forum));
 }

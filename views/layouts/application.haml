@@ -42,6 +42,7 @@
       var app_id = '#{@app['id']}';
       var app_channelUrl = '#{url_no_scheme('/channel.html')}';
     =lib_script "fb"
+    =lib_script "handlebars"
   %body
     %div(id="fb-root")
     =lib_script "fb-init"
