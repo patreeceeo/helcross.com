@@ -49,8 +49,9 @@ function appHandleEvent(e) {
 }
 
 function appLoadForum() {
+  log("appLoadForum");
   // Load posts from group and add them to forum
-  FB.api("/175117605866523/feed?limit=1", function(r) {
+  FB.api("/175117605866523/feed?limit=1&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(r) {
     $("#cross-you").append("<p>"+r.data[0].description+"</p>");
   });
 }
