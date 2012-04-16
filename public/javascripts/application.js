@@ -25,6 +25,7 @@ $(document).ready(function() {
     log("clicked right");
     showNext(".gallery .image");
   });
+
   
   // if(appMode == "development")
     appHandleEvent("logout");
@@ -47,3 +48,9 @@ function appHandleEvent(e) {
   }
 }
 
+function appLoadForum() {
+  // Load posts from group and add them to forum
+  FB.api("/175117605866523/feed?limit=1", function(r) {
+    $("#cross-you").append("<p>"+r.data[0].description+"</p>");
+  });
+}

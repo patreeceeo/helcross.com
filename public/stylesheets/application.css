@@ -270,11 +270,10 @@ body .gallery .blog.showing {
 
 #like-button {
   position: absolute;
-  top: 20px;
-  right: 40px;
   border: none;
-  width: 150px;
-  height: auto;
+  width: 450px;
+  height: 44px;
+  float: right;
 }
 
 .if-logged-in.showing, .if-logged-out.showing {

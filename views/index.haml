@@ -1,4 +1,4 @@
-#home.feature.showing
+#home.feature
   = partial :gallery
 
 - Dir.foreach("./public/content/words/") do |entry|
@@ -8,8 +8,12 @@
       .blog
         = content :"words/#{page}"
 
+#cross-you.feature
+
+
 #notifications
   %h1#h1-home Home
+  %h1#h1-cross-you +You
   - Dir.foreach("./public/content/words/") do |entry|
     - if entry != ".." and entry != "."
       - page = entry.chomp(".md.txt")
