@@ -56,7 +56,6 @@ function appHandleEvent(e) {
 }
 
 function appRenderForum(forum, stor) {
-  console.log("hello...");
   var source = "\
     {{#data}}\
       <div class='post span-18'>\
@@ -75,5 +74,7 @@ function appRenderForum(forum, stor) {
       
   var t = Handlebars.compile(source);
   $(stor).empty();
-  $(stor).append(t(forum));
+  FB.api("/175117605866523/feed?limit=10&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(forum) {
+    $(stor).append(t(forum));
+    });
 }
