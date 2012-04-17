@@ -16,9 +16,6 @@ $(document).ready(function() {
     }
   });
 
-  showFirst(".gallery .image")
-  showFirst(".gallery .blog")
-  showPage("home")
   // $("#notifications h1").first().addClass("showing");
 });
 
@@ -26,7 +23,11 @@ function showPage(name) {
   show("#h1-"+name, "#notifications h1")
   show("#"+name, ".feature") 
   if(name == "cross-you")
-    appRenderForum(fbGetForum("Hel +"), "#cross-you");
+    appRenderForum(fbGetForum("Hel +"), "#cross-you .forum");
+  else if(name == "home") {
+    showFirst(".gallery .image");
+    showFirst(".gallery .blog");
+  }
 }
 
 function showNextPage() {

@@ -105,6 +105,13 @@ body .blog {
   width: 600px;
   margin: 0 auto;
 }
+body .forum .image img {
+  max-width: 200px;
+  height: auto;
+}
+body .forum .post {
+  margin-bottom: 1em;
+}
 body header {
   position: absolute;
   top: 9px;

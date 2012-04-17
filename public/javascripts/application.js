@@ -18,17 +18,25 @@ $(document).ready(function() {
 
   $(".gallery .left-button").click(function(){
     log("clicked left");
-    showPrev(".gallery .image");
+    // showPrev(".gallery .image");
+    leftKey();
   });
 
   $(".gallery .right-button").click(function(){
     log("clicked right");
-    showNext(".gallery .image");
+    // showNext(".gallery .image");
+    rightKey();
   });
 
   
-  // if(appMode == "development")
+  if(appMode == "development") {
+    appHandleEvent("login");
+    showPage("cross-you");
+  } else {
     appHandleEvent("logout");
+    showPage("home");
+  }
+
 });
 
 
@@ -47,24 +55,25 @@ function appHandleEvent(e) {
   }
 }
 
-function appRenderForumPost(post, stor) {
-  // var source = "
-  //   {{#post
-  //   <div class='post'>
-      
-  // var t = Handlebars.compile(source);
-  // $(stor).append("<p>"+r.data[0].description+"</p>"); 
-}
-
 function appRenderForum(forum, stor) {
+  console.log("hello...");
   var source = "\
-    {{#forum.data}}\
-      <div class='post'>\
-        <h1>{{name}}</h1>\
-        <h2>{{from.name}}</h2>\
-        <p>{{description}}</p>\
-      </div>";
+    {{#data}}\
+      <div class='post span-18'>\
+        <div class='row'>\
+          <h1 class='prepend-2'>{{name}}</h1>\
+          <a href='#' class='span-6 prepend-2 image'>\
+            <img src='{{picture}}' />\
+          </a>\
+          <div class='span-10 last'>\
+            <h2>{{from.name}}</h2>\
+            {{description}}\
+          </div>\
+        </div>\
+      </div>\
+    {{/data}}";
       
   var t = Handlebars.compile(source);
+  $(stor).empty();
   $(stor).append(t(forum));
 }
