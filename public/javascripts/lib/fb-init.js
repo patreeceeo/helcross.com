@@ -11,7 +11,7 @@ function fbHandleEvent (response) {
       return;
       appHandleEvent("logout");
     }
-    FB.logout(fbHandleEvent);
+    // FB.logout(fbHandleEvent);
   }
 }
 
