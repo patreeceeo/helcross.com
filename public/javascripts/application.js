@@ -193,7 +193,7 @@ function appRenderForum(stor) {
         <div class='row'>\
           {{#message}}\
           {{/message}}\
-          <a href='#' class='span-4 prepend-2 image'>\
+          <a href='{{link}}' class='span-4 prepend-2 image'>\
             <img src='{{picture}}' />\
           </a>\
           <div class='span-12 last'>\
