@@ -18,7 +18,7 @@ window.fbAsyncInit = function() {
     channelUrl : app_channelUrl, // Path to your Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
+    xfbml      : true,  // parse XFBML
     oauth      : true
   });
 
