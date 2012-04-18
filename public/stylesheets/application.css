@@ -110,14 +110,14 @@ body .forum .image img {
   height: auto;
 }
 body .forum .post {
-  margin-bottom: 1em;
+  margin-top: 2em;
 }
 body header {
   position: absolute;
   top: 9px;
   left: 260px;
   height: 35px;
-  width: 680px;
+  width: 760px;
 }
 body header ul {
   display: inline;
