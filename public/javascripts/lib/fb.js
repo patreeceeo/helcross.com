@@ -66,11 +66,10 @@ $(function(){
   });
 });
 
-function fbGetForum(name) {
-  var r;
+function fbGetForum(name, callback) {
   if(appMode === "development") {
     log("returning dummy data.");
-    r = { // dummy data
+    callback ({ // dummy data
       "data": [{
         "id": "175117605866523_374829559228659", 
         "from": {
@@ -133,11 +132,10 @@ function fbGetForum(name) {
         "previous": "#", 
         "next": "#"
       } 
-    };
+    });
   } else { // if app mode is not development
-    FB.api("/175117605866523/feed?limit=10&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(cbr) {
-      r = cbr;
+    FB.api("/175117605866523/feed?limit=10&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(r) {
+      callback(r);
     });
   }
-  return r;
 }

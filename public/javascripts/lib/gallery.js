@@ -23,7 +23,7 @@ function showPage(name) {
   show("#h1-"+name, "#notifications h1")
   show("#"+name, ".feature") 
   if(name == "cross-you")
-    appRenderForum(fbGetForum("Hel +"), "#cross-you .forum");
+    appRenderForum("#cross-you .forum");
   else if(name == "home") {
     showFirst(".gallery .image");
     showFirst(".gallery .blog");

@@ -18,3 +18,28 @@
     - if entry != ".." and entry != "."
       - page = entry.chomp(".md.txt")
       %h1{:id=>"h1-"+page.downcase}=crossify(page)
+
+
+#post-template(style="display:none")
+  {{#data}}
+  .post.span-18
+    .row
+      %h1.prepend-2 {{name}}
+      {{#picture}}
+      %a.span-4.prepend-2.image(href='#')
+        %img(src='{{picture}}')
+      .span-13.last
+        {{#from}}
+        %h2 {{from.name}}
+        {{/from}}
+        {{description}}
+      {{/picture}}
+  {{/data}}
+
+-# {{^picture}}
+-#   .span-17.last
+-#     {{#from}}
+-#     %h2 {{from.name}}
+-#     {{/from}}
+-#     {{description}}
+-#   {{/picture}}
