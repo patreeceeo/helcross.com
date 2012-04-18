@@ -1,5 +1,5 @@
-var appMode = "development";
-// var appMode = "";
+// var appMode = "development";
+var appMode = "";
 var fbUser = null;
 
 function log(message) {
