@@ -3,7 +3,7 @@ function fbHandleEvent (response) {
   if (response.authResponse) {
     // user has auth'd your app and is logged into Facebook
     FB.api ('/me', function (me) {
-      log(fbUser)
+      log("fbUser: ", fbUser)
       fbUser = me;
     });
     appHandleEvent("login");
@@ -29,6 +29,7 @@ function fbHandleEvent (response) {
 
 // Init the SDK upon load
 window.fbAsyncInit = function() {
+  log("facebook initializing.");
   FB.init({
     appId      : app_id, // App ID
     channelUrl : app_channelUrl, // Path to your Channel File

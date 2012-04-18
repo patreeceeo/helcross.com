@@ -38,11 +38,11 @@
 
     =lib_script "modernizr-1.6.min"
     =lib_script "gallery"
+    =lib_script "fb"
     %script(type="text/javascript")
       var app_url = '#{@app['url']}';
       var app_id = '#{@app['id']}';
       var app_channelUrl = '#{url_no_scheme('/channel.html')}';
-    =lib_script "fb"
     =lib_script "handlebars"
   %body
     %div(id="fb-root")
