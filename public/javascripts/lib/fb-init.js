@@ -7,10 +7,9 @@ function fbHandleEvent (response) {
     });
   log("fbUser: ", fbUser);
   } else {
-    if(!response.session) {
-      return;
-      appHandleEvent("logout");
-    }
+    // if(!response.session) {
+    appHandleEvent("logout");
+    // }
     // FB.logout(fbHandleEvent);
   }
 }
@@ -40,7 +39,7 @@ window.fbAsyncInit = function() {
   // listen for and handle auth.statusChange events
   FB.Event.subscribe('auth.statusChange', fbHandleEvent);
 
-  // FB.getLoginStatus(fbHandleEvent);
+  FB.getLoginStatus(fbHandleEvent);
   
   // respond to clicks on the login and logout links
   $('#auth-loginlink').click(function(e) {
