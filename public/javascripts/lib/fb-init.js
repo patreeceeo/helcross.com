@@ -3,8 +3,8 @@ function fbHandleEvent (response) {
   if (response.authResponse) {
     // user has auth'd your app and is logged into Facebook
     FB.api ('/me', function (me) {
-      log("fbUser: ", fbUser)
       fbUser = me;
+      log("fbUser: ", fbUser)
     });
     appHandleEvent("login");
   } else {
@@ -41,7 +41,7 @@ window.fbAsyncInit = function() {
   // listen for and handle auth.statusChange events
   FB.Event.subscribe('auth.statusChange', fbHandleEvent);
 
-  FB.getLoginStatus(fbHandleEvent);
+  // FB.getLoginStatus(fbHandleEvent);
   
   // respond to clicks on the login and logout links
   $('#auth-loginlink').click(function(e) {
