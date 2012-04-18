@@ -63,22 +63,18 @@ function appRenderForum(stor) {
     {{#data}}\
       <div class='post span-18'>\
         <div class='row'>\
-          <div class='span-10 last'>\
-            <h2>{{from.name}}</h2>\
-            {{description}}\
-          </div>\
+          {{#message}}\
+          {{/message}}\
           {{#picture}}\
-          <a href='#' class='span-6 prepend-2 image'>\
+          <a href='#' class='span-4 prepend-2 image'>\
             <img src='{{picture}}' />\
           </a>\
-          <div class='span-11 last'>\
-            <h2>{{from.name}}</h2>\
+          <div class='span-12 last'>\
             {{description}}\
           </div>\
           {{/picture}}\
           {{^picture}}\
-          <div class='span-17 last'>\
-            <h2>{{from.name}}</h2>\
+          <div class='span-12 last'>\
             {{description}}\
           </div>\
           {{/picture}}\
