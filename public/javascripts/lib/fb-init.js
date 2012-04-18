@@ -3,6 +3,7 @@ function fbHandleEvent (response) {
   if (response.authResponse) {
     // user has auth'd your app and is logged into Facebook
     FB.api ('/me', function (me) {
+      log(fbUser)
       fbUser = me;
     });
     appHandleEvent("login");

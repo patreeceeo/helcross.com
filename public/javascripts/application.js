@@ -3,7 +3,7 @@ var appMode = "";
 var fbUser = null;
 
 function log(message) {
-  if (console && console.log && appMode == "development") {
+  if (console && console.log) {
     console.log('log > ', message);
   }
 }
