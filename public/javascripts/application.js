@@ -46,9 +46,9 @@ function fbHandleEvent (response) {
     // user has auth'd your app and is logged into Facebook
     FB.api ('/me', function (me) {
       fbUser = me;
+      log("fbUser: ", fbUser);
+      appHandleEvent("login");
     });
-    log("fbUser: ", fbUser);
-    appHandleEvent("login");
   } else {
     // if(!response.session) {
     appHandleEvent("logout");
