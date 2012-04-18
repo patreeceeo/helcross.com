@@ -46,14 +46,13 @@ function fbHandleEvent (response) {
     // user has auth'd your app and is logged into Facebook
     FB.api ('/me', function (me) {
       fbUser = me;
-      log("fbUser: ", fbUser);
+      log("fbUser.name: "+fbUser.name);
       appHandleEvent("login");
     });
   } else {
-    if(!response.session) {
-      appHandleEvent("logout");
-    }
-    FB.logout(fbHandleEvent);
+    appHandleEvent("logout");
+    if(FB.getAuthResponse())
+      FB.logout(fbHandleEvent);
   }
 }
 
@@ -101,7 +100,7 @@ function appRenderForum(stor) {
       
   var t = Handlebars.compile(source);
   $(stor).empty();
-  // FB.api("/175117605866523/feed?limit=10&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(forum) {
+  FB.api("/175117605866523/feed?limit=10&access_token=368471183197357|eCJFFVks1PDmkjSI-g7G9QqGe5w", function(forum) {
   var forum = { // dummy data
       "data": [{
         "id": "175117605866523_374829559228659", 
@@ -313,4 +312,42 @@ function fbGetForum(name, callback) {
       callback(r);
     });
   }
+}
+
+
+function appRenderForum(stor) {
+  // {{#name}}\
+  // <h1 class='prepend-2'>{{name}}</h1>\
+  // {{/name}}\
+  // <h2>{{from.name}}</h2>\
+  // <h2>{{from.name}}</h2>\
+  var source = "\
+    {{#data}}\
+      <div class='post span-18'>\
+        <div class='row'>\
+          {{#message}}\
+          {{/message}}\
+          {{#picture}}\
+          <a href='#' class='span-4 prepend-2 image'>\
+            <img src='{{picture}}' />\
+          </a>\
+          <div class='span-12 last'>\
+            {{description}}\
+          </div>\
+          {{/picture}}\
+          {{^picture}}\
+          <div class='span-12 last'>\
+            {{description}}\
+          </div>\
+          {{/picture}}\
+        </div>\
+      </div>\
+    {{/data}}";
+  console.log(t);
+  var t = Handlebars.compile(source);
+  $(stor).empty();
+  fbGetForum("dontcare", function(forum) {
+    console.log(t(forum));
+    $(stor).append(t(forum));
+  });
 }
