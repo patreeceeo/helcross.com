@@ -50,10 +50,10 @@ function fbHandleEvent (response) {
       appHandleEvent("login");
     });
   } else {
-    // if(!response.session) {
-    appHandleEvent("logout");
-    // }
-    // FB.logout(fbHandleEvent);
+    if(!response.session) {
+      appHandleEvent("logout");
+    }
+    FB.logout(fbHandleEvent);
   }
 }
 

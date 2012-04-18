@@ -19,6 +19,7 @@ window.fbAsyncInit = function() {
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
+    oauth      : true
   });
 
   // listen for and handle auth.statusChange events
