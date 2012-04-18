@@ -6,6 +6,7 @@ function fbHandleEvent (response) {
       fbUser = me;
     });
   log("fbUser: ", fbUser);
+  appHandleEvent("login");
   } else {
     // if(!response.session) {
     appHandleEvent("logout");
