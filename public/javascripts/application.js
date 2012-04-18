@@ -28,13 +28,13 @@ $(document).ready(function() {
     rightKey();
   });
 
+  showPage("home");
   
   // if(appMode == "development") {
   //   appHandleEvent("login");
   //   showPage("cross-you");
   // } else {
   //   appHandleEvent("logout");
-  //   showPage("home");
   // }
 
 });
