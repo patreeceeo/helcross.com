@@ -186,27 +186,19 @@ function appRenderForum(stor) {
   // {{#name}}\
   // <h1 class='prepend-2'>{{name}}</h1>\
   // {{/name}}\
+  // <h2>{{from.name}}</h2>\
   var source = "\
     {{#data}}\
       <div class='post span-18'>\
         <div class='row'>\
           {{#message}}\
           {{/message}}\
-          {{#picture}}\
-          <h2>{{from.name}}</h2>\
           <a href='#' class='span-4 prepend-2 image'>\
             <img src='{{picture}}' />\
           </a>\
           <div class='span-12 last'>\
             {{description}}\
           </div>\
-          {{/picture}}\
-          {{^picture}}\
-          <h2>{{from.name}}</h2>\
-          <div class='span-17 last'>\
-            {{description}}\
-          </div>\
-          {{/picture}}\
         </div>\
       </div>\
     {{/data}}";
