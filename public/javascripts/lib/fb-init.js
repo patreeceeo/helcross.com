@@ -5,8 +5,7 @@ function fbHandleEvent (response) {
     FB.api ('/me', function (me) {
       fbUser = me;
     });
-    while(fbUser == undefined);
-    appHandleEvent("login");
+  log("fbUser: ", fbUser);
   } else {
     if(!response.session) {
       return;
