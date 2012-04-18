@@ -4,7 +4,7 @@ function logResponse(response) {
   }
 }
 
-$(function(){
+$(function() {
   // Set up so we handle click on the buttons
   var dataUrl = this.location.href;
   $('#post-to-wall').click(function() {
