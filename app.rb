@@ -118,7 +118,8 @@ get '/auth/facebook/callback' do
 	redirect '/'
 end
 
-# get '/hooks/pull-content' do
-#   `cd /public/content`
-#   `git pull origin master`
-# end
+get '/hooks/pull/content' do
+  `cd /public/content`
+  `git pull origin master`
+  `cd -`
+end
