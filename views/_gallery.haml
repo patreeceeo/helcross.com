@@ -5,16 +5,23 @@
     .left-button
     .right-button
     %div 
-      - Dir.foreach("./public/content/images/") do |entry|
-        - if entry != ".." and entry != "."and entry =~ /\.jpg$/
-          .image
-            %img{:src=>"/content/images/"+entry}
-  .blog-container
-    - Dir.foreach("./public/content/images/") do |entry|
-      - if entry != ".." and entry != "." and entry =~ /\.jpg$/
-        - page = entry.chomp(".jpg")
-        -if File.exist?("./public/content/images/#{page}.md.txt")
-          .blog 
-            = content :"images/#{page}"
-        - else
-          .blog
+      = each_content_item "images-gallery" do |i|
+        .image 
+          %img{:src=>s3_link("/images/#{i}.jpg")}
+    
+      -# - Dir.foreach("./public/content/images/") do |entry|
+      -#   - if entry != ".." and entry != "."and entry =~ /\.jpg$/
+      -#     .image
+      -#       %img{:src=>"/content/images/"+entry}
+  .page-container
+    = each_content_item "images-gallery" do |i|
+      .page
+        = content "/images/#{i}"
+    -# - Dir.foreach("./public/content/images/") do |entry|
+    -#   - if entry != ".." and entry != "." and entry =~ /\.jpg$/
+    -#     - page = entry.chomp(".jpg")
+    -#     -if File.exist?("./public/content/images/#{page}.md.txt")
+    -#       .blog 
+    -#         = content :"images/#{page}"
+    -#     - else
+    -#       .blog

@@ -38,7 +38,7 @@ $content-z-index: 1
 
 $caption-height: 40px
 
-$blog-heading-margin-top: 28px
+$page-heading-margin-top: 28px
 
 a
   color: #3366CC
@@ -65,7 +65,7 @@ body
     cursor: pointer
   #helcross-v-spacer
     width: 100%
-    height: $logo-width * 0.66 - $blog-heading-margin-top
+    height: $logo-width * 0.66 - $page-heading-margin-top
   .feature-heading
     +font-sans
     position: absolute 
@@ -79,8 +79,8 @@ body
     font-weight: bold
     font-size: 28px
     // line-height: 300%
-    margin-top: $blog-heading-margin-top
-  .blog
+    margin-top: $page-heading-margin-top
+  .page
     // position: absolute
     width: $feature-width * 0.75 
     // right: 0px
@@ -174,9 +174,9 @@ body
           padding-top: 0
           border-top: 0
           font-weight: bold
-    .blog
+    .page
       display: none
-    .blog.showing
+    .page.showing
       display: block
 
 

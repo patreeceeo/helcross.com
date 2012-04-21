@@ -13,5 +13,6 @@ module Sinatra
     end
 
   end
+
   helpers Helpers
 end

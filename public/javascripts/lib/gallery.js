@@ -26,7 +26,7 @@ function showPage(name) {
     appRenderForum("#cross-you .forum");
   else if(name == "home") {
     showFirst(".gallery .image");
-    showFirst(".gallery .blog");
+    showFirst(".gallery .page");
   }
 }
 
@@ -87,12 +87,12 @@ function showNext(stor) {
 
 function leftKey() {
   showPrev(".gallery .image");
-  showPrev(".gallery .blog");
+  showPrev(".gallery .page");
 }
 
 function rightKey() {
   showNext(".gallery .image");
-  showNext(".gallery .blog");
+  showNext(".gallery .page");
 }
 
 function topKey() {

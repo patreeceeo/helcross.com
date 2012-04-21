@@ -1,15 +1,14 @@
 #home.feature
   = partial :gallery
 
-- Dir.foreach("./public/content/words/") do |entry|
-  - if entry != ".." and entry != "."
-    - page = entry.chomp(".md.txt")
-    .feature{:id=>page.downcase}
-      .blog
-        = content :"words/#{page}"
+= each_content_item "pages" do |i|
+  %div.feature{:id => "page-#{i.downcase}" }
+    .page
+      = content "/pages/#{i}"
+
 
 #cross-you.feature
-  .blog
+  .page
     <h1>Coming Soon</h1>
     <h1>A place to find engaging conversations on politics, faith, art, Dr. Who, etc. All the important stuff in life</h1>
     <h1>But for now we just have the <a href="https://www.facebook.com/groups/Helt55/">facebook forum</a>, and the below preview of recent posts:</h1>
@@ -17,11 +16,9 @@
 
 #notifications
   %h1#h1-home Home
-  %h1#h1-cross-you +You
-  - Dir.foreach("./public/content/words/") do |entry|
-    - if entry != ".." and entry != "."
-      - page = entry.chomp(".md.txt")
-      %h1{:id=>"h1-"+page.downcase}=crossify(page)
+  = each_content_item "pages" do |i|
+    %h1{:id => "h1-#{i.downcase}" } #{i}
+
 
 
 #post-template(style="display:none")

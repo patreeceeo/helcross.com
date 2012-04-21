@@ -6,7 +6,8 @@ gem 'shotgun', '~> 0.9' # Server relaoder
 gem 'haml', '~> 3.1.4'
 gem 'maruku' # Markup xlator
 gem 'koala' # Facebook integration
-gem 'httparty'
+# gem 'httparty'
+gem 'rest-client'
 gem "json_pure"
 group :deployment do
   gem 'thin'

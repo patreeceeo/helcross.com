@@ -3,6 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'maruku'
 require 'koala'
+require 'rest_client'
 
 enable :sessions
 set :raise_errors, false

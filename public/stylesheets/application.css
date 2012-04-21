@@ -101,7 +101,7 @@ body h1 {
   font-size: 28px;
   margin-top: 28px;
 }
-body .blog {
+body .page {
   width: 600px;
   margin: 0 auto;
 }
@@ -226,10 +226,10 @@ body .gallery .image-container .image.showing .caption {
   border-top: 0;
   font-weight: bold;
 }
-body .gallery .blog {
+body .gallery .page {
   display: none;
 }
-body .gallery .blog.showing {
+body .gallery .page.showing {
   display: block;
 }
 
