@@ -72,18 +72,26 @@ body {
   background: #ff69b4;
   color: #0d0d0d;
 }
-body img#helcross {
-  width: 120px;
-  height: auto;
-  z-index: 2;
-  position: absolute;
-  left: 160px;
-  top: 0px;
-  cursor: pointer;
+body p {
+  font-family: Quattrocento Sans;
+  font-weight: bolder;
 }
-body #helcross-v-spacer {
-  width: 100%;
-  height: 51.2px;
+body .carousel {
+  background-color: grey;
+}
+body .carousel .carousel-inner .item img {
+  margin: 0 auto;
+  height: 450px;
+  width: auto;
+}
+body .carousel .carousel-inner .item .carousel-caption p {
+  color: white;
+}
+body .brand {
+  z-index: 2;
+}
+body .brand img {
+  height: 60px;
 }
 body .feature-heading {
   font-family: Quattrocento Sans;
@@ -138,15 +146,13 @@ body header ul li a:hover {
 body #content {
   -moz-border-radius-bottomleft: 14px;
   -webkit-border-bottom-left-radius: 14px;
-  -o-border-bottom-left-radius: 14px;
   -ms-border-bottom-left-radius: 14px;
-  -khtml-border-bottom-left-radius: 14px;
+  -o-border-bottom-left-radius: 14px;
   border-bottom-left-radius: 14px;
   -moz-border-radius-topright: 14px;
   -webkit-border-top-right-radius: 14px;
-  -o-border-top-right-radius: 14px;
   -ms-border-top-right-radius: 14px;
-  -khtml-border-top-right-radius: 14px;
+  -o-border-top-right-radius: 14px;
   border-top-right-radius: 14px;
   background-color: white;
   z-index: 1;
@@ -160,15 +166,13 @@ body #content {
 body #content .feature {
   -moz-border-radius-bottomleft: 14px;
   -webkit-border-bottom-left-radius: 14px;
-  -o-border-bottom-left-radius: 14px;
   -ms-border-bottom-left-radius: 14px;
-  -khtml-border-bottom-left-radius: 14px;
+  -o-border-bottom-left-radius: 14px;
   border-bottom-left-radius: 14px;
   -moz-border-radius-topright: 14px;
   -webkit-border-top-right-radius: 14px;
-  -o-border-top-right-radius: 14px;
   -ms-border-top-right-radius: 14px;
-  -khtml-border-top-right-radius: 14px;
+  -o-border-top-right-radius: 14px;
   border-top-right-radius: 14px;
   display: none;
 }
@@ -176,75 +180,17 @@ body #content .feature.showing {
   height: auto;
   display: block;
 }
-body .gallery .image-container {
-  margin: 14px;
-  width: 772px;
-  height: 472px;
-  background-color: gray;
-  overflow: hidden;
-}
-body .gallery .image-container .left-button, body .gallery .image-container .right-button {
-  height: 472px;
-  z-index: 2;
-  cursor: pointer;
-  position: absolute;
-  width: 60px;
-  background-color: rgba(255, 255, 255, 0);
-}
-body .gallery .image-container .left-button:hover, body .gallery .image-container .right-button:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-}
-body .gallery .image-container .left-button {
-  left: 0px;
-}
-body .gallery .image-container .right-button {
-  right: 0px;
-}
-body .gallery .image-container .image {
-  display: none;
-}
-body .gallery .image-container .image.showing {
-  display: block;
-  position: relative;
-  text-align: center;
-}
-body .gallery .image-container .image.showing img {
-  height: 472px;
-  width: auto;
-}
-body .gallery .image-container .image.showing .caption {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
-  opacity: 0.75;
-  font: 24px Loved by the King;
-  background-color: white;
-  margin: 0 auto;
-  margin-top: -46px;
-  height: 46px;
-  line-height: 40px;
-  width: 300px;
-  padding-top: 0;
-  border-top: 0;
-  font-weight: bold;
-}
-body .gallery .page {
-  display: none;
-}
-body .gallery .page.showing {
-  display: block;
-}
 
 #notifications {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
-  -o-border-bottom-right-radius: 14px;
   -ms-border-bottom-right-radius: 14px;
-  -khtml-border-bottom-right-radius: 14px;
+  -o-border-bottom-right-radius: 14px;
   border-bottom-right-radius: 14px;
   -moz-border-radius-topleft: 14px;
   -webkit-border-top-left-radius: 14px;
-  -o-border-top-left-radius: 14px;
   -ms-border-top-left-radius: 14px;
-  -khtml-border-top-left-radius: 14px;
+  -o-border-top-left-radius: 14px;
   border-top-left-radius: 14px;
   position: fixed;
   right: 40px;
@@ -292,11 +238,10 @@ body .gallery .page.showing {
 }
 
 .button:link, .button:visited {
-  -moz-border-radius: 14px;
   -webkit-border-radius: 14px;
-  -o-border-radius: 14px;
+  -moz-border-radius: 14px;
   -ms-border-radius: 14px;
-  -khtml-border-radius: 14px;
+  -o-border-radius: 14px;
   border-radius: 14px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97afe2), color-stop(100%, #6073a1));
   background-image: -webkit-linear-gradient(top, #97afe2, #6073a1);
@@ -304,9 +249,8 @@ body .gallery .page.showing {
   background-image: -o-linear-gradient(top, #97afe2, #6073a1);
   background-image: -ms-linear-gradient(top, #97afe2, #6073a1);
   background-image: linear-gradient(top, #97afe2, #6073a1);
-  -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   font-family: Quattrocento Sans;
   font-weight: bolder;

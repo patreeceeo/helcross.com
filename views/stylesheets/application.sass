@@ -45,27 +45,45 @@ a
   &:hover
     color: #3366CC
     text-decoration: none
-  &:focus
   &:active
     outline: none
-  &:visited
+  // &:focus
+  // &:visited
 
 body
   +font-sans
+  p
+    +font-sans
   font-size: 14px
   background: $pink
   color: #0d0d0d
-  img#helcross
-    width: $logo-width
-    height: auto
+  .carousel
+    background-color: grey
+    .carousel-inner
+      .item
+        img
+          margin: 0 auto
+          height: 450px
+          width: auto
+        .carousel-caption
+          p
+            color: white
+  .brand
+    // position: absolute
     z-index: $logo-z-index
-    position: absolute  
-    left: $left-offset - $logo-width/2
-    top: 0px
-    cursor: pointer
-  #helcross-v-spacer
-    width: 100%
-    height: $logo-width * 0.66 - $page-heading-margin-top
+    img
+      height: 60px
+  // img#helcross
+  //   width: $logo-width
+  //   height: auto
+  //   z-index: $logo-z-index
+  //   position: absolute  
+  //   left: $left-offset - $logo-width/2
+  //   top: 0px
+  //   cursor: pointer
+  // #helcross-v-spacer
+  //   width: 100%
+  //   height: $logo-width * 0.66 - $page-heading-margin-top
   .feature-heading
     +font-sans
     position: absolute 
@@ -133,47 +151,47 @@ body
       height: auto
       // height: $feature-height
       display: block
-  .gallery
-    .image-container
-      margin: $radius
-      width: $gallery-width
-      height: $gallery-height
-      background-color: gray
-      overflow: hidden
-      .left-button, .right-button
-        height: $gallery-height 
-        z-index: $logo-z-index
-        cursor: pointer
-        position: absolute
-        width: 60px
-        background-color: rgba(255, 255, 255, 0)
-        &:hover
-          background-color: rgba(255, 255, 255, 0.25)
-      .left-button
-        left: 0px
-      .right-button
-        right: 0px
-      .image
-        display: none
-      .image.showing
-        display: block
-        position: relative
-        text-align: center
-        img
-          height: $gallery-height
-          width: auto
-        .caption
-          +opacity(0.75)  
-          +font-cursive
-          background-color: white
-          margin: 0 auto
-          margin-top: -$caption-height * 1.15
-          height: $caption-height * 1.15
-          line-height: $caption-height
-          width: 300px
-          padding-top: 0
-          border-top: 0
-          font-weight: bold
+  // .gallery
+  //   .image-container
+  //     margin: $radius
+  //     width: $gallery-width
+  //     height: $gallery-height
+  //     background-color: gray
+  //     overflow: hidden
+  //     .left-button, .right-button
+  //       height: $gallery-height 
+  //       z-index: $logo-z-index
+  //       cursor: pointer
+  //       position: absolute
+  //       width: 60px
+  //       background-color: rgba(255, 255, 255, 0)
+  //       &:hover
+  //         background-color: rgba(255, 255, 255, 0.25)
+  //     .left-button
+  //       left: 0px
+  //     .right-button
+  //       right: 0px
+  //     .image
+  //       display: none
+  //     .image.showing
+  //       display: block
+  //       position: relative
+  //       text-align: center
+  //       img
+  //         height: $gallery-height
+  //         width: auto
+  //       .caption
+  //         +opacity(0.75)  
+  //         +font-cursive
+  //         background-color: white
+  //         margin: 0 auto
+  //         margin-top: -$caption-height * 1.15
+  //         height: $caption-height * 1.15
+  //         line-height: $caption-height
+  //         width: 300px
+  //         padding-top: 0
+  //         border-top: 0
+  //         font-weight: bold
     .page
       display: none
     .page.showing

@@ -16,19 +16,21 @@ $(document).ready(function() {
 	  .addClass('link external')
 	  .attr('target', '_blank');
 
-  $(".gallery .left-button").click(function(){
-    log("clicked left");
-    // showPrev(".gallery .image");
-    leftKey();
-  });
+  $(".carousel").carousel()
 
-  $(".gallery .right-button").click(function(){
-    log("clicked right");
-    // showNext(".gallery .image");
-    rightKey();
-  });
+  // $(".gallery .left-button").click(function(){
+    // log("clicked left");
+    // // showPrev(".gallery .image");
+    // leftKey();
+  // });
 
-  showPage("home");
+  // $(".gallery .right-button").click(function(){
+    // log("clicked right");
+    // // showNext(".gallery .image");
+    // rightKey();
+  // });
+
+  // showPage("home");
   
   // if(appMode == "development") {
   //   appHandleEvent("login");

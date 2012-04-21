@@ -1,21 +1,13 @@
 !!!
 %html{html_attrs, xmlns:fb="http://ogp.me/ns/fb#"}
   %head
+    
+    -# METAS #-#-
+
     %meta(charset="utf-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes")
     %meta{:name => "lang", :content => "en"}
     %meta{:'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
-    %title=@app['name']
-
-
-    %link(rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css")
-    %link(rel="stylesheet" href="stylesheets/grid.css" media="screen" type="text/css")
-    -# %link(rel="stylesheet" href="stylesheets/base.css" type="text/css")
-    %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
-    %link{:href=>"http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King", :rel=>"stylesheet", :type=>"text/css"}    
-    /[if IEMobile]
-      %link(rel="stylesheet" href="mobile.css" media="screen" type="text/css")
-
     -# These are Open Graph tags.  They add meta data to your
     -# site that facebook uses when your content is shared
     -# over facebook.  You should fill these tags in with
@@ -29,30 +21,162 @@
     %meta{:property=>"og:description", :content=>"Hel+"}
     %meta{:property=>"fb:app_id", :content=>"#{@app['id']}"}
 
-    %script{:type=>"text/javascript", :src=>"http://code.jquery.com/jquery-1.5.min.js"}
-    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
-    =lib_script "fb"
-    /[if IE]
-      %script{:type=>"text/javascript"} 
-        var tags = ['header', 'section']; while(tags.length); document.createElement(tags.pop());
 
-    =lib_script "modernizr-1.6.min"
-    =lib_script "gallery"
+    -# TITLE #-#-
+
+    %title=@app['name']
+
+
+    -# LINKS #-#-
+    :erb
+      <link
+        rel="stylesheet" 
+        href="stylesheets/mobile.css" 
+        media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" 
+        type="text/css" 
+        >
+      <!--[if IEMobile]>
+        <link
+          rel="stylesheet" 
+          href="stylesheets/mobile.css" 
+          media="screen" 
+          type="text/css"
+          >
+      <![endif]-->
+      <link
+        rel="stylesheet" 
+        href="stylesheets/lib/bootstrap.css" 
+        media="screen" 
+        type="text/css"
+        >
+      <link
+        rel="stylesheet" 
+        href="stylesheets/lib/responsive.css" 
+        media="screen" type="text/css"
+        >
+      <link
+        href="/stylesheets/application.css"
+        media="screen"
+        rel="stylesheet"
+        type="text/css"
+        >
+      <!--link rel="stylesheet" href="stylesheets/grid.css" media="screen" type="text/css"-->
+      <!--link rel="stylesheet" href="stylesheets/base.css" type="text/css"-->
+      <link
+        href="http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King"
+        rel="stylesheet"
+        type="text/css"
+        >
+      <!-- Le fav and touch icons -->
+      <link
+        rel="shortcut icon" 
+        href="../assets/ico/favicon.ico"
+        >
+      <link
+        rel="apple-touch-icon-precomposed" 
+        sizes="114x114" 
+        href="../assets/ico/apple-touch-icon-114-precomposed.png"
+        >
+      <link
+        rel="apple-touch-icon-precomposed" 
+        sizes="72x72" 
+        href="../assets/ico/apple-touch-icon-72-precomposed.png"
+        >
+      <link
+        rel="apple-touch-icon-precomposed" 
+        href="../assets/ico/apple-touch-icon-57-precomposed.png"
+        >
+    -# end of erb filter
+
+
+    -# SCRIPTS #-#-
+
+    -# Le HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      %script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
     =lib_script "fb"
     %script(type="text/javascript")
       var app_url = '#{@app['url']}';
       var app_id = '#{@app['id']}';
       var app_channelUrl = '#{url_no_scheme('/channel.html')}';
-    =lib_script "handlebars"
+    /[if IE]
+      %script{:type=>"text/javascript"} 
+        var tags = ['header', 'section']; while(tags.length); document.createElement(tags.pop());
+
+
+
   %body
+
+
+    -# FACEBOOK INIT #-#- 
+
     %div(id="fb-root")
     =lib_script "fb-init"
-    %img#helcross(src="/images/helcross.png" onclick="showPage('home')")
-    %header
-      = partial :nav_main
-      = partial :authorize
-      = partial :like_button
-    #content
-      = yield
-    = partial :analytics
 
+
+    -# TOP LEVEL STRUCTURE #-#-
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand(href="#")
+            -# %img(src="/images/helcross.png")  
+            Hel+
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a(href="#") Home
+              %li
+                %a(href="#About") About
+              %li
+                %a(href="#Contact") Contact
+            
+    .container
+      .hero-unit
+        .row
+          .span6.columns
+            #hero-carousel.carousel.slide
+              .carousel-inner
+                .item.active
+                  %img{:src=>s3_link("/images/hel_plus_congress.jpg")}
+                  .carousel-caption
+                    %h4 Welcome to the Conversation!
+                    %p We aspire to create a safe, friendly place in which real people can discuss whatever they find apropos, impactful, interesting etc.
+                .item
+                  %img{:src=>s3_link("/images/hel_plus_one.jpg")}
+                  .carousel-caption
+                    %h4 Its Personal.
+                    %p Moderators on Hel+ take their job seriously, balancing the need for quality content with making sure that everyone is heard. 
+                .item
+                  %img{:src=>s3_link("/images/me.jpg")}
+                  .carousel-caption
+                    %h4 Hardly Working
+                    %p Hel+ is still under development. Check back soon!
+              %a.left.carousel-control(href="#hero-carousel" data-slide="prev") &lsaquo;
+              %a.right.carousel-control(href="#hero-carousel" data-slide="next") &rsaquo;
+
+          .span4.columns
+            %h1 Welcome!
+            %p Lorem ipsum dolar fkd dfk dsfk dfk fkj sdkj dsj sk fdfslk f asfk fdk sdflka fk dkf. 
+
+    -# %img#helcross(src="/images/helcross.png" onclick="showPage('home')")
+    -# %header
+    -#   = partial :nav_main
+    -#   = partial :authorize
+    -#   = partial :like_button
+    -# #content
+    -#   = yield
+    -# = partial :analytics
+
+
+    -# MORE SCRIPTS #-#-
+    -# Moved to end of document so the page loads faster
+
+    -# %script{:type=>"text/javascript", :src=>"http://code.jquery.com/jquery-1.5.min.js"}
+    =lib_script "jquery-1.7.2.min"
+    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
+    =lib_script "modernizr-1.6.min"
+    -# =lib_script "gallery"
+    =lib_script "bootstrap-transition"
+    =lib_script "bootstrap-carousel"
+    =lib_script "handlebars"
