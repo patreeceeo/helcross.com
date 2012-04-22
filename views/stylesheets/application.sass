@@ -69,6 +69,16 @@ body
           p
             color: white
   .brand
+    +font-cursive
+  .with_bottom_bar
+    border-bottom: 10px solid rgba(0,0,0,0.8)
+  .with_top_bar
+    border-top: 10px solid rgba(0,0,0,0.8)
+  .with_left_bar
+    border-left: 10px solid rgba(0,0,0,0.8)
+  .with_right_bar
+    border-right: 10px solid rgba(0,0,0,0.8)
+
     // position: absolute
     z-index: $logo-z-index
     img
@@ -144,11 +154,11 @@ body
     height: auto
     line-height: 150%
     .feature
-      +border-bottom-left-radius($radius)
-      +border-top-right-radius($radius)
+      // +border-bottom-left-radius($radius)
+      // +border-top-right-radius($radius)
       display: none
     .feature.showing
-      height: auto
+      // height: auto
       // height: $feature-height
       display: block
   // .gallery
@@ -220,11 +230,21 @@ body
     display: block
 
 #auth-status
-  margin: 0 !important
-  display: inline !important
-  width: auto !important
-  float: right !important
+  display: inline
+  float: right
   +font-cursive
+  .btn
+    +font-sans
+    margin-top: -3px
+  // #auth-loginlink, #auth-logoutlink
+  //   margin: 0 !important
+  //   margin-top: 10px
+  //   // display: inline !important
+  //   width: auto !important
+  //   // float: right !important
+  //   vertical-align: middle
+  // #auth-loggedout, #auth-loggedin
+  //   margin-bottom: 0px
 
 #like-button
   position: absolute

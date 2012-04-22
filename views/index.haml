@@ -1,41 +1,66 @@
-#home.feature
-  = partial :gallery
+#home.hero-unit.feature
+  .row
+    .span6.columns
+      #hero-carousel.carousel.slide
+        .carousel-inner
+          .item.active
+            %img{:src=>s3_link("/images/hel_plus_congress.jpg")}
+            .carousel-caption
+              %h4 Welcome to the Conversation!
+              %p We aspire to create a safe, friendly place in which real people can discuss whatever they find apropos, impactful, interesting etc.
+          .item
+            %img{:src=>s3_link("/images/hel_plus_one.jpg")}
+            .carousel-caption
+              %h4 Its Personal.
+              %p Moderators on Hel+ take their job seriously, balancing the need for quality content with making sure that everyone is heard. 
+          .item
+            %img{:src=>s3_link("/images/me.jpg")}
+            .carousel-caption
+              %h4 Hardly Working
+              %p Hel+ is still under development. Check back soon!
+        %a.left.carousel-control(href="#hero-carousel" data-slide="prev") &lsaquo;
+        %a.right.carousel-control(href="#hero-carousel" data-slide="next") &rsaquo;
 
-= each_content_item "pages" do |i|
-  %div.feature{:id => "page-#{i.downcase}" }
-    .page
-      = content "/pages/#{i}"
+    .span4.columns
+      %h1
+        Welcome!
+      %p Lorem ipsum dolar fkd dfk dsfk dfk fkj sdkj dsj sk fdfslk f asfk fdk sdflka fk dkf. 
+
+-# = each_content_item "pages" do |i|
+-#   %div.feature{:id => "page-#{i.downcase}" }
+-#     .page
+-#       = content "/pages/#{i}"
 
 
-#cross-you.feature
-  .page
-    <h1>Coming Soon</h1>
-    <h1>A place to find engaging conversations on politics, faith, art, Dr. Who, etc. All the important stuff in life</h1>
-    <h1>But for now we just have the <a href="https://www.facebook.com/groups/Helt55/">facebook forum</a>, and the below preview of recent posts:</h1>
-  .forum
+-# #cross-you.feature
+-#   .page
+-#     <h1>Coming Soon</h1>
+-#     <h1>A place to find engaging conversations on politics, faith, art, Dr. Who, etc. All the important stuff in life</h1>
+-#     <h1>But for now we just have the <a href="https://www.facebook.com/groups/Helt55/">facebook forum</a>, and the below preview of recent posts:</h1>
+-#   .forum
 
-#notifications
-  %h1#h1-home Home
-  = each_content_item "pages" do |i|
-    %h1{:id => "h1-#{i.downcase}" } #{i}
+-# #notifications
+-#   %h1#h1-home Home
+-#   = each_content_item "pages" do |i|
+-#     %h1{:id => "h1-#{i.downcase}" } #{i}
 
 
 
-#post-template(style="display:none")
-  {{#data}}
-  .post.span-18
-    .row
-      %h1.prepend-2 {{name}}
-      {{#picture}}
-      %a.span-4.prepend-2.image(href='#')
-        %img(src='{{picture}}')
-      .span-13.last
-        {{#from}}
-        %h2 {{from.name}}
-        {{/from}}
-        {{description}}
-      {{/picture}}
-  {{/data}}
+-# #post-template(style="display:none")
+-#   {{#data}}
+-#   .post.span-18
+-#     .row
+-#       %h1.prepend-2 {{name}}
+-#       {{#picture}}
+-#       %a.span-4.prepend-2.image(href='#')
+-#         %img(src='{{picture}}')
+-#       .span-13.last
+-#         {{#from}}
+-#         %h2 {{from.name}}
+-#         {{/from}}
+-#         {{description}}
+-#       {{/picture}}
+-#   {{/data}}
 
 -# {{^picture}}
 -#   .span-17.last

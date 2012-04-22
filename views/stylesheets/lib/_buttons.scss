@@ -20,7 +20,7 @@
   @include buttonBackground($btnBackground, $btnBackgroundHighlight);
   border: 1px solid $btnBorder;
   border-bottom-color: darken($btnBorder, 10%);
-  @include border-radius(4px);
+  @include border-radius(10px);
   $shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   @include box-shadow($shadow);
   cursor: pointer;
@@ -33,12 +33,12 @@
 .btn:hover {
   color: $grayDark;
   text-decoration: none;
-  background-color: darken($white, 10%);
-  background-position: 0 -15px;
+  background-color: lighten($btnBackground, 30%) !important;
+  // background-position: 0 -15px;
 
   // transition is only when going to hover, otherwise the background
   // behind the gradient (there for IE<=9 fallback) gets mismatched
-  @include transition(background-position .1s linear);
+  // @include transition(background-position .1s linear);
 }
 
 // Focus state for keyboard and accessibility
@@ -52,8 +52,8 @@
   background-image: none;
   $shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
   @include box-shadow($shadow);
-  background-color: darken($white, 10%);
-  background-color: darken($white, 15%) #{"\9"};
+  background-color: darken($btnBackground, 30%);
+  // background-color: darken($btnBackground, 15%) #{"\9"};
   outline: 0;
 }
 

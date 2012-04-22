@@ -28,8 +28,8 @@ $red:                   #9d261d !default;
 $yellow:                #ffc40d !default;
 $orange:                #f89406 !default;
 $pink:                  #c3325f !default;
-$purple:                #7a43b6 !default;
-
+// $purple:                #7a43b6 !default;
+$purple:                darken(#9a90c0, 0.33);
 
 // Scaffolding
 // -------------------------
@@ -46,11 +46,11 @@ $linkColorHover:        darken($linkColor, 15) !default;
 // Typography
 // -------------------------
 $baseFontSize:          13px !default;
-$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseFontFamily:        "Quattrocento Sans" !default;
 $baseLineHeight:        18px !default;
-$altFontFamily:         Georgia, "Times New Roman", Times, serif !default;
+$altFontFamily:         "Quattrocento Sans" !default;
 
-$headingsFontFamily:    inherit !default; // empty to use BS default, @baseFontFamily
+$headingsFontFamily:    Loved by the King !important; // empty to use BS default, @baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold
 $headingsColor:         inherit !default; // empty to use BS default, @textColor
 
@@ -65,9 +65,9 @@ $tableBorder:                       #ddd !default; // table and cell border
 
 // Buttons
 // -------------------------
-$btnBackground:                     $white !default;
-$btnBackgroundHighlight:            darken($white, 10%) !default;
-$btnBorder:                         darken($white, 20%) !default;
+$btnBackground:                     $purple !default;
+$btnBackgroundHighlight:            darken($purple, 10%) !default;
+$btnBorder:                         darken($purple, 20%) !default;
 
 $btnPrimaryBackground:              $linkColor !default;
 $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15) !default;
@@ -123,8 +123,8 @@ $zindexModal:             1050 !default;
 
 // Sprite icons path
 // -------------------------
-$iconSpritePath:          "../img/glyphicons-halflings.png";
-$iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+$iconSpritePath:          "../../images/glyphicons-halflings.png";
+$iconWhiteSpritePath:     "../../images/glyphicons-halflings-white.png";
 
 
 // Input placeholder text color
@@ -140,8 +140,8 @@ $hrBorder:                $grayLighter !default;
 // Navbar
 // -------------------------
 $navbarHeight:                    40px !default;
-$navbarBackground:                $grayDarker !default;
-$navbarBackgroundHighlight:       $grayDark !default;
+$navbarBackground:                rgba(0,0,0,0.50) !default;
+$navbarBackgroundHighlight:       mix($grayDark, $purple, 25%) !default;
 
 $navbarText:                      $grayLight !default;
 $navbarLinkColor:                 $grayLight !default;
@@ -158,7 +158,7 @@ $navbarSearchPlaceholderColor:    #ccc !default;
 
 // Hero unit
 // -------------------------
-$heroUnitBackground:              $grayLighter !default;
+$heroUnitBackground:              white !default;
 $heroUnitHeadingColor:            inherit !default;
 $heroUnitLeadColor:               inherit !default;
 

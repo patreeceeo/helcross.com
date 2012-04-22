@@ -57,7 +57,6 @@
   height: auto;
 }
 
-
 // Brand, links, text, and buttons
 .navbar {
   color: $navbarText;
@@ -69,9 +68,12 @@
   .brand {
     float: left;
     display: block;
-    padding: 8px 20px 12px;
-    margin-left: -20px; // negative indent to left-align the text down the page
-    font-size: 20px;
+    padding-top: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    margin-left: -5px; // negative indent to left-align the text down the page
+    font-size: 28px;
     font-weight: 200;
     line-height: 1;
     color: $white;

@@ -69,8 +69,9 @@
         >
       <!-- Le fav and touch icons -->
       <link
-        rel="shortcut icon" 
-        href="../assets/ico/favicon.ico"
+        rel="icon" 
+        type="image/ico" 
+        href="/favicon.ico"
         >
       <link
         rel="apple-touch-icon-precomposed" 
@@ -129,35 +130,11 @@
               %li
                 %a(href="#About") About
               %li
-                %a(href="#Contact") Contact
-            
-    .container
-      .hero-unit
-        .row
-          .span6.columns
-            #hero-carousel.carousel.slide
-              .carousel-inner
-                .item.active
-                  %img{:src=>s3_link("/images/hel_plus_congress.jpg")}
-                  .carousel-caption
-                    %h4 Welcome to the Conversation!
-                    %p We aspire to create a safe, friendly place in which real people can discuss whatever they find apropos, impactful, interesting etc.
-                .item
-                  %img{:src=>s3_link("/images/hel_plus_one.jpg")}
-                  .carousel-caption
-                    %h4 Its Personal.
-                    %p Moderators on Hel+ take their job seriously, balancing the need for quality content with making sure that everyone is heard. 
-                .item
-                  %img{:src=>s3_link("/images/me.jpg")}
-                  .carousel-caption
-                    %h4 Hardly Working
-                    %p Hel+ is still under development. Check back soon!
-              %a.left.carousel-control(href="#hero-carousel" data-slide="prev") &lsaquo;
-              %a.right.carousel-control(href="#hero-carousel" data-slide="next") &rsaquo;
+                %a(href="#Contact") Contact 
+          = partial "authorize"
 
-          .span4.columns
-            %h1 Welcome!
-            %p Lorem ipsum dolar fkd dfk dsfk dfk fkj sdkj dsj sk fdfslk f asfk fdk sdflka fk dkf. 
+    .container
+      = yield
 
     -# %img#helcross(src="/images/helcross.png" onclick="showPage('home')")
     -# %header
