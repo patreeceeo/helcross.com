@@ -88,9 +88,22 @@ body .carousel .carousel-inner .item .carousel-caption p {
   color: white;
 }
 body .brand {
+  font: 24px Loved by the King;
+}
+body .with_bottom_bar {
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+}
+body .with_top_bar {
+  border-top: 10px solid rgba(0, 0, 0, 0.8);
+}
+body .with_left_bar {
+  border-left: 10px solid rgba(0, 0, 0, 0.8);
+}
+body .with_right_bar {
+  border-right: 10px solid rgba(0, 0, 0, 0.8);
   z-index: 2;
 }
-body .brand img {
+body .with_right_bar img {
   height: 60px;
 }
 body .feature-heading {
@@ -164,20 +177,9 @@ body #content {
   line-height: 150%;
 }
 body #content .feature {
-  -moz-border-radius-bottomleft: 14px;
-  -webkit-border-bottom-left-radius: 14px;
-  -ms-border-bottom-left-radius: 14px;
-  -o-border-bottom-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-  -moz-border-radius-topright: 14px;
-  -webkit-border-top-right-radius: 14px;
-  -ms-border-top-right-radius: 14px;
-  -o-border-top-right-radius: 14px;
-  border-top-right-radius: 14px;
   display: none;
 }
 body #content .feature.showing {
-  height: auto;
   display: block;
 }
 
@@ -214,11 +216,14 @@ body #content .feature.showing {
 }
 
 #auth-status {
-  margin: 0 !important;
-  display: inline !important;
-  width: auto !important;
-  float: right !important;
+  display: inline;
+  float: right;
   font: 24px Loved by the King;
+}
+#auth-status .btn {
+  font-family: Quattrocento Sans;
+  font-weight: bolder;
+  margin-top: -3px;
 }
 
 #like-button {

@@ -25,14 +25,14 @@ window.fbAsyncInit = function() {
   // listen for and handle auth.statusChange events
   FB.Event.subscribe('auth.statusChange', fbHandleEvent);
 
-  FB.getLoginStatus(fbHandleEvent);
+  FB.getLoginStatus(appHandleEvent);
   
   // respond to clicks on the login and logout links
   $('#auth-loginlink').click(function(e) {
-  FB.login();
+    FB.login();
   });
   $('#auth-logoutlink').click(function(e) {
-  FB.logout();
+    FB.logout();
   }); 
 }
 
