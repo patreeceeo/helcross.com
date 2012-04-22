@@ -40,7 +40,7 @@ window.fbAsyncInit = function() {
   });
   $('#auth-logoutlink').click(function(e) {
     log("clicked logout link");
-    FB.logout();
+    FB.logout(fbHandleEvent);
   }); 
 }
 
