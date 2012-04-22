@@ -2,11 +2,6 @@
 // var appMode = "";
 var fbUser = null;
 
-function log(message) {
-  if (console && console.log) {
-    console.log('log > ', message);
-  }
-}
 
 $(document).ready(function() {
 	// Open external links in a new window

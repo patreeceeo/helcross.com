@@ -1,4 +1,10 @@
 
+function log(message) {
+  if (console && console.log) {
+    console.log('log > ', message);
+  }
+}
+
 (function(d) {
   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
   if (d.getElementById(id)) 
@@ -29,9 +35,11 @@ window.fbAsyncInit = function() {
   
   // respond to clicks on the login and logout links
   $('#auth-loginlink').click(function(e) {
+    log("clicked login link");
     FB.login();
   });
   $('#auth-logoutlink').click(function(e) {
+    log("clicked logout link");
     FB.logout();
   }); 
 }
