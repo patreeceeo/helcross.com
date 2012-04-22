@@ -36,7 +36,7 @@ window.fbAsyncInit = function() {
   // respond to clicks on the login and logout links
   $('#auth-loginlink').click(function(e) {
     log("clicked login link");
-    FB.login();
+    FB.login(fbHandleEvent);
   });
   $('#auth-logoutlink').click(function(e) {
     log("clicked logout link");
