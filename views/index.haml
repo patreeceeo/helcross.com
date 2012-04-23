@@ -1,30 +1,32 @@
-#home.hero-unit.feature
-  .row
-    .span6.columns
-      #hero-carousel.carousel.slide
-        .carousel-inner
-          .item.active
-            %img{:src=>s3_link("/images/hel_plus_congress.jpg")}
-            .carousel-caption
-              %h4 Welcome to the Conversation!
-              %p We aspire to create a safe, friendly place in which real people can discuss whatever they find apropos, impactful, interesting etc.
+#home.front-container.page
+  .front-card
+    -# .span6.columns
+    #home-carousel.carousel.slide
+      .carousel-inner
+        = each_content_item "home-carousel-images" do |i|
           .item
-            %img{:src=>s3_link("/images/hel_plus_one.jpg")}
+            %img{:src=>s3_link("/images/#{i}")}
             .carousel-caption
-              %h4 Its Personal.
-              %p Moderators on Hel+ take their job seriously, balancing the need for quality content with making sure that everyone is heard. 
-          .item
-            %img{:src=>s3_link("/images/me.jpg")}
-            .carousel-caption
-              %h4 Hardly Working
-              %p Hel+ is still under development. Check back soon!
-        %a.left.carousel-control(href="#hero-carousel" data-slide="prev") &lsaquo;
-        %a.right.carousel-control(href="#hero-carousel" data-slide="next") &rsaquo;
+              - name = i.rpartition(".")[0]
+              = content "#{name}"
+              -# %h4 Welcome to the Conversation!
+              -# %p We aspire to create a safe, friendly place in which real people can discuss whatever they find apropos, impactful, interesting etc.
 
-    .span4.columns
-      %h1
-        Welcome!
-      %p Lorem ipsum dolar fkd dfk dsfk dfk fkj sdkj dsj sk fdfslk f asfk fdk sdflka fk dkf. 
+      -# %a(class="left carousel-control" href="#home-carousel" data-slide="prev") &lsaquo;
+      -# %a(class="right carousel-control" href="#home-carousel" data-slide="next") &rsaquo;
+    
+  -# .row
+  -#   .span4
+  -#     = content "home-bottom-left"
+  -#   .span4
+  -#     = content "home-bottom-middle"
+  -#   .span4
+  -#     =content "home-bottom-right"
+
+#about.hero-unit.page
+  .row
+    .span12
+      = content "about"
 
 -# = each_content_item "pages" do |i|
 -#   %div.feature{:id => "page-#{i.downcase}" }

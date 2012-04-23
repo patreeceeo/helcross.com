@@ -50,6 +50,43 @@ a
   // &:focus
   // &:visited
 
+.front-container
+  min-height: 545px
+  max-height: 750px
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  .front-card
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 600px
+    height: 450px
+    margin-top: -214px
+    margin-left: -300px
+    .carousel
+      background-color: grey
+      .carousel-inner
+        .item
+          img
+            margin: 0 auto
+            height: 450px
+            width: auto
+          .carousel-caption
+            p
+              color: white
+
+    #img-cross
+      float: left
+      position: relative
+      width: $logo-width
+      height: auto
+      z-index: $logo-z-index
+      left: -$logo-width/2
+      top: -$logo-width/2
+
 body
   +font-sans
   p
@@ -57,17 +94,6 @@ body
   font-size: 14px
   background: $pink
   color: #0d0d0d
-  .carousel
-    background-color: grey
-    .carousel-inner
-      .item
-        img
-          margin: 0 auto
-          height: 450px
-          width: auto
-        .carousel-caption
-          p
-            color: white
   .brand
     +font-cursive
   .with_bottom_bar
@@ -83,17 +109,6 @@ body
     z-index: $logo-z-index
     img
       height: 60px
-  // img#helcross
-  //   width: $logo-width
-  //   height: auto
-  //   z-index: $logo-z-index
-  //   position: absolute  
-  //   left: $left-offset - $logo-width/2
-  //   top: 0px
-  //   cursor: pointer
-  // #helcross-v-spacer
-  //   width: 100%
-  //   height: $logo-width * 0.66 - $page-heading-margin-top
   .feature-heading
     +font-sans
     position: absolute 
@@ -109,10 +124,13 @@ body
     // line-height: 300%
     margin-top: $page-heading-margin-top
   .page
+    display: none
+  .page.showing
+    display: block
     // position: absolute
-    width: $feature-width * 0.75 
+    // width: $feature-width * 0.75 
     // right: 0px
-    margin: 0 auto
+    // margin: 0 auto
   .forum
     .image
       img

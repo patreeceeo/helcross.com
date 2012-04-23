@@ -13,29 +13,10 @@ $(document).ready(function() {
 
   $(".carousel").carousel()
 
-  // $(".gallery .left-button").click(function(){
-    // log("clicked left");
-    // // showPrev(".gallery .image");
-    // leftKey();
-  // });
-
-  // $(".gallery .right-button").click(function(){
-    // log("clicked right");
-    // // showNext(".gallery .image");
-    // rightKey();
-  // });
-
-  // showPage("home");
+  showPage("home")
   
-  // if(appMode == "development") {
-  //   appHandleEvent("login");
-  //   showPage("cross-you");
-  // } else {
-  //   appHandleEvent("logout");
-  // }
 
 });
-
 
 function fbHandleEvent (response) {
   log("fbHandleEvent");
@@ -66,6 +47,21 @@ function appHandleEvent(e) {
     $('.if-logged-out').addClass("showing");
     $('.if-logged-in').removeClass("showing");
   }
+}
+
+function hide(klass, removeKlass) {
+  var to_hide = $("."+klass+"."+removeKlass);
+  to_hide.removeClass(removeKlass);
+}
+
+function showPage(name) {
+  show("#"+name, ".page", "showing");
+  show("#nav-"+name, "ul.nav li", "active");
+}
+
+function show(id, klass, addKlass) {
+  hide(klass, addKlass);
+  $(id).addClass(addKlass);  
 }
 
 function appRenderForum(stor) {

@@ -65,6 +65,45 @@ a:active {
   outline: none;
 }
 
+.front-container {
+  min-height: 545px;
+  max-height: 750px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.front-container .front-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 450px;
+  margin-top: -214px;
+  margin-left: -300px;
+}
+.front-container .front-card .carousel {
+  background-color: grey;
+}
+.front-container .front-card .carousel .carousel-inner .item img {
+  margin: 0 auto;
+  height: 450px;
+  width: auto;
+}
+.front-container .front-card .carousel .carousel-inner .item .carousel-caption p {
+  color: white;
+}
+.front-container .front-card #img-cross {
+  float: left;
+  position: relative;
+  width: 120px;
+  height: auto;
+  z-index: 2;
+  left: -60px;
+  top: -60px;
+}
+
 body {
   font-family: Quattrocento Sans;
   font-weight: bolder;
@@ -75,17 +114,6 @@ body {
 body p {
   font-family: Quattrocento Sans;
   font-weight: bolder;
-}
-body .carousel {
-  background-color: grey;
-}
-body .carousel .carousel-inner .item img {
-  margin: 0 auto;
-  height: 450px;
-  width: auto;
-}
-body .carousel .carousel-inner .item .carousel-caption p {
-  color: white;
 }
 body .brand {
   font: 24px Loved by the King;
@@ -123,8 +151,10 @@ body h1 {
   margin-top: 28px;
 }
 body .page {
-  width: 600px;
-  margin: 0 auto;
+  display: none;
+}
+body .page.showing {
+  display: block;
 }
 body .forum .image img {
   max-width: 200px;

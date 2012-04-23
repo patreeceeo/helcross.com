@@ -20,8 +20,8 @@ $(document).ready(function() {
 });
 
 function showPage(name) {
-  show("#h1-"+name, "#notifications h1")
-  show("#"+name, ".feature") 
+  // show("#h1-"+name, "#notifications h1")
+  show("#"+name, ".page") 
   if(name == "cross-you")
     appRenderForum("#cross-you .forum");
   else if(name == "home") {
@@ -49,7 +49,6 @@ function hide(klass) {
 function showFirst(klass) {
   hide(klass)
   $(klass).first().addClass("showing");
-
 }
 
 function show(id, klass) {

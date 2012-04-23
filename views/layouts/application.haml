@@ -125,10 +125,10 @@
             Hel+
           .nav-collapse
             %ul.nav
-              %li.active
-                %a(href="#") Home
-              %li
-                %a(href="#About") About
+              %li#nav-home
+                %a(href="#" onclick="showPage('home')") Home
+              %li#nav-about
+                %a(href="#" onclick="showPage('about')") About
               %li
                 %a(href="#Contact") Contact 
           = partial "authorize"
@@ -136,14 +136,6 @@
     .container
       = yield
 
-    -# %img#helcross(src="/images/helcross.png" onclick="showPage('home')")
-    -# %header
-    -#   = partial :nav_main
-    -#   = partial :authorize
-    -#   = partial :like_button
-    -# #content
-    -#   = yield
-    -# = partial :analytics
 
 
     -# MORE SCRIPTS #-#-
@@ -153,7 +145,6 @@
     =lib_script "jquery-1.7.2.min"
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
     =lib_script "modernizr-1.6.min"
-    -# =lib_script "gallery"
     =lib_script "bootstrap-transition"
     =lib_script "bootstrap-carousel"
     =lib_script "handlebars"
