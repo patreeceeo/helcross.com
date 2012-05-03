@@ -54,6 +54,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+[id$="page"], [id$="nav"] {
+  display: none;
+}
+[id$="page"].showing, [id$="nav"].showing {
+  display: block;
+}
+
+[id$="template"] {
+  display: none;
+}
+
+img[src*="/images/helcross"] {
+  height: 175px !important;
+  width: auto;
+}
+
+.image-container img {
+  height: 200;
+  width: auto;
+}
+
 a {
   color: #3366cc;
 }
@@ -65,184 +86,107 @@ a:active {
   outline: none;
 }
 
-.front-container {
-  min-height: 545px;
-  max-height: 750px;
+#home-page {
+  min-height: 350px;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
 }
-.front-container .front-card {
+#home-page .front-card {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 600px;
-  height: 450px;
-  margin-top: -214px;
-  margin-left: -300px;
+  width: 1200px;
+  height: 250px;
+  margin-top: -125px;
+  margin-left: -600px;
 }
-.front-container .front-card .carousel {
+#home-page .front-card > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+#home-page .front-card .huge-word {
+  font-size: 100px;
+  color: gray;
+}
+#home-page .front-card .huge-symbol {
+  font-size: 200px;
+  margin-top: -25px;
+  color: gray;
+}
+
+#home-carousel-placeholer {
+  width: 300px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+#home-carousel {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s false;
+  width: 300px;
+  height: 250px;
+}
+#home-carousel .carousel {
+  width: inherit;
+  height: inherit;
   background-color: grey;
 }
-.front-container .front-card .carousel .carousel-inner .item img {
+#home-carousel .carousel .carousel-inner {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+}
+#home-carousel .carousel .carousel-inner .item {
+  height: inherit;
+  width: inherit;
+}
+#home-carousel .carousel .carousel-inner .item img {
   margin: 0 auto;
-  height: 450px;
+  height: inherit;
   width: auto;
 }
-.front-container .front-card .carousel .carousel-inner .item .carousel-caption p {
+#home-carousel .carousel .carousel-inner .item .carousel-caption p {
   color: white;
 }
-.front-container .front-card #img-cross {
-  float: left;
+#home-carousel .carousel .carousel-caption, #home-carousel .carousel .carousel-control {
+  display: none;
+}
+
+#home-carousel.expanding {
   position: relative;
-  width: 120px;
-  height: auto;
-  z-index: 2;
-  left: -60px;
-  top: -60px;
+}
+
+#home-carousel.expanded {
+  position: relative !important;
+  margin: 0;
+}
+#home-carousel.expanded .carousel-caption, #home-carousel.expanded .carousel-control {
+  display: block;
+}
+
+#forum-page {
+  margin-top: 48px;
 }
 
 body {
   font-family: Quattrocento Sans;
-  font-weight: bolder;
-  font-size: 14px;
+  font-size: 16px;
+  font-size: 16px;
   background: #ff69b4;
   color: #0d0d0d;
 }
 body p {
   font-family: Quattrocento Sans;
-  font-weight: bolder;
 }
 body .brand {
   font: 24px Loved by the King;
-}
-body .with_bottom_bar {
-  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
-}
-body .with_top_bar {
-  border-top: 10px solid rgba(0, 0, 0, 0.8);
-}
-body .with_left_bar {
-  border-left: 10px solid rgba(0, 0, 0, 0.8);
-}
-body .with_right_bar {
-  border-right: 10px solid rgba(0, 0, 0, 0.8);
   z-index: 2;
-}
-body .with_right_bar img {
-  height: 60px;
-}
-body .feature-heading {
-  font-family: Quattrocento Sans;
-  font-weight: bolder;
-  position: absolute;
-  left: 360px;
-  top: 20px;
-  font-size: 40px;
-  line-height: 80px;
-  width: 140px;
-}
-body h1 {
-  font: 24px Loved by the King;
-  font-weight: bold;
-  font-size: 28px;
-  margin-top: 28px;
-}
-body .page {
-  display: none;
-}
-body .page.showing {
-  display: block;
-}
-body .forum .image img {
-  max-width: 200px;
-  height: auto;
-}
-body .forum .post {
-  margin-top: 2em;
-}
-body header {
-  position: absolute;
-  top: 9px;
-  left: 260px;
-  height: 35px;
-  width: 760px;
-}
-body header ul {
-  display: inline;
-}
-body header ul li {
-  display: inline;
-  line-height: 30px;
-  padding: 0 20px;
-}
-body header ul li a {
-  font: 24px Loved by the King;
-  color: black !important;
-  text-decoration: none;
-}
-body header ul li a:hover {
-  text-shadow: white 2px 2px 1px;
-}
-body #content {
-  -moz-border-radius-bottomleft: 14px;
-  -webkit-border-bottom-left-radius: 14px;
-  -ms-border-bottom-left-radius: 14px;
-  -o-border-bottom-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-  -moz-border-radius-topright: 14px;
-  -webkit-border-top-right-radius: 14px;
-  -ms-border-top-right-radius: 14px;
-  -o-border-top-right-radius: 14px;
-  border-top-right-radius: 14px;
-  background-color: white;
-  z-index: 1;
-  position: absolute;
-  left: 220px;
-  top: 44px;
-  width: 800px;
-  height: auto;
-  line-height: 150%;
-}
-body #content .feature {
-  display: none;
-}
-body #content .feature.showing {
-  display: block;
-}
-
-#notifications {
-  -moz-border-radius-bottomright: 14px;
-  -webkit-border-bottom-right-radius: 14px;
-  -ms-border-bottom-right-radius: 14px;
-  -o-border-bottom-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-  -moz-border-radius-topleft: 14px;
-  -webkit-border-top-left-radius: 14px;
-  -ms-border-top-left-radius: 14px;
-  -o-border-top-left-radius: 14px;
-  border-top-left-radius: 14px;
-  position: fixed;
-  right: 40px;
-  bottom: 20px;
-  background-color: black;
-  height: 150px;
-  width: 150px;
-}
-#notifications h1 {
-  display: none;
-  color: white;
-  font-size: 50px;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  margin-top: 88px;
-  margin-left: -2px;
-}
-#notifications h1.showing {
-  display: block;
 }
 
 #auth-status {
@@ -252,7 +196,6 @@ body #content .feature.showing {
 }
 #auth-status .btn {
   font-family: Quattrocento Sans;
-  font-weight: bolder;
   margin-top: -3px;
 }
 
@@ -288,15 +231,94 @@ body #content .feature.showing {
   -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   font-family: Quattrocento Sans;
-  font-weight: bolder;
   text-shadow: 0, 1px, 1px, rgba(255, 255, 255, 0.2);
   background-color: #7a90c0;
   border: none;
   color: #1d222c;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: top;
   line-height: 28px;
   padding: 0 25px;
   text-decoration: none;
+}
+
+.forum {
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  border-radius: 14px;
+  background-color: white;
+}
+.forum h1 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 20px;
+}
+
+.post {
+  display: inline-block;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  width: 840px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.post .message-container {
+  float: left;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+.post .primary-actor {
+  width: 120px;
+  float: left;
+  width: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.post .video-container {
+  width: 680px;
+  font-weight: normal;
+  float: right;
+}
+.post .video-container .icon-container {
+  position: absolute;
+}
+.post .video-container .meta-container {
+  float: left;
+  width: 450px;
+}
+.post .video-container .meta-container .description-container {
+  color: rgba(0, 0, 0, 0.66);
+  font-size: 75%;
+}
+.post .video-container .video-preview {
+  display: block;
+  font-size: 75%;
+  padding-right: 20px;
+  width: 150px;
+  float: left;
+}
+.post .video-container .video-preview img {
+  display: block;
+}
+.post .video-container .video {
+  clear: both;
+  display: none;
+}
+.post .video-container.active .meta-container {
+  width: auto;
+}
+.post .video-container.active .video-preview {
+  display: none;
+}
+.post .video-container.active .video {
+  display: block;
+}
+.post .video-container.active .icon-container {
+  display: none;
+}
+.post .post-inner {
+  float: left;
 }

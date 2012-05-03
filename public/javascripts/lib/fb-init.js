@@ -5,6 +5,23 @@ function log(message) {
   }
 }
 
+function fbHandleEvent (response) {
+  log("fbHandleEvent");
+  if (response.authResponse) {
+    // user has auth'd your app and is logged into Facebook
+    FB.api ('/me', function (me) {
+      fbUser = me;
+      log("fbUser.name: "+fbUser.name);
+      appHandleEvent("login");
+    });
+  } else {
+    appHandleEvent("logout");
+    if(FB.getAuthResponse())
+      FB.logout(fbHandleEvent);
+  }
+
+}
+
 (function(d) {
   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
   if (d.getElementById(id)) 
@@ -42,5 +59,6 @@ window.fbAsyncInit = function() {
     log("clicked logout link");
     FB.logout(fbHandleEvent);
   }); 
+  renderForum("#forum-page .posts-container");
 }
 

@@ -3,19 +3,19 @@
 @import compass/css3
 @import compass/css3/opacity
 @import compass/css3/images
+@import compass/css3/transition
 
 =font-cursive
   font: 24px Loved by the King
 
 =font-sans
   font-family: Quattrocento Sans
-  font-weight: bolder
+  // font-weight: bolder
 
 $pink: #ff69b4
 
 $spacing: 20px
 $radius: 14px
-$border: 1px solid $pink
 
 $header-height: 44px
 
@@ -36,9 +36,24 @@ $header-width: $feature-width - $logo-width/3
 $logo-z-index: 2
 $content-z-index: 1
 
-$caption-height: 40px
 
-$page-heading-margin-top: 28px
+
+[id$="page"], [id$="nav"]
+  display: none
+  &.showing
+    display: block
+
+[id$="template"]
+  display: none
+
+img[src*="/images/helcross"]
+  height: 175px !important
+  width: auto
+
+.image-container
+  img
+    height: 200
+    width: auto
 
 a
   color: #3366CC
@@ -50,9 +65,11 @@ a
   // &:focus
   // &:visited
 
-.front-container
-  min-height: 545px
-  max-height: 750px
+$home-page-min-h: 350px 
+$home-page-h: $home-page-min-h - 100px
+$home-page-w: 1200px
+#home-page
+  min-height: $home-page-min-h
   position: absolute
   top: 0
   left: 0
@@ -62,190 +79,78 @@ a
     position: absolute
     top: 50%
     left: 50%
-    width: 600px
-    height: 450px
-    margin-top: -214px
-    margin-left: -300px
-    .carousel
-      background-color: grey
-      .carousel-inner
-        .item
-          img
-            margin: 0 auto
-            height: 450px
-            width: auto
-          .carousel-caption
-            p
-              color: white
+    width: $home-page-w
+    height: $home-page-h
+    margin-top: -$home-page-h/2
+    margin-left: -$home-page-w/2
+    & > *
+      vertical-align: middle
+      display: inline-block
+    .huge-word
+      font-size: 100px
+      color: gray
+    .huge-symbol
+      font-size: 200px
+      margin-top: -25px
+      color: gray
 
-    #img-cross
-      float: left
-      position: relative
-      width: $logo-width
-      height: auto
-      z-index: $logo-z-index
-      left: -$logo-width/2
-      top: -$logo-width/2
+$home-carousel-w: 300px
+$home-carousel-h: 250px
+#home-carousel-placeholer
+  width: $home-carousel-w
+  height: $home-carousel-h
+  margin-right: 20px
+
+#home-carousel
+  +single-transition
+  width: $home-carousel-w
+  height: $home-carousel-h
+  .carousel
+    width: inherit
+    height: inherit
+    background-color: grey
+    .carousel-inner 
+      overflow: hidden
+      width: inherit
+      height: inherit
+      .item
+        height: inherit
+        width: inherit
+        img
+          margin: 0 auto
+          height: inherit
+          width: auto
+        .carousel-caption 
+          p
+            color: white
+    .carousel-caption, .carousel-control
+      display: none
+
+#home-carousel.expanding
+  position: relative
+
+#home-carousel.expanded
+  position: relative !important
+  margin: 0
+  .carousel-caption, .carousel-control
+    display: block
+  // margin-left: -420px
+  // left: 50%
+
+#forum-page
+  margin-top: 48px
 
 body
   +font-sans
+  font-size: 16px
   p
     +font-sans
-  font-size: 14px
+  font-size: 16px
   background: $pink
   color: #0d0d0d
   .brand
     +font-cursive
-  .with_bottom_bar
-    border-bottom: 10px solid rgba(0,0,0,0.8)
-  .with_top_bar
-    border-top: 10px solid rgba(0,0,0,0.8)
-  .with_left_bar
-    border-left: 10px solid rgba(0,0,0,0.8)
-  .with_right_bar
-    border-right: 10px solid rgba(0,0,0,0.8)
-
-    // position: absolute
     z-index: $logo-z-index
-    img
-      height: 60px
-  .feature-heading
-    +font-sans
-    position: absolute 
-    left: $left-offset + $logo-width + $spacing
-    top: 20px
-    font-size: 40px
-    line-height: 80px
-    width: $title-width
-  h1
-    +font-cursive 
-    font-weight: bold
-    font-size: 28px
-    // line-height: 300%
-    margin-top: $page-heading-margin-top
-  .page
-    display: none
-  .page.showing
-    display: block
-    // position: absolute
-    // width: $feature-width * 0.75 
-    // right: 0px
-    // margin: 0 auto
-  .forum
-    .image
-      img
-        max-width: 200px
-        height: auto
-    .post
-      margin-top: 2em
-  header
-    position: absolute
-    top: $header-height - 35px
-    left: $left-offset + $logo-width/3
-    height: 35px
-    width: $header-width
-    // background: #e7e7e7
-    // border: 1px solid #ccc
-    ul
-      display: inline 
-      li
-        display: inline 
-        line-height: 30px
-        padding: 0 20px
-        a
-          +font-cursive
-          color: #000 !important
-          text-decoration: none
-          &:hover
-            +single-text-shadow(white, 2px, 2px, 1px)
-          // text-decoration: underline
-  #content
-    +border-bottom-left-radius($radius)
-    +border-top-right-radius($radius)
-    background-color: white
-    z-index: $content-z-index
-    position: absolute
-    left: $left-offset
-    top: $header-height
-    width: $feature-width
-    // height: $feature-height 
-    height: auto
-    line-height: 150%
-    .feature
-      // +border-bottom-left-radius($radius)
-      // +border-top-right-radius($radius)
-      display: none
-    .feature.showing
-      // height: auto
-      // height: $feature-height
-      display: block
-  // .gallery
-  //   .image-container
-  //     margin: $radius
-  //     width: $gallery-width
-  //     height: $gallery-height
-  //     background-color: gray
-  //     overflow: hidden
-  //     .left-button, .right-button
-  //       height: $gallery-height 
-  //       z-index: $logo-z-index
-  //       cursor: pointer
-  //       position: absolute
-  //       width: 60px
-  //       background-color: rgba(255, 255, 255, 0)
-  //       &:hover
-  //         background-color: rgba(255, 255, 255, 0.25)
-  //     .left-button
-  //       left: 0px
-  //     .right-button
-  //       right: 0px
-  //     .image
-  //       display: none
-  //     .image.showing
-  //       display: block
-  //       position: relative
-  //       text-align: center
-  //       img
-  //         height: $gallery-height
-  //         width: auto
-  //       .caption
-  //         +opacity(0.75)  
-  //         +font-cursive
-  //         background-color: white
-  //         margin: 0 auto
-  //         margin-top: -$caption-height * 1.15
-  //         height: $caption-height * 1.15
-  //         line-height: $caption-height
-  //         width: 300px
-  //         padding-top: 0
-  //         border-top: 0
-  //         font-weight: bold
-    .page
-      display: none
-    .page.showing
-      display: block
-
-
-#notifications
-  +border-bottom-right-radius($radius)
-  +border-top-left-radius($radius)
-  position: fixed
-  right: $spacing*2
-  bottom: $spacing
-  background-color: black
-  height: 150px
-  width: 150px
-  h1
-    display: none
-    color: white
-    font-size: 50px
-    padding: 0
-    border: 0
-    margin: 0
-    margin-top: 88px
-    margin-left: -2px
-  h1.showing
-    display: block
 
 #auth-status
   display: inline
@@ -254,20 +159,9 @@ body
   .btn
     +font-sans
     margin-top: -3px
-  // #auth-loginlink, #auth-logoutlink
-  //   margin: 0 !important
-  //   margin-top: 10px
-  //   // display: inline !important
-  //   width: auto !important
-  //   // float: right !important
-  //   vertical-align: middle
-  // #auth-loggedout, #auth-loggedin
-  //   margin-bottom: 0px
 
 #like-button
   position: absolute
-  // top: $spacing
-  // right: $spacing*2
   border: none
   width: 450px
   height: $header-height
@@ -279,7 +173,6 @@ body
 .if-logged-in, .if-logged-out
   display: none !important
 
-
 .button:link, .button:visited 
   +border-radius($radius)
   +background-image(linear-gradient(top, #97afe2, #6073a1))
@@ -290,8 +183,77 @@ body
   border: none
   color: #1d222c
   display: inline-block
-  font-size: 14px
+  font-size: 16px
   vertical-align: top
   line-height: 28px
   padding: 0 25px
   text-decoration: none
+
+
+.forum
+  +border-radius($radius)
+  background-color: white
+  h1
+    padding-top: 1em
+    padding-bottom: 1em
+    padding-left: $spacing
+  
+
+$post-w: 840px
+$post-actor-w: 120px
+$post-subject-w: $post-w - 2*$spacing - $post-actor-w
+$post-subject-inner-w: 150px
+$post-subject-meta-w: $post-subject-w - $post-subject-inner-w - 4*$spacing 
+.post
+  display: inline-block
+  border-top: 1px solid #CCC
+  border-bottom: 1px solid #CCC
+  width: $post-w
+  padding-left: $spacing
+  padding-top: $spacing
+  .message-container
+    float: left
+    font-weight: bold
+    padding-bottom: 1em
+  .primary-actor
+    width: $post-actor-w
+    float: left
+    width: 100px
+    padding-left: $spacing
+    padding-right: $spacing
+  .video-container
+    width: $post-subject-w
+    font-weight: normal
+    float: right
+    .icon-container
+      position: absolute
+    .meta-container
+      float: left
+      width: $post-subject-meta-w
+      .description-container
+        color: rgba(black, 0.66)
+        font-size: 75%
+    .video-preview
+      display: block
+      font-size: 75%
+      padding-right: $spacing
+      width: $post-subject-inner-w
+      float: left
+      img
+        display: block
+    .video
+      clear: both
+      display: none
+  .video-container.active
+    .meta-container
+      width: auto
+    .video-preview
+      display: none
+    .video
+      display: block
+    .icon-container
+      display: none
+  .post-inner
+    float: left
+
+

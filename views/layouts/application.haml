@@ -15,7 +15,7 @@
     -# 'https://developers.facebook.com/docs/opengraph/'
     %meta{:property=>"og:title", :content=>"#{@app['name']}"}
     %meta{:property=>"og:type", :content=>"website"}
-    %meta{:property=>"og:url", :content=>"http://helcross-fbapp.herokuapp.com"}
+    %meta{:property=>"og:url", :content=>"https://helcross.com"}
     %meta{:property=>"og:image", :content=>"#{url('/logo.png')}"}
     %meta{:property=>"og:site_name", :content=>"#{@app['name']}"}
     %meta{:property=>"og:description", :content=>"Hel+"}
@@ -63,7 +63,7 @@
       <!--link rel="stylesheet" href="stylesheets/grid.css" media="screen" type="text/css"-->
       <!--link rel="stylesheet" href="stylesheets/base.css" type="text/css"-->
       <link
-        href="http://fonts.googleapis.com/css?family=Quattrocento+Sans|Loved+by+the+King"
+        href="http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic|Loved+by+the+King"
         rel="stylesheet"
         type="text/css"
         >
@@ -114,7 +114,6 @@
     %div(id="fb-root")
     =lib_script "fb-init"
 
-
     -# TOP LEVEL STRUCTURE #-#-
 
     .navbar.navbar-fixed-top
@@ -125,12 +124,16 @@
             Hel+
           .nav-collapse
             %ul.nav
-              %li#nav-home
+              %li#home-nav
                 %a(href="#" onclick="showPage('home')") Home
-              %li#nav-about
+              %li#about-nav
                 %a(href="#" onclick="showPage('about')") About
-              %li
-                %a(href="#Contact") Contact 
+              %li#store-nav
+                %a(href="#" onclick="showPage('store')") Store
+              %li#contact-nav
+                %a(href="#" onclick="showPage('contact')") Contact 
+              %li#forum-nav
+                %a(href="#" onclick="showPage('forum')") Forum
           = partial "authorize"
 
     .container
@@ -143,8 +146,10 @@
 
     -# %script{:type=>"text/javascript", :src=>"http://code.jquery.com/jquery-1.5.min.js"}
     =lib_script "jquery-1.7.2.min"
-    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
     =lib_script "modernizr-1.6.min"
     =lib_script "bootstrap-transition"
     =lib_script "bootstrap-carousel"
     =lib_script "handlebars"
+    =lib_script "json2"
+    =lib_script "test_forum_data"
+    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
