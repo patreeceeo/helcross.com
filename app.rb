@@ -98,7 +98,7 @@ get '/auth/facebook/callback' do
   redirect '/'
 end
 
-before '/:page' do
+before '/:page?' do
 # Application routes
   # Get base API Connection
   @graph  = Koala::Facebook::API.new(session[:access_token])
