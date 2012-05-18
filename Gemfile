@@ -12,6 +12,10 @@ gem "json_pure"
 gem 'rack', '1.4.1', :git =>  "git://github.com/rack/rack.git" 
 gem 'thin'
 
+group :development do
+  gem 'pry'
+end
+
 # Sass & Compass
 gem 'sass', '~> 3.1.12'
 gem 'compass', '~> 0.11.6'

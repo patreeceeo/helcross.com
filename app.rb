@@ -4,6 +4,7 @@ require 'haml'
 require 'maruku'
 require 'koala'
 require 'rest_client'
+require 'pry'
 
 enable :sessions
 set :raise_errors, false
@@ -99,7 +100,7 @@ get '/auth/facebook/callback' do
 end
 
 before '/:page?' do
-# Application routes
+  # Application routes
   # Get base API Connection
   @graph  = Koala::Facebook::API.new(session[:access_token])
 
@@ -115,6 +116,7 @@ before '/:page?' do
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
   end
+  # @people_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE is_app_user = 1")
   @page = params[:page]
 end
 
