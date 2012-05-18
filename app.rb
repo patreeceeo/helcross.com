@@ -55,7 +55,6 @@ helpers do
   end
 
   def authenticator
-    # @authenticator ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], url("/auth/facebook/callback"))
     @authenticator ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], url("http://helcross-fbapp.herokuapp.com"))
   end
 
@@ -73,26 +72,6 @@ set :root, File.dirname(__FILE__)
 set :views, 'views'
 set :public_folder, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
-
-# Application routes
-get '/' do
-  # Get base API Connection
-  @graph  = Koala::Facebook::API.new(session[:access_token])
-
-  # Get public details of current application
-  @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
-
-  if session[:access_token]
-    @user    = @graph.get_object("me")
-    @friends = @graph.get_connections('me', 'friends')
-    @photos  = @graph.get_connections('me', 'photos')
-    @likes   = @graph.get_connections('me', 'likes').first(4)
-
-    # for other data you can always run fql
-    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
-  end
-  haml :index, :layout => :'layouts/application'
-end
 
 # used by Canvas apps - redirect the POST to be a regular GET
 post "/" do
@@ -115,12 +94,49 @@ get "/auth/facebook" do
 end
 
 get '/auth/facebook/callback' do
-	session[:access_token] = authenticator.get_access_token(params[:code])
-	redirect '/'
+  session[:access_token] = authenticator.get_access_token(params[:code])
+  redirect '/'
 end
 
-get '/hooks/pull/content' do
-  `cd /public/content`
-  `git pull origin master`
-  `cd -`
+before '/:page' do
+# Application routes
+  # Get base API Connection
+  @graph  = Koala::Facebook::API.new(session[:access_token])
+
+  # Get public details of current application
+  @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
+
+  if session[:access_token]
+    @user    = @graph.get_object("me")
+    @friends = @graph.get_connections('me', 'friends')
+    @photos  = @graph.get_connections('me', 'photos')
+    @likes   = @graph.get_connections('me', 'likes').first(4)
+
+    # for other data you can always run fql
+    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+  end
+  @page = params[:page]
 end
+
+get '/' do
+  puts "@page = '#{@page}'\n" 
+  haml :index, :locals => {:page => "home"}, :layout => :'layouts/application'
+end
+
+get '/about' do
+  puts "@page = '#{@page}'\n" 
+  haml :about, :locals => {:page => @page}, :layout => :'layouts/application'
+end
+
+get '/store' do
+  haml :store, :locals => {:page => @page}, :layout => :'layouts/application'
+end
+
+get '/contact' do
+  haml :contact, :locals => {:page => @page}, :layout => :'layouts/application'
+end
+
+get '/forum' do
+  haml :forum, :locals => {:page => @page}, :layout => :'layouts/application'
+end
+

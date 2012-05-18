@@ -9,10 +9,8 @@ gem 'koala' # Facebook integration
 # gem 'httparty'
 gem 'rest-client'
 gem "json_pure"
-group :deployment do
-  gem 'thin'
-  gem 'rack', '1.4.1', :git =>  "git://github.com/rack/rack.git" 
-end
+gem 'rack', '1.4.1', :git =>  "git://github.com/rack/rack.git" 
+gem 'thin'
 
 # Sass & Compass
 gem 'sass', '~> 3.1.12'

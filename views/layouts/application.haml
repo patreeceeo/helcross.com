@@ -120,22 +120,19 @@
       .navbar-inner
         .container
           %a.brand(href="#")
-            -# %img(src="/images/helcross.png")  
             Hel+
           .nav-collapse
             %ul.nav
               %li#home-nav
-                %a(href="#" onclick="showPage('home')") Home
+                %a(href="/") Home
               %li#about-nav
-                %a(href="#" onclick="showPage('about')") About
+                %a(href="/about") About
               %li#store-nav
-                %a(href="#" onclick="showPage('store')") Store
+                %a(href="/store") Store
               %li#contact-nav
-                %a(href="#" onclick="showPage('contact')") Contact 
+                %a(href="/contact") Contact 
               %li#forum-nav
-                %a(href="#" onclick="showPage('forum')") Forum
-          = partial "authorize"
-
+                %a(href="/forum") Forum
     .container
       = yield
 
@@ -153,3 +150,5 @@
     =lib_script "json2"
     =lib_script "test_forum_data"
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
+    %script
+      showPage('#{page}');

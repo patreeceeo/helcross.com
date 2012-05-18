@@ -54,13 +54,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-[id$="page"], [id$="nav"] {
-  display: none;
-}
-[id$="page"].showing, [id$="nav"].showing {
-  display: block;
-}
-
 [id$="template"] {
   display: none;
 }
@@ -124,11 +117,14 @@ a:active {
 }
 
 #home-carousel {
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s false;
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
   width: 300px;
   height: 250px;
 }
@@ -216,10 +212,11 @@ body .brand {
 }
 
 .button:link, .button:visited {
-  -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
-  -ms-border-radius: 14px;
+  -webkit-border-radius: 14px;
   -o-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -khtml-border-radius: 14px;
   border-radius: 14px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97afe2), color-stop(100%, #6073a1));
   background-image: -webkit-linear-gradient(top, #97afe2, #6073a1);
@@ -227,8 +224,9 @@ body .brand {
   background-image: -o-linear-gradient(top, #97afe2, #6073a1);
   background-image: -ms-linear-gradient(top, #97afe2, #6073a1);
   background-image: linear-gradient(top, #97afe2, #6073a1);
-  -webkit-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
   font-family: Quattrocento Sans;
   text-shadow: 0, 1px, 1px, rgba(255, 255, 255, 0.2);
@@ -244,10 +242,11 @@ body .brand {
 }
 
 .forum {
-  -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
-  -ms-border-radius: 14px;
+  -webkit-border-radius: 14px;
   -o-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -khtml-border-radius: 14px;
   border-radius: 14px;
   background-color: white;
 }

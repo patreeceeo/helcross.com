@@ -40,8 +40,6 @@ $(document).ready(function() {
 
   $(".carousel").carousel()
 
-  showPage("home")
-
   $("#home-carousel img").click(function(e) {
     var el = $("#home-carousel");
     if(el.hasClass("expanded")) {
@@ -51,9 +49,6 @@ $(document).ready(function() {
     }
 
   });
-
-
-  // renderForum("#forum-page .posts-container");
 
 });
 
