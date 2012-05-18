@@ -34,7 +34,9 @@ module Sinatra
     def content(name, default="")
       print "attempting to fetch content: #{name}"
       begin
-        contents = RestClient.get s3_link "/texts/#{name}.md.txt"
+        link = s3_link "/texts/#{name}.md.txt"
+        puts "link = #{link}\n"
+        contents = RestClient.get link
         doc = Maruku.new(contents)
         doc.to_html
       rescue
