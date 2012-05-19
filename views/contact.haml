@@ -1,5 +1,24 @@
 #contact-page.container-fluid
+  - if flash && flash == "message_sent"
+    .alert.alert-success
+      %button.close(data-dismiss="alert") x
+      <strong>Thanks for getting in contact with us!</strong> Somone from our team should be in touch with you shortly
   .row-fluid
-    .span12
+    .span5
       .hero-unit
         = content "contact"
+    .span4
+      .well
+        %form{ :action => "/contact", :method => "post"}
+          %fieldset
+            %legend <h1>Send A Message:</h1>
+            %dl
+              %dd
+                %input(type="text" name="name" class="text" size=40 type="username" placeholder="your name" autofocus="autofocus")
+              %dd
+                %input(:type="text" name="mail" class="text" size=40 type="email" placeholder="you@example.com")
+              %dd
+                %textarea(name="body" rows=4 cols=40 placeholder="Your message goes here.")            
+          %fieldset
+            %input.btn(type="submit" value="Send!")
+

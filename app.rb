@@ -5,6 +5,7 @@ require 'maruku'
 require 'koala'
 require 'rest_client'
 require 'pry'
+require 'pony'
 
 enable :sessions
 set :raise_errors, false
@@ -134,7 +135,31 @@ get '/store' do
 end
 
 get '/contact' do
-  haml :contact, :locals => {:page => @page}, :layout => :'layouts/application'
+  haml :contact, :locals => {:page => @page, :flash => ""}, :layout => :'layouts/application'
+end
+
+post '/contact' do
+  name = params[:name]
+  mail = params[:mail]
+  body = params[:body]
+
+  Pony.mail(
+    :to => "patrickcandoit@gmail.com", 
+    :from => mail, 
+    :sender => mail,
+    :subject=> "Hel+ contact form submission from #{name}",
+    :body => body,
+    :via => :smtp, 
+    :via_options => {
+    :address    => 'smtp.gmail.com',
+    :port       => '587',
+    :user_name  => 'patrickcandoit@gmail.com',
+    :password   => 'irun4unf',
+    :authentication => :plain,
+    :domain     => "gmail.com"
+  }   
+  )   
+  haml :contact, :locals => {:page => @page, :flash => "message_sent"}, :layout => :'layouts/application'
 end
 
 get '/forum' do

@@ -13,9 +13,10 @@
   // font-weight: bolder
 
 $pink: #ff69b4
+$light-yellow: #ffa
 
 $spacing: 20px
-$radius: 14px
+$radius: 5px
 
 $header-height: 44px
 
@@ -38,13 +39,12 @@ $content-z-index: 1
 
 
 
-[id$="page"], [id$="nav"]
-  // display: none
-  // &.showing
-  //   display: block
+strong, em, h1, h2, h3
+  font: auto
+  font-weight: bold
 
-[id$="template"]
-  display: none
+[id$="page"]
+  margin-top: 50px
 
 img[src*="/images/helcross"]
   height: 175px !important
@@ -62,8 +62,33 @@ a
     text-decoration: none
   &:active
     outline: none
-  // &:focus
-  // &:visited
+
+textarea
+  resize: none
+
+input, textarea
+  +border-radius($radius)
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  width: 100%
+  line-height: 1.5em
+  font-size: 1.5em
+  font-weight: bold
+  background-color: $light-yellow
+
+input[type="submit"]
+  +border-radius($radius)
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  line-height: 1.5em
+  font-size: 1.5em
+  font-weight: bold
+
+input
+  height: 1.5em
+
+.hero-unit:
+  background-color: $light-yellow
 
 $home-page-min-h: 350px 
 $home-page-h: $home-page-min-h - 100px

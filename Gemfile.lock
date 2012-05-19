@@ -24,16 +24,24 @@ GEM
     grid-coordinates (1.1.9)
       compass (>= 0.11.5)
     haml (3.1.4)
+    i18n (0.6.0)
     json_pure (1.6.6)
     koala (1.4.0)
       faraday (~> 0.7.0)
       multi_json (~> 1.0)
+    mail (2.4.4)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     maruku (0.6.0)
       syntax (>= 1.0.0)
     method_source (0.7.1)
     mime-types (1.18)
     multi_json (1.2.0)
     multipart-post (1.1.5)
+    polyglot (0.3.3)
+    pony (1.4)
+      mail (> 2.0)
     pry (0.9.9.6)
       coderay (~> 1.0.5)
       method_source (~> 0.7.1)
@@ -54,6 +62,9 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
 
 PLATFORMS
   ruby
@@ -65,6 +76,7 @@ DEPENDENCIES
   json_pure
   koala
   maruku
+  pony
   pry
   rack (= 1.4.1)!
   rake
