@@ -1,5 +1,3 @@
-require "psych"
-require "yaml"
 require "./lib/helpers"
 
 # stolen from http://github.com/cschneid/irclogger/blob/master/lib/partials.rb
