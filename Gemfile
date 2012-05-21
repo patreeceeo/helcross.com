@@ -16,6 +16,8 @@ gem 'sqlite3'
 
 group :development do
   gem 'pry'
+  gem 'rb-inotify'
+  gem 'heroku'
 end
 
 # Sass & Compass
