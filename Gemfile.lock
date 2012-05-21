@@ -48,6 +48,7 @@ GEM
     multi_json (1.2.0)
     multipart-post (1.1.5)
     netrc (0.7.1)
+    pg (0.13.2)
     polyglot (0.3.3)
     pony (1.4)
       mail (> 2.0)
@@ -90,6 +91,7 @@ DEPENDENCIES
   json_pure
   koala
   maruku
+  pg
   pony
   pry
   rack (= 1.4.1)!
