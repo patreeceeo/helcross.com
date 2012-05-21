@@ -13,7 +13,6 @@ gem 'rack', '1.4.1', :git =>  "git://github.com/rack/rack.git"
 gem 'thin'
 gem 'pony' # for sending e-mail
 gem 'pg'
-gem 'psych'
 gem 'pry'
 
 group :development do

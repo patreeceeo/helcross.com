@@ -1,5 +1,5 @@
 # require "sqlite3"
-require "psych"
+require "syck"
 require "rest_client"
 require "./lib/helpers"
 
@@ -9,7 +9,7 @@ module Sinatra
   module DBHelper
 
     def data
-      @data ||= Psych.load(RestClient.get s3_link("/data.yaml"))
+      @data ||= Syck.load(RestClient.get s3_link("/data.yaml"))
     end
 
     def each_table_row(table_name, &clsr)
