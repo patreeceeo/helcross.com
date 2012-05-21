@@ -4,7 +4,6 @@ require 'haml'
 require 'maruku'
 require 'koala'
 require 'rest_client'
-require 'pry'
 require 'pony'
 
 enable :sessions
