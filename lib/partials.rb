@@ -1,3 +1,6 @@
+require "psych"
+require "yaml"
+require "./lib/helpers"
 
 # stolen from http://github.com/cschneid/irclogger/blob/master/lib/partials.rb
 #   and made a lot more robust by me
@@ -22,14 +25,6 @@ module Sinatra
       end
     end
 
-    def aws_key
-      "ASIAJIQ25LY7GKLZSZNQ"
-    end 
-
-    def s3_link(path)
-      print "Linking to #{path} in S3"
-      "https://s3.amazonaws.com/helcross-content#{path}?AWSAccessKeyId=#{aws_key}"
-    end
 
     def content(name, default="")
       print "attempting to fetch content: #{name}"
@@ -50,6 +45,10 @@ module Sinatra
         block.call(item)
       end
       nil
+    end
+
+    def load_data_for(name)
+      return YAML.load(RestClient.get s3_link "/texts/#{name}.yaml")
     end
   end
 

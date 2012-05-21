@@ -13,7 +13,7 @@
   // font-weight: bolder
 
 $pink: #ff69b4
-$light-yellow: #ffa
+$light-yellow: #ffc
 
 $spacing: 20px
 $radius: 5px
@@ -39,21 +39,38 @@ $content-z-index: 1
 
 
 
-strong, em, h1, h2, h3
+strong, em, h1, h2, h3, .navbar
   font: auto
   font-weight: bold
 
 [id$="page"]
   margin-top: 50px
 
+[class^="container"] > [class^="span"],
+[class^="container"] > [class^="row"] > [class^="span"]
+  padding: $spacing
+  +border-radius($radius)
+  +single-box-shadow(rgba(0, 0, 0, 0.5), 5px, 5px, 5px)
+  background-color: white
+
+footer
+  padding: $spacing
+  margin: 0 auto
+  text-align: center
+  font-size: 75%
+
 img[src*="/images/helcross"]
   height: 175px !important
   width: auto
 
-.image-container
+.thumbnail
+  border: none
+  font-size: 75%
+  color: gray
   img
-    height: 200
-    width: auto
+    margin-bottom: 1em
+  p
+    text-align: center
 
 a
   color: #3366CC
@@ -76,7 +93,7 @@ input, textarea
   font-weight: bold
   background-color: $light-yellow
 
-input[type="submit"]
+input[type="submit"], .btn
   +border-radius($radius)
   margin-top: 0.5em
   margin-bottom: 0.5em
@@ -87,8 +104,9 @@ input[type="submit"]
 input
   height: 1.5em
 
-.hero-unit:
+.hero-unit
   background-color: $light-yellow
+
 
 $home-page-min-h: 350px 
 $home-page-h: $home-page-min-h - 100px
@@ -167,15 +185,17 @@ $home-carousel-h: 250px
 
 body
   +font-sans
-  font-size: 16px
   p
     +font-sans
-  font-size: 16px
   background: $pink
   color: #0d0d0d
   .brand
     +font-cursive
     z-index: $logo-z-index
+
+.navbar .brand
+  font-size: 1.5em
+  padding-bottom: 0px
 
 #auth-status
   display: inline

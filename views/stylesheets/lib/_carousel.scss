@@ -1,12 +1,14 @@
 // CAROUSEL
 // --------
 
+// Updates for SASS:
+//  - replace @ with $
+//  - replace . with @include for mixins
+
 .carousel {
   position: relative;
   margin-bottom: $baseLineHeight;
   line-height: 1;
-  border: 10px solid #555;
-  @include border-radius(10px);
 }
 
 .carousel-inner {

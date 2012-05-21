@@ -91,7 +91,12 @@
 
 
     -# SCRIPTS #-#-
-
+    - if page == "store"
+      %script(type="text/javascript" src="https://js.stripe.com/v1/")
+      %script(type="text/javascript")
+        -# this identifies your website in the createToken call below
+        Stripe.setPublishableKey('pk_TvkuC43481lapEUCs1OHoBxLHc3mN');
+      </script>
     -# =lib_script "fb"
     -# %script(type="text/javascript")
     -#   var app_url = '#{@app['url']}';
@@ -107,7 +112,6 @@
 
 
   %body
-
 
     -# FACEBOOK INIT #-#- 
 
@@ -134,6 +138,8 @@
               %li#forum-nav
                 %a(href="/forum") Forum
     = yield
+    %footer
+      &copy; 2012 Hel+ LLC. All rights reserved.
 
 
 
@@ -146,6 +152,7 @@
     =lib_script "bootstrap-transition"
     =lib_script "bootstrap-carousel"
     =lib_script "bootstrap-alert"
+    =lib_script "bootstrap-dropdown"
     =lib_script "jquery.autosize-min"
     -# =lib_script "jquery.html5form-1.5-min"
     -# =lib_script "handlebars"

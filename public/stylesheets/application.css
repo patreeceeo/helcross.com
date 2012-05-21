@@ -1,63 +1,403 @@
-/*
-Syntax error: Properties are only allowed within rules, directives, or other properties.
-        on line 90 of /home/patrick/sinatra_projects/helcross.com/views/stylesheets/application.sass
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-Backtrace:
-/home/patrick/sinatra_projects/helcross.com/views/stylesheets/application.sass:90
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:12:in `visit'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:26:in `visit_children'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:33:in `visit_root'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/check_nesting.rb:14:in `visit'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:24:in `visit'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/root_node.rb:19:in `render'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/engine.rb:299:in `_render'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/engine.rb:247:in `block in render'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/util.rb:310:in `silence_sass_warnings'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/engine.rb:247:in `render'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:136:in `block (2 levels) in compile'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:122:in `timed'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:135:in `block in compile'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/logger.rb:45:in `red'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:134:in `compile'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:114:in `compile_if_required'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:99:in `block (2 levels) in run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:97:in `each'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:97:in `block in run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:122:in `timed'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/compiler.rb:96:in `run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/commands/watch_project.rb:142:in `recompile'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/path.rb:73:in `call'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/path.rb:73:in `run_callback'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/path.rb:55:in `callback_action'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/path.rb:35:in `update'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:39:in `block in modified'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:37:in `each'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:37:in `modified'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:18:in `refresh'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `each'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `block in run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:15:in `loop'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:15:in `run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm/monitor.rb:26:in `run'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/fssm-0.2.8.1/lib/fssm.rb:70:in `monitor'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/commands/watch_project.rb:86:in `perform'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/commands/base.rb:18:in `execute'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/commands/project_base.rb:19:in `execute'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/bin/compass:25:in `block in <top (required)>'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/bin/compass:39:in `call'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/compass-0.11.7/bin/compass:39:in `<top (required)>'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/bin/compass:23:in `load'
-/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Properties are only allowed within rules, directives, or other properties.\A         on line 90 of /home/patrick/sinatra_projects/helcross.com/views/stylesheets/application.sass"; }
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+strong, em, h1, h2, h3, .navbar {
+  font: auto;
+  font-weight: bold;
+}
+
+[id$="page"] {
+  margin-top: 50px;
+}
+
+[class^="container"] > [class^="span"],
+[class^="container"] > [class^="row"] > [class^="span"] {
+  padding: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+footer {
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 75%;
+}
+
+img[src*="/images/helcross"] {
+  height: 175px !important;
+  width: auto;
+}
+
+.thumbnail {
+  border: none;
+  font-size: 75%;
+  color: gray;
+}
+.thumbnail img {
+  margin-bottom: 1em;
+}
+.thumbnail p {
+  text-align: center;
+}
+
+a {
+  color: #3366cc;
+}
+a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+a:active {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input, textarea {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  width: 100%;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #ffffcc;
+}
+
+input[type="submit"], .btn {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+input {
+  height: 1.5em;
+}
+
+.hero-unit {
+  background-color: #ffffcc;
+}
+
+#home-page {
+  min-height: 350px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#home-page .front-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1200px;
+  height: 250px;
+  margin-top: -125px;
+  margin-left: -600px;
+}
+#home-page .front-card > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+#home-page .front-card .huge-word {
+  font-size: 100px;
+  color: gray;
+}
+#home-page .front-card .huge-symbol {
+  font-size: 200px;
+  margin-top: -25px;
+  color: gray;
+}
+
+#home-carousel-placeholer {
+  width: 300px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+#home-carousel {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  width: 300px;
+  height: 250px;
+}
+#home-carousel .carousel {
+  width: inherit;
+  height: inherit;
+  background-color: grey;
+}
+#home-carousel .carousel .carousel-inner {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+}
+#home-carousel .carousel .carousel-inner .item {
+  height: inherit;
+  width: inherit;
+}
+#home-carousel .carousel .carousel-inner .item img {
+  margin: 0 auto;
+  height: inherit;
+  width: auto;
+}
+#home-carousel .carousel .carousel-inner .item .carousel-caption p {
+  color: white;
+}
+#home-carousel .carousel .carousel-caption, #home-carousel .carousel .carousel-control {
+  display: none;
+}
+
+#home-carousel.expanding {
+  position: relative;
+}
+
+#home-carousel.expanded {
+  position: relative !important;
+  margin: 0;
+}
+#home-carousel.expanded .carousel-caption, #home-carousel.expanded .carousel-control {
+  display: block;
+}
+
+#forum-page {
+  margin-top: 48px;
+}
+
+body {
+  font-family: Quattrocento Sans;
+  background: #ff69b4;
+  color: #0d0d0d;
+}
+body p {
+  font-family: Quattrocento Sans;
+}
+body .brand {
+  font: 24px Loved by the King;
+  z-index: 2;
+}
+
+.navbar .brand {
+  font-size: 1.5em;
+  padding-bottom: 0px;
+}
+
+#auth-status {
+  display: inline;
+  float: right;
+  font: 24px Loved by the King;
+}
+#auth-status .btn {
+  font-family: Quattrocento Sans;
+  margin-top: -3px;
+}
+
+#like-button {
+  position: absolute;
+  border: none;
+  width: 450px;
+  height: 44px;
+  float: right;
+}
+
+.if-logged-in.showing, .if-logged-out.showing {
+  display: inline !important;
+}
+
+.if-logged-in, .if-logged-out {
+  display: none !important;
+}
+
+.button:link, .button:visited {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #97afe2), color-stop(100%, #6073a1));
+  background-image: -webkit-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -moz-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -o-linear-gradient(top, #97afe2, #6073a1);
+  background-image: -ms-linear-gradient(top, #97afe2, #6073a1);
+  background-image: linear-gradient(top, #97afe2, #6073a1);
+  -moz-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  box-shadow: 0, 1px, 1px, rgba(0, 0, 0, 0.5);
+  font-family: Quattrocento Sans;
+  text-shadow: 0, 1px, 1px, rgba(255, 255, 255, 0.2);
+  background-color: #7a90c0;
+  border: none;
+  color: #1d222c;
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: top;
+  line-height: 28px;
+  padding: 0 25px;
+  text-decoration: none;
+}
+
+.forum {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+.forum h1 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 20px;
+}
+
+.post {
+  display: inline-block;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  width: 840px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.post .message-container {
+  float: left;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+.post .primary-actor {
+  width: 120px;
+  float: left;
+  width: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.post .video-container {
+  width: 680px;
+  font-weight: normal;
+  float: right;
+}
+.post .video-container .icon-container {
+  position: absolute;
+}
+.post .video-container .meta-container {
+  float: left;
+  width: 450px;
+}
+.post .video-container .meta-container .description-container {
+  color: rgba(0, 0, 0, 0.66);
+  font-size: 75%;
+}
+.post .video-container .video-preview {
+  display: block;
+  font-size: 75%;
+  padding-right: 20px;
+  width: 150px;
+  float: left;
+}
+.post .video-container .video-preview img {
+  display: block;
+}
+.post .video-container .video {
+  clear: both;
+  display: none;
+}
+.post .video-container.active .meta-container {
+  width: auto;
+}
+.post .video-container.active .video-preview {
+  display: none;
+}
+.post .video-container.active .video {
+  display: block;
+}
+.post .video-container.active .icon-container {
+  display: none;
+}
+.post .post-inner {
+  float: left;
+}

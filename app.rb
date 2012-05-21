@@ -37,7 +37,7 @@ end
 # Helpers
 require './lib/helpers'
 require './lib/partials'
-
+require './lib/db'
 
 helpers do
   def host

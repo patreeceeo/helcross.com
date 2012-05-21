@@ -1,11 +1,11 @@
-#contact-page.container-fluid
+#contact-page.container
   - if flash && flash == "message_sent"
     .alert.alert-success
-      %button.close(data-dismiss="alert") x
+      %button.close(data-dismiss="alert") &times;
       <strong>Thanks for getting in contact with us!</strong> Somone from our team should be in touch with you shortly
   .row-fluid
     .span5
-      .hero-unit
+      .well
         = content "contact"
     .span4
       .well
@@ -16,9 +16,13 @@
               %dd
                 %input(type="text" name="name" class="text" size=40 type="username" placeholder="your name" autofocus="autofocus")
               %dd
-                %input(:type="text" name="mail" class="text" size=40 type="email" placeholder="you@example.com")
+                %input(type="text" name="mail" class="text" size=40 type="email" placeholder="you@example.com")
               %dd
                 %textarea(name="body" rows=4 cols=40 placeholder="Your message goes here.")            
+              %dd
+                %label.checkbox
+                  %input(type="checkbox") also send via Facebook
           %fieldset
-            %input.btn(type="submit" value="Send!")
+            %input.btn.btn-primary(type="submit" value="Send!")
+            
 
