@@ -12,9 +12,10 @@ gem "json_pure"
 gem 'rack', '1.4.1', :git =>  "git://github.com/rack/rack.git" 
 gem 'thin'
 gem 'pony' # for sending e-mail
-gem 'sqlite3'
+gem 'pg'
 
 group :development do
+  gem 'sqlite3'
   gem 'pry'
   gem 'rb-inotify'
   gem 'heroku'
