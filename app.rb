@@ -144,17 +144,17 @@ post '/contact' do
   body = params[:body]
 
   Pony.mail(
-    :to => "patrickcandoit@gmail.com", 
+    :to => "heltllc@gmail.com", 
     :from => mail, 
     :sender => mail,
-    :subject=> "Hel+ contact form submission from #{name}",
+    :subject=> "Message from #{name} on Hel+",
     :body => body,
     :via => :smtp, 
     :via_options => {
     :address    => 'smtp.gmail.com',
     :port       => '587',
-    :user_name  => 'patrickcandoit@gmail.com',
-    :password   => 'irun4unf',
+    :user_name  => 'heltllc@gmail.com',
+    :password   => '*{+}%76hX',
     :authentication => :plain,
     :domain     => "gmail.com"
   }   
@@ -166,14 +166,53 @@ get '/forum' do
   haml :forum, :locals => {:page => @page}, :layout => :'layouts/application'
 end
 
-post '/cart' do
+
+before '/cart' do
   content_type :json
+  db = DB.new
+  session[:cart] ||= {}
+  session[:cart][:count] = 0
+  session[:cart][:total] = 0
+  session[:cart][:item] ||= {}
+  session[:cart][:item].each_pair do | id, item |
+    price = db.lookup("store_inventory", "price", id);
+    session[:cart][:count] += item[:count]
+    session[:cart][:total] += item[:count] * price
+    item[:name] = db.lookup("store_inventory", "item", id);
+    item[:description] = db.lookup("store_inventory", "description", id);
+    item[:picture] = db.lookup("store_inventory", "picture", id);
+    item[:price] = db.lookup("store_inventory", "price", id);
+  end
+end
+
+get '/cart' do
+  session[:cart].to_json
+end
+
+
+post '/cart' do
+  db = DB.new
   action = params["action"]
-  id = params["id"]
+  id = params["id"].to_i
   puts "post /cart, action: #{action}, id: #{id}"
   if action == "add"
-    { message: "You added an item with id #{id} to the cart" }.to_json
+    if db.has_record?("store_inventory", "id", id)
+      session[:cart][:item][id] ||= {}
+      session[:cart][:item][id][:count] ||= 0 
+      session[:cart][:item][id][:count] += 1
+      session[:cart][:count] += 1
+      session[:cart].merge({message: "You added an item with id #{id} to the cart!"}).to_json
+    else
+      {
+        message: "No such item with id #{id} exists."
+      }.to_json
+    end
+  elsif action == "empty"
+    session[:cart] = {}
+    session[:cart][:count] = 0
+    session[:cart][:total] = 0
+    session[:cart].merge({message: "You just emptied the cart all over the aisle! Good job!"}).to_json
   else
-    { message: "Something went wrong" }.to_json
+    { message: "Unrecognized action" }.to_json
   end
 end

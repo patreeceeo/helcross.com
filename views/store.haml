@@ -16,10 +16,32 @@
             <p><em>#{item["item"]}</em></p>
             <p>#{item["description"]}</p>
             
+#shopping-cart-modal.modal.fade
+  .modal-header
+    %button(class="close" data-dismiss="modal") &times;</button>
+    <h3>Shopping Cart</h3>
+  .modal-body
+    %table#shopping-cart-contents.table
+      %thead
+        %tr
+          %th
+            item
+          %th
+            quantity
+          %th
+            total price
+      %tbody
+      
+  .modal-footer
+    %a.btn(href="#" data-dismiss="modal") Cancel
+    %a.btn.btn-danger#empty-shopping-cart-button(href="#" style="margin-bottom: 12px" data-dismiss="modal") Empty
+    %a.btn.btn-primary(href="#" style="margin-bottom: 12px") Checkout
+
+%script
+  $(document).ready(function() { cart.refresh();});
 
 
 
 
 
-
-    -# At Hel+, we believe in freedom, transparency and limitations imposed on governments as well as corporations as stipulated by a consitution written and ratified by the people. When such limitations are being violated or do not exist at all, the survival of freedom depends on the existance of protected channels of communication accessible to the people, channels that stay one step ahead of the censorship and servailance techniques of the powers that be. That is why Hel+, in light of recent events both here in the USA and abroad, is supporting the development of <a href="http://torproject.org">Tor</a> with 15% all the proceeds collected in our store. 
+-# At Hel+, we believe in freedom, transparency and limitations imposed on governments as well as corporations as stipulated by a consitution written and ratified by the people. When such limitations are being violated or do not exist at all, the survival of freedom depends on the existance of protected channels of communication accessible to the people, channels that stay one step ahead of the censorship and servailance techniques of the powers that be. That is why Hel+, in light of recent events both here in the USA and abroad, is supporting the development of <a href="http://torproject.org">Tor</a> with 15% all the proceeds collected in our store. 

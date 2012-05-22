@@ -47,6 +47,8 @@ function stripeResponseHandler(status, response) {
   }
 }
 
+var cart;
+
 $(document).ready(function() {
 	// Open external links in a new window
   makeExternalLinksOpenInNewWindow("");
@@ -74,6 +76,35 @@ $(document).ready(function() {
     }
   }]);
 
+
+  cart = {
+    count: 0,
+    total: 0,
+    contents: {},
+    ingest: function(data) {
+      var count = data["count"]
+      var total = data["total"]
+      // if(count && total) {
+        cart.count = count;
+        cart.total = total;
+        cart.publishChanges();
+      // }
+      cart.contents = data["item"];
+    },
+    refresh: function(data) {
+      $.getJSON('/cart', {}, function(data) {
+        cart.ingest(data)
+      })
+      cart.showTip = true;
+    },
+    publishChanges: function () {  
+      $("#shopping-cart-bar").tooltip("show");
+      $("#shopping-cart-bar").addClass("visible");
+      $("#shopping-cart-count").text(cart.count);
+      $("#shopping-cart-total").text("$"+cart.total);
+    }
+  }
+
   $(".store-item .on-hover").mouseover(function(e) {
     $(this).addClass("hovering");
   });
@@ -82,18 +113,36 @@ $(document).ready(function() {
     $(this).removeClass("hovering");
   });
 
-  function addToCartCallback(data) {
-  }
-
   $(".store-item").click(function(e) {
     var id = $(this).attr("data-item-id");
     log(id);
     $.post("/cart", {action: "add", id: id}, function (data) {
-      log("response: "+data["message"]);
+      cart.ingest(data);
     }, "json");
   });
 
+  $("#shopping-cart-bar").tooltip({placement: "bottom", trigger: "manual", delay: {show:0, hide: 2000}});
 
+  $("#shopping-cart-bar").mouseover(function(e) {
+    $(this).tooltip('hide');
+  });
+
+  $("#shopping-cart-bar").click(function(e) {
+    var el = $("#shopping-cart-contents tbody");
+    el.empty();
+    for(id in cart.contents) {
+      var name = cart.contents[id]["name"];
+      var count = cart.contents[id]["count"];
+      var price = count * cart.contents[id]["price"];
+      el.append("<tr><td>"+name+"</td><td>"+count+"</td><td>$"+price+"</td></tr>");
+    }
+  }); 
+
+  $("#empty-shopping-cart-button").click(function(e) {
+    $.post("/cart", {action: "empty"}, function (data) {
+      cart.ingest(data);
+    }, "json");
+  });
 
   // Create Stripe single-use token
   $("#payment-form").submit(function(event) {

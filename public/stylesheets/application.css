@@ -97,6 +97,27 @@ img[src*="/images/helcross"] {
   margin-bottom: 1em;
 }
 
+#shopping-cart-bar {
+  cursor: pointer;
+  display: none;
+}
+#shopping-cart-bar.visible {
+  display: block;
+}
+
+.tooltip {
+  font-size: 1em;
+}
+
+ul#shopping-cart-bar {
+  float: right;
+  padding-top: 9px;
+  padding-bottom: 10px;
+}
+ul#shopping-cart-bar li {
+  display: inline;
+}
+
 .store-item {
   color: gray;
   width: 260px;
@@ -158,11 +179,12 @@ input, textarea {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
+  font: 24px Loved by the King;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   width: 100%;
   line-height: 1.5em;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
   background-color: #ffffcc;
 }

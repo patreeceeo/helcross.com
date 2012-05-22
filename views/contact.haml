@@ -2,12 +2,12 @@
   - if flash && flash == "message_sent"
     .alert.alert-success
       %button.close(data-dismiss="alert") &times;
-      <strong>Thanks for getting in contact with us!</strong> Somone from our team should be in touch with you shortly
+      <strong>Thanks for getting in contact with us!</strong> We love mail.
   .row-fluid
     .span5
       .well
         = content "contact"
-    .span4
+    .span5
       .well
         %form{ :action => "/contact", :method => "post"}
           %fieldset
@@ -19,9 +19,6 @@
                 %input(type="text" name="mail" class="text" size=40 type="email" placeholder="you@example.com")
               %dd
                 %textarea(name="body" rows=4 cols=40 placeholder="Your message goes here.")            
-              %dd
-                %label.checkbox
-                  %input(type="checkbox") also send via Facebook
           %fieldset
             %input.btn.btn-primary(type="submit" value="Send!")
             

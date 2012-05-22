@@ -4,12 +4,35 @@ require "rest_client"
 require "./lib/helpers"
 
 
+
+
 module Sinatra
 
   module DBHelper
 
+    public
+
     def data
       @data ||= Syck.load(RestClient.get s3_link("/data.yaml"))
+    end
+
+    def has_record?(tablename, colname, value)
+      table = data[tablename]
+      table.each do | row |
+        if row[colname] == value
+          return true
+        end
+      end
+      false
+    end
+
+    def lookup(tablename, colname, id)
+      table = data[tablename]
+      table.each do | row |
+        if row["id"] == id
+          return row[colname]
+        end
+      end
     end
 
     def each_table_row(table_name, &clsr)
@@ -21,6 +44,11 @@ module Sinatra
 
   helpers DBHelper
 end
+
+class DB
+  include Sinatra::DBHelper
+end
+
 
 
 
