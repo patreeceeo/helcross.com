@@ -32,26 +32,14 @@ function makeExternalLinksOpenInNewWindow(root_stor) {
     .attr('target', '_blank');
 }
 
-function stripeResponseHandler(status, response) {
-  if (response.error) {
-    // show the errors on the form
-    $(".payment-errors").text(response.error.message);
-  } else {
-    var form$ = $("#payment-form");
-    // token contains id, last4, and card type
-    var token = response['id'];
-    // insert the token into the form so it gets submitted to the server
-    form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-    // and submit
-    form$.get(0).submit();
-  }
-}
 
 var cart;
 
 $(document).ready(function() {
 	// Open external links in a new window
   makeExternalLinksOpenInNewWindow("");
+
+  $(".if-error").hide();
 
   $(".carousel").carousel()
 
@@ -84,11 +72,11 @@ $(document).ready(function() {
     ingest: function(data) {
       var count = data["count"]
       var total = data["total"]
-      // if(count && total) {
+      if(typeof count == "number") 
         cart.count = count;
-        cart.total = total;
-        cart.publishChanges();
-      // }
+      if(typeof total == "number") 
+        cart.total = total; 
+      cart.publishChanges();
       cart.contents = data["item"];
     },
     refresh: function(data) {
@@ -102,7 +90,15 @@ $(document).ready(function() {
       $("#shopping-cart-bar").addClass("visible");
       $("#shopping-cart-count").text(cart.count);
       $("#shopping-cart-total").text("$"+cart.total);
+      if(parseInt(cart.count) == 0) {
+        $(".if-shopping-cart-not-empty").hide();
+        $(".if-shopping-cart-empty").show();
+      } else {
+        $(".if-shopping-cart-not-empty").show();
+        $(".if-shopping-cart-empty").hide();
+      }
     }
+
   }
 
   $(".store-item .on-hover").mouseover(function(e) {
@@ -136,6 +132,8 @@ $(document).ready(function() {
       var price = count * cart.contents[id]["price"];
       el.append("<tr><td>"+name+"</td><td>"+count+"</td><td>$"+price+"</td></tr>");
     }
+    // show total at bottom
+    el.append("<tr><td><em>total</em></td><td>"+cart.count+"</td><td>$"+cart.total+"</td></tr>");
   }); 
 
   $("#empty-shopping-cart-button").click(function(e) {
@@ -148,12 +146,60 @@ $(document).ready(function() {
   $("#payment-form").submit(function(event) {
     // disable the submit button to prevent repeated clicks
     $('.submit-button').attr("disabled", "disabled");
-    Stripe.createToken({
+
+    var cvc = $('.card-cvc').val();
+    if(!Stripe.validateCVC(cvc)) {
+      log("cvs is wrong");
+      $(".card-cvc-container").addClass("error");
+      $(".card-cvc-container .if-error").show("fast");
+    } else Stripe.createToken({
       number: $('.card-number').val(),
       cvc: $('.card-cvc').val(),
       exp_month: $('.card-expiry-month').val(),
-      exp_year: $('.card-expiry-year').val()
-    }, stripeResponseHandler);
+      exp_year: $('.card-expiry-year').val(),
+      // optional stuff:
+      name: $('.cardholder-name').val(),
+      address_line_1: $('.cardholder-address1').val(),
+      address_line_2: $('.cardholder-address2').val(),
+      address_state: $('cardholder-state').val(),
+      address_zip: $('cardholder-zip').val(),
+      address_country: $('cardholder-country').val()
+    }, function (status, response) {
+      log(response);
+      if (response.error) {
+        // show the errors on the form
+        // $(".payment-errors").text(response.error.message);
+        if(response.error.code == "incorrect_number") {
+          $(".card-number-container").addClass("error");
+          $(".card-number-container .if-error").show("fast");
+        } else if (response.error.code == "invalid_expiry_year") {
+          $(".card-expiry-container").addClass("error");
+          $(".card-expiry-container .if-error").show("fast");
+        }
+
+        log(response.error.message);
+      } else {
+        var form$ = $("#payment-form");
+        // token contains id, last4, and card type
+        var token = response['id'];
+        // insert the token into the form so it gets submitted to the server
+        form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+        // and submit
+        var formData = form$.serialize();
+        $.post("/cart/checkout", formData, function(data) {
+          if(data.failure_message) 
+            $(".payment-errors").text(data.failure_message);
+          else {
+            log("no errors in payment processing!");
+            cart.refresh()
+            $("#shopping-cart-modal").modal('hide');
+            $("#payment-thanks").text("Thanks "+data.card.name+"!");
+            $("#payment-success-modal").modal('show');
+          }
+        }, "json")
+      }
+    });
+
     // prevent the form from submitting with the default action
     return false;
   });

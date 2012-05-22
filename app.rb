@@ -6,6 +6,7 @@ require 'koala'
 require 'rest_client'
 require 'pony'
 require 'json'
+require 'stripe'
 
 enable :sessions
 set :raise_errors, false
@@ -38,6 +39,7 @@ end
 require './lib/helpers'
 require './lib/partials'
 require './lib/db'
+require './lib/cart'
 
 helpers do
   def host
@@ -169,26 +171,11 @@ end
 
 before '/cart' do
   content_type :json
-  db = DB.new
-  session[:cart] ||= {}
-  session[:cart][:count] = 0
-  session[:cart][:total] = 0
-  session[:cart][:item] ||= {}
-  session[:cart][:item].each_pair do | id, item |
-    price = db.lookup("store_inventory", "price", id);
-    session[:cart][:count] += item[:count]
-    session[:cart][:total] += item[:count] * price
-    item[:name] = db.lookup("store_inventory", "item", id);
-    item[:description] = db.lookup("store_inventory", "description", id);
-    item[:picture] = db.lookup("store_inventory", "picture", id);
-    item[:price] = db.lookup("store_inventory", "price", id);
-  end
 end
 
 get '/cart' do
-  session[:cart].to_json
+  update_cart.to_json
 end
-
 
 post '/cart' do
   db = DB.new
@@ -197,22 +184,53 @@ post '/cart' do
   puts "post /cart, action: #{action}, id: #{id}"
   if action == "add"
     if db.has_record?("store_inventory", "id", id)
-      session[:cart][:item][id] ||= {}
-      session[:cart][:item][id][:count] ||= 0 
-      session[:cart][:item][id][:count] += 1
-      session[:cart][:count] += 1
-      session[:cart].merge({message: "You added an item with id #{id} to the cart!"}).to_json
+      add_to_cart(id).merge({message: "You added an item with id #{id} to the cart!"}).to_json
     else
       {
         message: "No such item with id #{id} exists."
       }.to_json
     end
   elsif action == "empty"
-    session[:cart] = {}
-    session[:cart][:count] = 0
-    session[:cart][:total] = 0
-    session[:cart].merge({message: "You just emptied the cart all over the aisle! Good job!"}).to_json
+    empty_cart.merge({message: "You just emptied the cart all over the aisle! Good job!"}).to_json
   else
     { message: "Unrecognized action" }.to_json
   end
+end
+
+post '/cart/checkout' do
+  content_type :json
+  Stripe.api_key = "dcCmB0KmaK762nz5qZnzSWHP8hsa0P7S"
+
+  # get the credit card details submitted by the form
+  token = params[:stripeToken]
+
+  # create the charge on Stripe's servers - this will charge the user's card
+  charge = Stripe::Charge.create(
+    :amount => session[:cart][:total] * 100,
+    :currency => "usd",
+    :card => token,
+    :description => "Payment from #{params[:name]}",
+  )
+
+  if not charge.failure_message
+    # Send Receipt
+    Pony.mail(
+      :to => params[:email], 
+      :from => "heltllc@gmail.com", 
+      :sender => "heltllc@gmail.com",
+      :subject=> "Your Hel+ receipt",
+      :body => body,
+      :via => :smtp, 
+      :via_options => {
+      :address    => 'smtp.gmail.com',
+      :port       => '587',
+      :user_name  => 'heltllc@gmail.com',
+      :password   => '*{+}%76hX',
+      :authentication => :plain,
+      :domain     => "gmail.com"
+      }   
+    )   
+  end
+  empty_cart
+  charge.to_json
 end

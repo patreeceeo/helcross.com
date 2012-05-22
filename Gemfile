@@ -14,6 +14,7 @@ gem 'thin'
 gem 'pony' # for sending e-mail
 gem 'pg'
 gem 'pry'
+gem 'stripe'
 
 group :development do
   gem 'sqlite3'

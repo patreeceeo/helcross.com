@@ -19,78 +19,124 @@
 #shopping-cart-modal.modal.fade
   .modal-header
     %button(class="close" data-dismiss="modal") &times;</button>
-    <h3>Shopping Cart</h3>
-  .modal-body.accordian#accordian
-    .accordian-group
-      .accordian-heading
-        %a.accordian-toggle(data-toggle="collapse" data-parent="accordian" href="#shopping-cart-contents-collapse") 
-          Contents:
-          %a.btn.btn-danger#empty-shopping-cart-button(href="#" style="margin-bottom: 12px" data-dismiss="modal") Empty Cart
-      .collapse.in#shopping-cart-contents-collapse
-        %table#shopping-cart-contents.table
-          %thead
-            %tr
-              %th
-                item
-              %th
-                quantity
-              %th
-                total price
-          %tbody
+    %h2 Shopping Cart
+  .modal-body
+    .if-shopping-cart-empty
+      Your shopping cart is empty. Lets fix this.
+    .accordion#accordion
+      .accordion-group.if-shopping-cart-not-empty
+        .accordion-heading
+          %a.accordion-toggle(data-toggle="collapse" data-parent="#accordion" href="#shopping-cart-contents-collapse") Contents:
+        .accordion-body.collapse.in#shopping-cart-contents-collapse
+          %table#shopping-cart-contents.table
+            %thead
+              %tr
+                %th
+                  item
+                %th
+                  quantity
+                %th
+                  total price
+            %tbody
+          %form.form-inline
+            %fieldset
+              %legend Available Actions:
+              .controls
+                .control-group
+                  %a.btn.btn-danger#empty-shopping-cart-button(href="#" style="margin-bottom: 12px" data-dismiss="modal") Empty Cart
 
-    .accordian-group
-      .accordian-heading
-        %a.accordian-toggle(data-toggle="collapse" data-parent="accordian" href="#shopping-cart-checkout-collapse") Checkout:
-      .collapse#shopping-cart-checkout-collapse
-        %form.form-horizontal(action="/cart/checkout" method="POST" id="payment-form")
-          %fieldset
-            %legend Please enter your information to proceed.
-            .control-group
-              %label.control-label Name
-              .controls
-                %input(type="name" size="40" name="name")
-            .control-group
-              %label.control-label Address 1
-              .controls
-                %input(type="address1" size="40" name="address1")
-            .control-group
-              %label.control-label Address 2
-              .controls
-                %input(type="address2" size="40" name="address2")
-            .control-group
-              %label.control-label City
-              .controls
-                %input(type="city" size="40" name="city")
+      .accordion-group.if-shopping-cart-not-empty
+        .accordion-heading
+          %a.accordion-toggle(data-toggle="collapse" data-parent="#accordion" href="#shopping-cart-checkout-collapse") Checkout:
+        .accordion-body.collapse#shopping-cart-checkout-collapse
+          .payment-errors
+          %form.form-horizontal(action="/cart/checkout" method="POST" id="payment-form")
+            %fieldset
+              %legend Where should we send your stuff?
+              .control-group
+                %label.control-label Name
+                .controls
+                  %input.cardholder-name(type="text" size="40" required="required" autofocus="autofocus" name="name")
+              .control-group
+                %label.control-label E-mail Address
+                .controls
+                  %input.cardholder-email(type="email" size="40" required="required" name="email")
+              .control-group
+                %label.control-label Address 1
+                .controls
+                  %input.cardholder-address1(type="address1" size="40" required="required" name="address-line-1")
+              .control-group
+                %label.control-label Address 2
+                .controls
+                  %input.cardholder-address2(type="address2" size="40" name="address-line-2")
+              .control-group
+                %label.control-label City
+                .controls
+                  %input.cardholder-city(type="city" size="40" required="required" name="city")
 
-            .control-group
-              %label.control-label State
-              .controls
-                %input(type="state" size="2" name="state")
-            .control-group
-              %label.control-label Zip
-              .controls
-                %input(type="zipcode" size="7" name="zipcode")
-            .control-group
-              %label.control-label Card Number
-              .controls
-                %input(type="text" size="20" autocomplete="off" class="card-number")
-            .control-group
-              %label.control-label CVC
-              .controls
-                %input(type="text" size="4" autocomplete="off" class="card-cvc")
-            .control-group
-              %label.control-label Expiration (MM/YYYY)
-              .controls
-                <input type="text" size="2" maxlength="2"><span> / </span><input type="text" size="4" maxlength="4">
-          %button.btn.btn-primary(type="submit") Submit Payment
+              .control-group
+                %label.control-label State
+                .controls
+                  %input.cardholder-state(type="state" size="40" required="required" name="state")
+                  %p.help-block
+                    If outside the United States, enter Province if applicable or "None" 
+              .control-group
+                %label.control-label Country
+                .controls
+                  %input.cardholder-country(type="country" size="20" required="required" list="countries" name="country")
+                %datalist#countries
+                  %option(value="United States")
+                  %option(value="Canada")
+                  %option(value="Mexico")
+                  %option(value="Great Britain")
+                  %option(value="France")
+                  %option(value="Germany")
+                  %option(value="Spain")
+                  %option(value="Italy")
+                  %option(value="Japan")
+                  %option(value="China")
+                  %option(value="Philippines")
+            %fieldset
+              %legend Enter your card info, please.
+              .control-group.card-number-container
+                %label.control-label Card Number
+                .controls
+                  %input.card-number(type="text" size="20" autocomplete="off")
+                  %p.help-block.if-error
+                    Your card number seems to be incorrect
+              .control-group.card-cvc-container
+                %label.control-label CVC
+                .controls
+                  %input.card-cvc(type="text" size="4" autocomplete="off")
+                  %p.help-block.if-error
+                    Your CVC seems to be incorrect.
+              .control-group.card-expiry-container
+                %label.control-label Expiration (MM/YYYY)
+                .controls
+                  <input type="text" size="2" maxlength="2" class="card-expiry-month"><span> / </span><input type="text" size="4" maxlength="4" class="card-expiry-year">
+                  %p.help-block.if-error
+                    Your card expiry date seems to be incorrect.
+            %fieldset
+              %legend Friendly Reminder: Check your answers before submitting!
+              .control-group
+                .controls
+                  %input.btn.btn-primary(type="submit" value="Submit Payment")
       
   .modal-footer
-    %a.btn(href="#" data-dismiss="modal") Cancel
+    %a.btn(href="#" data-dismiss="modal") Dismiss
 
 %script
   $(document).ready(function() { cart.refresh();});
 
 
+#payment-success-modal.modal.fade
+  .modal-header
+    %button(class="close" data-dismiss="modal") &times;</button>
+    %h2#payment-thanks
+  .modal-body
+    Your order has been placed. You should receive a receipt by e-mail. If you notice any problems with your order please use our contact form to get in touch with us and be sure to include the order number from your receipt.
+  .modal-footer
+    %a.btn(href="#" data-dismiss="modal") Okay
 
 
 
