@@ -35,9 +35,25 @@ module Sinatra
       end
     end
 
-    def each_table_row(table_name, &clsr)
-      data[table_name].each do |row|
-        clsr.call(row)
+    def default_options
+      { chunk_size: 1 }
+    end
+
+    def each_table_row(table_name, options=default_options, &clsr)
+      chunk_size = options[:chunk_size];
+      if chunk_size > 1
+        chunk = []
+        data[table_name].each do |row|
+          chunk << row 
+          if chunk.length == chunk_size
+            clsr.call(chunk)
+            chunk = []
+          end
+        end 
+      else
+        data[table_name].each do |row|
+          clsr.call(row)
+        end
       end
     end
   end

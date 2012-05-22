@@ -3,18 +3,19 @@
     .row-fluid
       .hero-unit
         = content "store"
-    .row-fluid
-      - each_table_row("store_inventory") do |item|
-        .span4
-          .store-item(data-item-id="#{item["id"]}")
-            .img-wrapper
-              .on-hover
-                .text-wrapper
-                  <p>Add to Cart</p>
-                  <p>$#{item["price"]}</p>
-              %img(src="#{item["picture"]}" alt="")
-            <p><em>#{item["item"]}</em></p>
-            <p>#{item["description"]}</p>
+    - each_table_row("store_inventory", chunk_size: 3) do |items|
+      .row-fluid
+        - items.each do |item|
+          .span4
+            .store-item(data-item-id="#{item["id"]}")
+              .img-wrapper
+                .on-hover
+                  .text-wrapper
+                    <p>Add to Cart</p>
+                    <p>$#{item["price"]}</p>
+                %img(src="#{s3_link item["picture"]}" alt="")
+              <p><em>#{item["item"]}</em></p>
+              <p>#{item["description"]}</p>
             
 #shopping-cart-modal.modal.fade
   .modal-header

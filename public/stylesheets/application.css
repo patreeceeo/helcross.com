@@ -124,12 +124,13 @@ ul#shopping-cart-bar li {
   height: auto;
 }
 .store-item .img-wrapper {
-  height: inherit;
+  height: 180px;
   width: 260px;
+  overflow: hidden;
 }
 .store-item .img-wrapper img {
   width: inherit;
-  height: inherit;
+  height: auto;
   margin-bottom: 0.5em;
 }
 .store-item .on-hover {
