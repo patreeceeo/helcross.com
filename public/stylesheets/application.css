@@ -172,7 +172,11 @@ textarea {
   resize: none;
 }
 
-input, textarea {
+input {
+  width: auto;
+}
+
+form.carefree input, form.carefree textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -188,8 +192,7 @@ input, textarea {
   font-weight: bold;
   background-color: #ffffcc;
 }
-
-input[type="submit"], .btn {
+form.carefree input[type="submit"], form.carefree .btn {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -202,8 +205,7 @@ input[type="submit"], .btn {
   font-size: 1.5em;
   font-weight: bold;
 }
-
-input {
+form.carefree input {
   height: 1.5em;
 }
 
