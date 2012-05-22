@@ -5,6 +5,7 @@ require 'maruku'
 require 'koala'
 require 'rest_client'
 require 'pony'
+require 'json'
 
 enable :sessions
 set :raise_errors, false
@@ -165,3 +166,14 @@ get '/forum' do
   haml :forum, :locals => {:page => @page}, :layout => :'layouts/application'
 end
 
+post '/cart' do
+  content_type :json
+  action = params["action"]
+  id = params["id"]
+  puts "post /cart, action: #{action}, id: #{id}"
+  if action == "add"
+    { message: "You added an item with id #{id} to the cart" }.to_json
+  else
+    { message: "Something went wrong" }.to_json
+  end
+end

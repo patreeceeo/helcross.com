@@ -55,7 +55,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 strong, em, h1, h2, h3, .navbar {
-  font: auto;
   font-weight: bold;
 }
 
@@ -93,14 +92,48 @@ img[src*="/images/helcross"] {
 
 .thumbnail {
   border: none;
-  font-size: 75%;
-  color: gray;
 }
 .thumbnail img {
   margin-bottom: 1em;
 }
-.thumbnail p {
+
+.store-item {
+  color: gray;
+  width: 260px;
+  height: auto;
+}
+.store-item .img-wrapper {
+  height: inherit;
+  width: 260px;
+}
+.store-item .img-wrapper img {
+  width: inherit;
+  height: inherit;
+  margin-bottom: 0.5em;
+}
+.store-item .on-hover {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: inherit;
+  height: 180px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.store-item .on-hover .text-wrapper {
+  display: none;
+}
+.store-item .on-hover.hovering {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.store-item .on-hover.hovering .text-wrapper {
   text-align: center;
+  display: block;
+  margin-top: 1em;
+  font-size: 2em;
+  line-height: 2em;
+  font-weight: bold;
+  color: white;
 }
 
 a {
@@ -265,32 +298,6 @@ body .brand {
   padding-bottom: 0px;
 }
 
-#auth-status {
-  display: inline;
-  float: right;
-  font: 24px Loved by the King;
-}
-#auth-status .btn {
-  font-family: Quattrocento Sans;
-  margin-top: -3px;
-}
-
-#like-button {
-  position: absolute;
-  border: none;
-  width: 450px;
-  height: 44px;
-  float: right;
-}
-
-.if-logged-in.showing, .if-logged-out.showing {
-  display: inline !important;
-}
-
-.if-logged-in, .if-logged-out {
-  display: none !important;
-}
-
 .button:link, .button:visited {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -319,85 +326,4 @@ body .brand {
   line-height: 28px;
   padding: 0 25px;
   text-decoration: none;
-}
-
-.forum {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  background-color: white;
-}
-.forum h1 {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 20px;
-}
-
-.post {
-  display: inline-block;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  width: 840px;
-  padding-left: 20px;
-  padding-top: 20px;
-}
-.post .message-container {
-  float: left;
-  font-weight: bold;
-  padding-bottom: 1em;
-}
-.post .primary-actor {
-  width: 120px;
-  float: left;
-  width: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.post .video-container {
-  width: 680px;
-  font-weight: normal;
-  float: right;
-}
-.post .video-container .icon-container {
-  position: absolute;
-}
-.post .video-container .meta-container {
-  float: left;
-  width: 450px;
-}
-.post .video-container .meta-container .description-container {
-  color: rgba(0, 0, 0, 0.66);
-  font-size: 75%;
-}
-.post .video-container .video-preview {
-  display: block;
-  font-size: 75%;
-  padding-right: 20px;
-  width: 150px;
-  float: left;
-}
-.post .video-container .video-preview img {
-  display: block;
-}
-.post .video-container .video {
-  clear: both;
-  display: none;
-}
-.post .video-container.active .meta-container {
-  width: auto;
-}
-.post .video-container.active .video-preview {
-  display: none;
-}
-.post .video-container.active .video {
-  display: block;
-}
-.post .video-container.active .icon-container {
-  display: none;
-}
-.post .post-inner {
-  float: left;
 }

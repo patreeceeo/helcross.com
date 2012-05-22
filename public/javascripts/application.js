@@ -65,16 +65,34 @@ $(document).ready(function() {
 
   $("textarea").autosize();
 
-  Modernizr.load([
-                 {
+  Modernizr.load([{
     test: Modernizr.input.placeholder,
     nope: "javascripts/lib/jquery.html5form-1.5-min.js",
     complete: function () {
       if($("form").html5form)
         $("form").html5form();
     }
+  }]);
+
+  $(".store-item .on-hover").mouseover(function(e) {
+    $(this).addClass("hovering");
+  });
+
+  $(".store-item .on-hover").mouseout(function(e) {
+    $(this).removeClass("hovering");
+  });
+
+  function addToCartCallback(data) {
   }
-  ]);
+
+  $(".store-item").click(function(e) {
+    var id = $(this).attr("data-item-id");
+    log(id);
+    $.post("/cart", {action: "add", id: id}, function (data) {
+      log("response: "+data["message"]);
+    }, "json");
+  });
+
 
 
   // Create Stripe single-use token

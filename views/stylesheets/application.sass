@@ -40,8 +40,8 @@ $content-z-index: 1
 
 
 strong, em, h1, h2, h3, .navbar
-  font: auto
   font-weight: bold
+  // font: auto
 
 [id$="page"]
   margin-top: 50px
@@ -65,12 +65,44 @@ img[src*="/images/helcross"]
 
 .thumbnail
   border: none
-  font-size: 75%
-  color: gray
   img
     margin-bottom: 1em
   p
-    text-align: center
+
+$store-item-w: 260px
+$store-item-h: 180px
+.store-item
+  color: gray
+  width: $store-item-w
+  height: auto
+  .img-wrapper
+    height: inherit
+    width: $store-item-w
+    img
+      width: inherit
+      height: inherit
+      margin-bottom: 0.5em
+  .on-hover
+    cursor: pointer
+    display: block
+    position: absolute
+    z-index: 1
+    width:  inherit
+    height: $store-item-h
+    background-color: rgba(black, 0)
+    .text-wrapper
+      display: none
+  .on-hover.hovering
+    background-color: rgba(black, 0.5)
+    .text-wrapper
+      text-align: center
+      display: block
+      margin-top: 1em
+      font-size: 2em
+      line-height: 2em
+      font-weight: bold
+      color: white
+
 
 a
   color: #3366CC
@@ -197,26 +229,6 @@ body
   font-size: 1.5em
   padding-bottom: 0px
 
-#auth-status
-  display: inline
-  float: right
-  +font-cursive
-  .btn
-    +font-sans
-    margin-top: -3px
-
-#like-button
-  position: absolute
-  border: none
-  width: 450px
-  height: $header-height
-  float: right
-
-.if-logged-in.showing, .if-logged-out.showing
-  display: inline !important
-
-.if-logged-in, .if-logged-out
-  display: none !important
 
 .button:link, .button:visited 
   +border-radius($radius)
@@ -235,70 +247,5 @@ body
   text-decoration: none
 
 
-.forum
-  +border-radius($radius)
-  background-color: white
-  h1
-    padding-top: 1em
-    padding-bottom: 1em
-    padding-left: $spacing
   
-
-$post-w: 840px
-$post-actor-w: 120px
-$post-subject-w: $post-w - 2*$spacing - $post-actor-w
-$post-subject-inner-w: 150px
-$post-subject-meta-w: $post-subject-w - $post-subject-inner-w - 4*$spacing 
-.post
-  display: inline-block
-  border-top: 1px solid #CCC
-  border-bottom: 1px solid #CCC
-  width: $post-w
-  padding-left: $spacing
-  padding-top: $spacing
-  .message-container
-    float: left
-    font-weight: bold
-    padding-bottom: 1em
-  .primary-actor
-    width: $post-actor-w
-    float: left
-    width: 100px
-    padding-left: $spacing
-    padding-right: $spacing
-  .video-container
-    width: $post-subject-w
-    font-weight: normal
-    float: right
-    .icon-container
-      position: absolute
-    .meta-container
-      float: left
-      width: $post-subject-meta-w
-      .description-container
-        color: rgba(black, 0.66)
-        font-size: 75%
-    .video-preview
-      display: block
-      font-size: 75%
-      padding-right: $spacing
-      width: $post-subject-inner-w
-      float: left
-      img
-        display: block
-    .video
-      clear: both
-      display: none
-  .video-container.active
-    .meta-container
-      width: auto
-    .video-preview
-      display: none
-    .video
-      display: block
-    .icon-container
-      display: none
-  .post-inner
-    float: left
-
 
