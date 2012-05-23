@@ -180,16 +180,21 @@ end
 post '/cart' do
   db = DB.new
   action = params["action"]
-  id = params["id"].to_i
-  puts "post /cart, action: #{action}, id: #{id}"
+  ids = params["ids"]
+  puts "post /cart, action: #{action}"
   if action == "add"
-    if can_add_to_cart?(id)
-      add_to_cart(id).merge({message: "You added an item with id #{id} to the cart!"}).to_json
-    else
-      {
-        message: "No such item with id #{id} exists."
-      }.to_json
+    message = "You added a items with ids: "
+    ids.each do |id|
+      id = id.to_i
+      if can_add_to_cart?(id)
+        add_to_cart(id)
+        message << "#{id}, "
+      else
+        message << "(can't add #{id}), "
+      end
     end
+    message << "to the cart."
+    update_cart.merge({message: message}).to_json
   elsif action == "empty"
     empty_cart.merge({message: "You just emptied the cart all over the aisle! Good job!"}).to_json
   else

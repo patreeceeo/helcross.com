@@ -6,7 +6,7 @@
     - in_chunks_of(3, get_table("store_inventory")) do |groups|
       .row-fluid.store-row
         - groups.each do |group|
-          - group_name = group["group"]
+          - name = group["group"]
           - description = group["description"]
           - picture = group["picture"]
           - price = group["price"]
@@ -18,18 +18,23 @@
                     <p>Add to Cart</p>
                     <p>$#{price}</p>
                 %img(src="#{s3_link picture}" alt="")
+              %h3 #{name}
+              %p #{description}
+              
               %form.form-horizontal
-                %legend Choose One:
+                %legend Choose Sizes:
                 %fieldset
+                  -# todo: make navbar not fixed?
+                  -# fix shopping cart bug
+                  -# todo: make these dropdown slects:
                   .control-group
                     .controls
-                      - checked = "checked"
-                      - group["items"].each do |item| 
-                        %label.radio
-                          %input(type="radio" name="variation" value="#{item["id"]}" checked="#{checked}") 
-                          #{item["item"]}
-                        - checked = ""
+                      %select(multiple="multiple" name="variation") 
+                        - group["items"].each do |item| 
+                          %option(value='#{item["id"]}') #{item["item"]}
             
+                      %p.help-block.if-error
+                        Please select at least one.
 #shopping-cart-modal.modal.fade
   .modal-header
     %button(class="close" data-dismiss="modal") &times;</button>

@@ -86,7 +86,6 @@ $(document).ready(function() {
       cart.showTip = true;
     },
     publishChanges: function () {  
-      $("#shopping-cart-bar").tooltip("show");
       $("#shopping-cart-bar").addClass("visible");
       $("#shopping-cart-count").text(cart.count);
       $("#shopping-cart-total").text("$"+cart.total);
@@ -94,6 +93,11 @@ $(document).ready(function() {
         $(".if-shopping-cart-not-empty").hide();
         $(".if-shopping-cart-empty").show();
       } else {
+        $("#shopping-cart-bar").tooltip("show");
+        window.setTimeout(function () {
+          $("#shopping-cart-bar").tooltip("hide");
+        }, 2000);
+
         $(".if-shopping-cart-not-empty").show();
         $(".if-shopping-cart-empty").hide();
       }
@@ -111,20 +115,27 @@ $(document).ready(function() {
 
   $(".store-item .img-wrapper").click(function(e) {
     // var group_id = $(this).attr("data-group-id");
+    var control_group_el = $(this).parent().find(".control-group");
+    var item_ids = $(this).parent().find("select").val(); 
+    log(item_ids);
+    if(item_ids !== null && item_ids.length > 0) {
+      control_group_el.removeClass("error");
+      control_group_el.find(".if-error").hide();
+      $.post("/cart", {action: "add", ids: item_ids}, function (data) {
+        cart.ingest(data);
+      }, "json");
+    } else {
+      control_group_el.addClass("error");
+      control_group_el.find(".if-error").show('fast');
+    }
 
-    var item_id = $(this).parent().find("input:radio:checked").val(); 
-    log(item_id);
-
-    $.post("/cart", {action: "add", id: item_id}, function (data) {
-      cart.ingest(data);
-    }, "json");
   });
 
-  $("#shopping-cart-bar").tooltip({placement: "bottom", trigger: "manual", delay: {show:0, hide: 2000}});
+  $("#shopping-cart-bar").tooltip({placement: "bottom", trigger: "hover", delay: {show:600, hide: 600}});
 
-  $("#shopping-cart-bar").mouseover(function(e) {
-    $(this).tooltip('hide');
-  });
+  // $("#shopping-cart-bar").mouseover(function(e) {
+  //   $(this).tooltip('hide');
+  // });
 
   $("#shopping-cart-bar").click(function(e) {
     var el = $("#shopping-cart-contents tbody");
