@@ -128,7 +128,7 @@
         .container-fluid
           %a.brand(href="#")
             Hel+
-          .nav-collapse
+          .nav-collapse.hidden-phone
             %ul.nav
               %li#home-nav
                 %a(href="/") Home
@@ -140,12 +140,20 @@
                 %a(href="/contact") Contact 
               %li#forum-nav
                 %a(href="/forum") Forum
-
             %ul#shopping-cart-bar(rel="tooltip" title="Click here to view items" data-toggle="modal" data-target="#shopping-cart-modal")
               %li#shopping-cart-count
-              %li 
-                %i.icon-shopping-cart.icon-white
-              %li#shopping-cart-total
+                %li 
+                  %i.icon-shopping-cart.icon-white
+                %li#shopping-cart-total
+
+          .nav-collapse.visible-phone
+            %select(name="navmenu")
+              %option(value='/') Home
+              %option(value='/about') About
+              %option(value='/store') Store
+              %option(value='/contact') Contact
+              %option(value='/forum') Forum
+
     = yield
     %footer
       &copy; 2012 Hel+ LLC. All rights reserved.
