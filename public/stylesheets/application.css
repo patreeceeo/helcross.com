@@ -124,7 +124,7 @@ input {
   width: auto;
 }
 
-form.carefree input, form.carefree textarea {
+.form-carefree input, .form-carefree textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -140,7 +140,7 @@ form.carefree input, form.carefree textarea {
   font-weight: bold;
   background-color: #ffffcc;
 }
-form.carefree input[type="submit"], form.carefree .btn {
+.form-carefree input[type="submit"], .form-carefree .btn {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -152,8 +152,13 @@ form.carefree input[type="submit"], form.carefree .btn {
   height: 2em;
   font-weight: bold;
 }
-form.carefree input {
+.form-carefree input {
   height: 1.5em;
+}
+
+textarea.form-carefree {
+  line-height: 1.5em;
+  font-size: 2em;
 }
 
 .hero-unit {

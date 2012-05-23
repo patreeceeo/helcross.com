@@ -62,7 +62,7 @@ $(document).ready(function() {
     }
   }]);
 
-  $("textarea").autosize();
+  $("textarea").autosize("form-carefree");
 
   cart = {
     count: 0,

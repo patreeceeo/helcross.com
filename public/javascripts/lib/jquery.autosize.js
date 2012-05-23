@@ -15,7 +15,7 @@
         'letterSpacing',
         'textTransform',
         'wordSpacing',
-        'lineHeight'
+        // 'lineHeight'
     ],
     oninput = 'oninput',
     onpropertychange = 'onpropertychange',
