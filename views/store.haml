@@ -24,9 +24,6 @@
               %form.form-horizontal
                 %legend Choose Sizes:
                 %fieldset
-                  -# todo: make navbar not fixed?
-                  -# fix shopping cart bug
-                  -# todo: make these dropdown slects:
                   .control-group
                     .controls
                       %select(multiple="multiple" name="variation") 
@@ -157,7 +154,7 @@
     %button(class="close" data-dismiss="modal") &times;</button>
     %h2#payment-thanks
   .modal-body
-    Your order has been placed. You should receive a receipt by e-mail. If you notice any problems with your order please use our contact form to get in touch with us and be sure to include the order number from your receipt.
+    Your order has been placed. You should receive a receipt by e-mail. If you notice any problems with your order please use our contact form to get in touch with us and be sure to include the &ldquo;Unique Order ID&rdquo; from your receipt.
   .modal-footer
     %a.btn(href="#" data-dismiss="modal") Okay
 

@@ -216,22 +216,25 @@ post '/cart/checkout' do
     :card => token,
     :description => "Payment from #{params[:name]}",
   )
+  uu_order_number = charge["created"] * 10 + (rand * 10).to_i
 
-  receipt = "Items purchased by #{params[:name]}\n"
-  receipt << params[:email]+"\n"
+  receipt = "Purchase made by: #{params[:name]}  (#{params[:email]})\n"
+  receipt << "Note: If you're using Gmail you may have to click the below elipsis (...) to see the full receipt.\n"
+  receipt << "Unique Order ID: #{uu_order_number}\n"
   receipt << "Ship to:\n"
-  receipt << "\taddress1: #{params[:address1]}\n"
-  receipt << "\taddress2: #{params[:address2]}\n"
-  receipt << "\tcity: #{params[:city]}\n"
-  receipt << "\tstate/province: #{params[:state]}\n"
-  receipt << "\tzip: #{params[:zip]}\n"
-  receipt << "\tcountry: #{params[:country]}\n"
+  receipt << "\tAddress1: #{params[:address1]}\n"
+  receipt << "\tAddress2: #{params[:address2]}\n"
+  receipt << "\tCity: #{params[:city]}\n"
+  receipt << "\tState/province: #{params[:state]}\n"
+  receipt << "\tZip: #{params[:zip]}\n"
+  receipt << "\tCountry: #{params[:country]}\n"
+  receipt << "Items Purchased:\n"
 
   update_cart[:item].each_pair do |id, item|
-    receipt << "#{item[:name]}\t\t$#{item[:price]}\n"
+    receipt << "\t#{item[:name]}: $#{item[:price]}\n"
   end
-  receipt << "total:\t\t$#{session[:cart][:total]}\n"
-  receipt << "If you have any problems/questions with this order just reply to this message\n\n"
+  receipt << "Total: $#{session[:cart][:total]}\n"
+  receipt << "If you have any problems/questions with this order just reply to this message."
   receipt << "Otherwise, thanks again!\n\n"
   receipt << "Helen Cross, Owner"
 
