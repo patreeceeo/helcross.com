@@ -147,10 +147,9 @@ form.carefree input[type="submit"], form.carefree .btn {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  line-height: 1.5em;
-  font-size: 1.5em;
+  line-height: 2em;
+  font-size: 3em;
+  height: 2em;
   font-weight: bold;
 }
 form.carefree input {

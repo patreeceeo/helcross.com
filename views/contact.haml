@@ -11,15 +11,17 @@
       .well
         %form.carefree{ :action => "/contact", :method => "post"}
           %fieldset
-            %legend <h1>Send A Message:</h1>
+            %legend <h1>Oh the Convenience!</h1>
             %dl
               %dd
                 %input(type="text" name="name" class="text" size=40 type="username" placeholder="your name" autofocus="autofocus")
               %dd
                 %input(type="text" name="mail" class="text" size=40 type="email" placeholder="you@example.com")
               %dd
-                %textarea(name="body" rows=4 cols=40 placeholder="Your message goes here.")            
+                %textarea(name="body" rows='4' cols='40' placeholder="Your message goes here.")            
           %fieldset
-            %input.btn.btn-primary(type="submit" value="Send!")
+            %dl
+              %dd
+                %input.btn.btn-primary(type="submit" value="Send!")
             
 

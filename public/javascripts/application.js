@@ -53,8 +53,6 @@ $(document).ready(function() {
 
   });
 
-  $("textarea").autosize();
-
   Modernizr.load([{
     test: Modernizr.input.placeholder,
     nope: "javascripts/lib/jquery.html5form-1.5-min.js",
@@ -64,6 +62,7 @@ $(document).ready(function() {
     }
   }]);
 
+  $("textarea").autosize();
 
   cart = {
     count: 0,
