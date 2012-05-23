@@ -1,60 +1,4 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-  display: block;
-}
-
-strong, em, h1, h2, h3, .navbar {
+strong, em, .navbar {
   font-weight: bold;
 }
 
@@ -100,6 +44,11 @@ img[src*="/images/helcross"] {
 #shopping-cart-bar {
   cursor: pointer;
   display: none;
+  float: right;
+  padding-top: 9px;
+}
+#shopping-cart-bar li {
+  display: inline;
 }
 #shopping-cart-bar.visible {
   display: block;
@@ -107,15 +56,6 @@ img[src*="/images/helcross"] {
 
 .tooltip {
   font-size: 1em;
-}
-
-ul#shopping-cart-bar {
-  float: right;
-  padding-top: 9px;
-  padding-bottom: 10px;
-}
-ul#shopping-cart-bar li {
-  display: inline;
 }
 
 .store-row {
@@ -159,8 +99,7 @@ ul#shopping-cart-bar li {
 .store-item .on-hover.hovering .text-wrapper {
   text-align: center;
   display: block;
-  margin-top: 1em;
-  font-size: 2em;
+  margin-top: 3em;
   line-height: 2em;
   font-weight: bold;
   color: white;
@@ -315,7 +254,6 @@ form.carefree input {
 
 body {
   font-family: Quattrocento Sans;
-  background: #ff69b4;
   color: #0d0d0d;
 }
 body p {

@@ -1,4 +1,4 @@
-@import compass/reset
+// @import compass/reset
 @import compass/utilities
 @import compass/css3
 @import compass/css3/opacity
@@ -39,7 +39,7 @@ $content-z-index: 1
 
 
 
-strong, em, h1, h2, h3, .navbar
+strong, em, .navbar
   font-weight: bold
   // font: auto
 
@@ -67,23 +67,19 @@ img[src*="/images/helcross"]
   border: none
   img
     margin-bottom: 1em
-  p
 
 #shopping-cart-bar
   cursor: pointer
   display: none
+  float: right
+  padding-top: 9px
+  li
+    display: inline
   &.visible
     display: block
 
 .tooltip
   font-size: 1em
-
-ul#shopping-cart-bar
-  float: right
-  padding-top: 9px
-  padding-bottom: 10px
-  li
-    display: inline
 
 $store-item-w: 260px
 $store-item-h: 180px
@@ -120,8 +116,7 @@ $store-item-h: 180px
     .text-wrapper
       text-align: center
       display: block
-      margin-top: 1em
-      font-size: 2em
+      margin-top: 3em
       line-height: 2em
       font-weight: bold
       color: white
@@ -247,7 +242,6 @@ body
   +font-sans
   p
     +font-sans
-  background: $pink
   color: #0d0d0d
   .brand
     +font-cursive

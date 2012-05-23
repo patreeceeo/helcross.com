@@ -255,14 +255,14 @@ post '/cart/checkout' do
       :password   => '*{+}%76hX',
       :authentication => :plain,
       :domain     => "gmail.com"
-      }   
+      }
     )   
     # Helen, too 
     Pony.mail(
       :to => "heltllc@gmail.com", 
       :from => "heltllc@gmail.com", 
       :sender => "heltllc@gmail.com",
-      :subject=> "Your Hel+ receipt",
+      :subject=> "Hel+ Store Purchase ##{uu_order_number}",
       :body => receipt,
       :via => :smtp, 
       :via_options => {
