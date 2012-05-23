@@ -13,7 +13,7 @@ module Sinatra
     public
 
     def data
-      @data ||= Syck.load(RestClient.get s3_link("/data.yaml"))
+      @@data ||= Syck.load(RestClient.get s3_link("/data.yaml"))
     end
 
     def has_record?(tablename, colname, value)
@@ -35,29 +35,27 @@ module Sinatra
       end
     end
 
-    def default_options
-      { chunk_size: 1 }
+    def has_table(table_name)
+      data.has_key?(table_name)
     end
 
-    def each_table_row(table_name, options=default_options, &clsr)
-      chunk_size = options[:chunk_size];
-      if chunk_size > 1
-        chunk = []
-        data[table_name].each do |row|
-          chunk << row 
-          if chunk.length == chunk_size
-            clsr.call(chunk)
-            chunk = []
+    def get_table(table_name)
+      return data[table_name]
+    end
+
+    def flatten_tables_up(table_aug, table_nested, table_new)
+      if not has_table(table_new)
+        data[table_new] = []
+        data[table_aug].each do |row1|
+          row1[table_nested].each do |row2|
+            row1.delete(table_nested)
+            data[table_new] << row1.merge(row2)
           end
-        end 
-      else
-        data[table_name].each do |row|
-          clsr.call(row)
         end
-      end
+      end  
     end
   end
-
+    
   helpers DBHelper
 end
 

@@ -183,7 +183,7 @@ post '/cart' do
   id = params["id"].to_i
   puts "post /cart, action: #{action}, id: #{id}"
   if action == "add"
-    if db.has_record?("store_inventory", "id", id)
+    if can_add_to_cart?(id)
       add_to_cart(id).merge({message: "You added an item with id #{id} to the cart!"}).to_json
     else
       {
@@ -212,14 +212,50 @@ post '/cart/checkout' do
     :description => "Payment from #{params[:name]}",
   )
 
+  receipt = "Items purchased by #{params[:name]}\n"
+  receipt << params[:email]+"\n"
+  receipt << "Ship to:\n"
+  receipt << params[:address1]+"\n"
+  receipt << params[:address2]+"\n"
+  receipt << params[:city]+"\n"
+  receipt << params[:state]+"\n"
+  receipt << params[:zip]+"\n"
+  receipt << params[:country]+"\n\n"
+
+  update_cart[:item].each_pair do |id, item|
+    receipt << "#{item[:name]}\t\t$#{item[:price]}\n"
+  end
+  receipt << "total:\t\t#{session[:cart][:total]}\n"
+  receipt << "If you have any problems/questions with this order just reply to this message\n\n"
+  receipt << "Otherwise, thanks again!\n\n"
+  receipt << "Helen Cross, Owner"
+
   if not charge.failure_message
     # Send Receipt
+    # To customer
     Pony.mail(
       :to => params[:email], 
       :from => "heltllc@gmail.com", 
       :sender => "heltllc@gmail.com",
       :subject=> "Your Hel+ receipt",
-      :body => body,
+      :body => receipt,
+      :via => :smtp, 
+      :via_options => {
+      :address    => 'smtp.gmail.com',
+      :port       => '587',
+      :user_name  => 'heltllc@gmail.com',
+      :password   => '*{+}%76hX',
+      :authentication => :plain,
+      :domain     => "gmail.com"
+      }   
+    )   
+    # Helen, too 
+    Pony.mail(
+      :to => "heltllc@gmail.com", 
+      :from => "heltllc@gmail.com", 
+      :sender => "heltllc@gmail.com",
+      :subject=> "Your Hel+ receipt",
+      :body => receipt,
       :via => :smtp, 
       :via_options => {
       :address    => 'smtp.gmail.com',

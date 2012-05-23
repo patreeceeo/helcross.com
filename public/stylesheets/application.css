@@ -118,10 +118,18 @@ ul#shopping-cart-bar li {
   display: inline;
 }
 
+.store-row {
+  margin-top: 3em;
+}
+
 .store-item {
   color: gray;
   width: 260px;
   height: auto;
+}
+.store-item .controls {
+  width: 100%;
+  margin-left: 0px;
 }
 .store-item .img-wrapper {
   height: 180px;

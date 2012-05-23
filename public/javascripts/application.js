@@ -109,10 +109,13 @@ $(document).ready(function() {
     $(this).removeClass("hovering");
   });
 
-  $(".store-item").click(function(e) {
-    var id = $(this).attr("data-item-id");
-    log(id);
-    $.post("/cart", {action: "add", id: id}, function (data) {
+  $(".store-item .img-wrapper").click(function(e) {
+    // var group_id = $(this).attr("data-group-id");
+
+    var item_id = $(this).parent().find("input:radio:checked").val(); 
+    log(item_id);
+
+    $.post("/cart", {action: "add", id: item_id}, function (data) {
       cart.ingest(data);
     }, "json");
   });

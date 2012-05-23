@@ -21,6 +21,20 @@ module Sinatra
       "<script id='#{name}' type='text/javascript' src='/javascripts/lib/#{name}.js' ></script>"
     end
 
+    def in_chunks_of(chunk_size, arr, &clsr)
+      chunk = []
+      arr.each do |row|
+        chunk << row 
+        if chunk.length == chunk_size
+          clsr.call(chunk)
+          chunk = []
+        end
+      end 
+      if chunk.length < chunk_size
+        clsr.call(chunk)
+      end
+    end
+
   end
 
   helpers Helpers

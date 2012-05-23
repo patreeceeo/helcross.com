@@ -3,19 +3,32 @@
     .row-fluid
       .hero-unit
         = content "store"
-    - each_table_row("store_inventory", chunk_size: 3) do |items|
-      .row-fluid
-        - items.each do |item|
+    - in_chunks_of(3, get_table("store_inventory")) do |groups|
+      .row-fluid.store-row
+        - groups.each do |group|
+          - group_name = group["group"]
+          - description = group["description"]
+          - picture = group["picture"]
+          - price = group["price"]
           .span4
-            .store-item(data-item-id="#{item["id"]}")
+            .store-item(data-group-id="#{group["id"]}")
               .img-wrapper
                 .on-hover
                   .text-wrapper
                     <p>Add to Cart</p>
-                    <p>$#{item["price"]}</p>
-                %img(src="#{s3_link item["picture"]}" alt="")
-              <p><em>#{item["item"]}</em></p>
-              <p>#{item["description"]}</p>
+                    <p>$#{price}</p>
+                %img(src="#{s3_link picture}" alt="")
+              %form.form-horizontal
+                %legend Choose One:
+                %fieldset
+                  .control-group
+                    .controls
+                      - checked = "checked"
+                      - group["items"].each do |item| 
+                        %label.radio
+                          %input(type="radio" name="variation" value="#{item["id"]}" checked="#{checked}") 
+                          #{item["item"]}
+                        - checked = ""
             
 #shopping-cart-modal.modal.fade
   .modal-header
@@ -65,11 +78,11 @@
               .control-group
                 %label.control-label Address 1
                 .controls
-                  %input.cardholder-address1(type="address1" size="40" required="required" name="address-line-1")
+                  %input.cardholder-address1(type="address1" size="40" required="required" name="address1")
               .control-group
                 %label.control-label Address 2
                 .controls
-                  %input.cardholder-address2(type="address2" size="40" name="address-line-2")
+                  %input.cardholder-address2(type="address2" size="40" name="address2")
               .control-group
                 %label.control-label City
                 .controls
@@ -81,6 +94,10 @@
                   %input.cardholder-state(type="state" size="40" required="required" name="state")
                   %p.help-block
                     If outside the United States, enter Province if applicable or "None" 
+              .control-group
+                %label.control-label Zip
+                .controls
+                  %input.cardholder-country(type="zip" size="20" required="required" name="zip")
               .control-group
                 %label.control-label Country
                 .controls
