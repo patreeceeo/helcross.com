@@ -128,7 +128,7 @@
         .container-fluid
           %a.brand(href="#")
             Hel+
-          .nav-collapse.hidden-phone
+          .nav-collapse.visible-desktop
             %ul.nav
               - if page == "home"
                 %li#home-nav
@@ -150,7 +150,7 @@
                   %i.icon-shopping-cart.icon-white
                 %li#shopping-cart-total
 
-          .nav-collapse.visible-phone
+          .nav-collapse.hidden-desktop
             %select(name="navmenu")
               %option(value='/') Home
               %option(value='/about') About
