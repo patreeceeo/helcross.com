@@ -1,9 +1,9 @@
 #home-page.front-container
   .front-card
     -# .span6.columns
-    %span.huge-word
+    %span.huge-word.hidden-phone
       politics
-    %span.huge-symbol
+    %span.huge-symbol.hidden-phone
       +
     #home-carousel-placeholer
       #home-carousel
@@ -17,7 +17,7 @@
                   = content "#{name}"
           .left.carousel-control(href="#home-carousel" data-slide="prev") &lsaquo;
           .right.carousel-control(href="#home-carousel" data-slide="next") &rsaquo;
-    %span.huge-symbol
+    %span.huge-symbol.hidden-phone
       \=
-    %img(src="/images/helcross.png")
+    %img(src="/images/helcross.png").hidden-phone
 
