@@ -1,9 +1,16 @@
-strong, em, .navbar {
+strong, em {
   font-weight: bold;
 }
 
 [id$="page"] {
+  position: relative;
+  z-index: 1;
+  display: none;
   margin-top: 50px;
+  margin-bottom: 50px;
+}
+[id$="page"].showing {
+  display: block;
 }
 
 [class^="container"] > [class^="span"],
@@ -23,10 +30,18 @@ strong, em, .navbar {
 }
 
 footer {
-  padding: 20px;
+  position: fixed;
+  width: 250px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 0;
   margin: 0 auto;
   text-align: center;
+}
+footer p {
   font-size: 75%;
+  line-height: 75%;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 img[src*="/images/helcross"] {
@@ -46,6 +61,11 @@ img[src*="/images/helcross"] {
   display: none;
   float: right;
   padding-top: 9px;
+  margin-bottom: 0px !important;
+  padding-bottom: 5px;
+}
+#shopping-cart-bar .icon-shopping-cart {
+  vertical-align: baseline;
 }
 #shopping-cart-bar li {
   display: inline;
@@ -55,7 +75,8 @@ img[src*="/images/helcross"] {
 }
 
 .tooltip {
-  font-size: 1em;
+  font-size: 75%;
+  line-height: 1em;
 }
 
 .store-row {
@@ -196,13 +217,13 @@ textarea.form-carefree {
   color: gray;
 }
 
-#home-carousel-placeholer {
-  width: 300px;
-  height: 250px;
+#about-carousel-placeholer {
+  width: 400px;
+  height: 400px;
   margin-right: 20px;
 }
 
-#home-carousel {
+#about-carousel {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -211,45 +232,29 @@ textarea.form-carefree {
   -webkit-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
-  width: 300px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
+  float: left;
+  padding: 20px;
 }
-#home-carousel .carousel {
+#about-carousel .carousel {
   width: inherit;
   height: inherit;
   background-color: grey;
 }
-#home-carousel .carousel .carousel-inner {
+#about-carousel .carousel .carousel-inner {
   overflow: hidden;
   width: inherit;
   height: inherit;
 }
-#home-carousel .carousel .carousel-inner .item {
+#about-carousel .carousel .carousel-inner .item {
   height: inherit;
   width: inherit;
 }
-#home-carousel .carousel .carousel-inner .item img {
+#about-carousel .carousel .carousel-inner .item img {
   margin: 0 auto;
   height: inherit;
   width: auto;
-}
-#home-carousel .carousel .carousel-inner .item .carousel-caption p {
-  color: white;
-}
-#home-carousel .carousel .carousel-caption, #home-carousel .carousel .carousel-control {
-  display: none;
-}
-
-#home-carousel.expanding {
-  position: relative;
-}
-
-#home-carousel.expanded {
-  position: relative !important;
-  margin: 0;
-}
-#home-carousel.expanded .carousel-caption, #home-carousel.expanded .carousel-control {
-  display: block;
 }
 
 #forum-page {
@@ -265,12 +270,9 @@ body p {
 }
 body .brand {
   font: 24px Loved by the King;
+  font-size: 1.2em !important;
+  line-height: 1em;
   z-index: 2;
-}
-
-.navbar .brand {
-  font-size: 1.5em;
-  padding-bottom: 0px;
 }
 
 .button:link, .button:visited {

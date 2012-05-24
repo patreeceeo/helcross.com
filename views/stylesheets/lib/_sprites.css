@@ -1,0 +1,65 @@
+/*
+Syntax error: Undefined mixin 'ie7-restore-right-whitespace'.
+        on line 25 of views/stylesheets/lib/_sprites.scss, in `ie7-restore-right-whitespace'
+        from line 25 of views/stylesheets/lib/_sprites.scss
+
+20: [class^="icon-"],
+21: [class*=" icon-"] {
+22:   display: inline-block;
+23:   width: 14px;
+24:   height: 14px;
+25:   @include ie7-restore-right-whitespace();
+26:   line-height: 14px;
+27:   vertical-align: text-top;
+28:   background-image: url($iconSpritePath);
+29:   background-position: 14px 14px;
+30:   background-repeat: no-repeat;
+
+Backtrace:
+views/stylesheets/lib/_sprites.scss:25:in `ie7-restore-right-whitespace'
+views/stylesheets/lib/_sprites.scss:25
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/tree/root_node.rb:20:in `render'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/engine.rb:299:in `_render'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/engine.rb:246:in `render'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `each'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin/compiler.rb:234:in `watch'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/plugin.rb:107:in `method_missing'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/exec.rb:431:in `watch_or_update'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/exec.rb:302:in `process_result'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/exec.rb:41:in `parse'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/lib/sass/exec.rb:21:in `parse!'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/gems/sass-3.1.15/bin/sass:8:in `<top (required)>'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/bin/sass:23:in `load'
+/home/patrick/.rvm/gems/ruby-1.9.3-p194@helcross.com/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'ie7-restore-right-whitespace'.\A         on line 25 of views/stylesheets/lib/_sprites.scss, in `ie7-restore-right-whitespace'\A         from line 25 of views/stylesheets/lib/_sprites.scss\A \A 20: [class^=\"icon-\"],\A 21: [class*=\" icon-\"] {\A 22:   display: inline-block;\A 23:   width: 14px;\A 24:   height: 14px;\A 25:   @include ie7-restore-right-whitespace();\A 26:   line-height: 14px;\A 27:   vertical-align: text-top;\A 28:   background-image: url($iconSpritePath);\A 29:   background-position: 14px 14px;\A 30:   background-repeat: no-repeat;"; }

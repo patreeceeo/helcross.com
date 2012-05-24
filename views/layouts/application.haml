@@ -130,10 +130,14 @@
             Hel+
           .nav-collapse.hidden-phone
             %ul.nav
-              %li#home-nav
-                %a(href="/") Home
-              %li#about-nav
-                %a(href="/about") About
+              - if page == "home"
+                %li#home-nav
+                  %a(href="#" onClick="showPage('home');") Home
+                %li#about-nav
+                  %a(href="#" onClick="showPage('about');") About
+              - else
+                %li#home-nav
+                  %a(href="/") Home
               %li#store-nav
                 %a(href="/store") Store
               %li#contact-nav
@@ -156,7 +160,8 @@
 
     = yield
     %footer
-      &copy; 2012 Hel+ LLC. All rights reserved.
+      <p>&copy; 2012 Hel+ LLC. All rights reserved.</p>
+      <p>Integration &amp; Design by <a href="patrickcanfield.heroku.com">Patrick Canfield</a></p>
 
 
 

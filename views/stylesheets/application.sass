@@ -12,6 +12,7 @@
   font-family: Quattrocento Sans
   // font-weight: bolder
 
+$box-ratio: 1.62
 $pink: #ff69b4
 $light-yellow: #ffc
 
@@ -39,12 +40,18 @@ $content-z-index: 1
 
 
 
-strong, em, .navbar
+strong, em
   font-weight: bold
   // font: auto
 
 [id$="page"]
+  position: relative
+  z-index: 1
+  display: none
   margin-top: 50px
+  margin-bottom: 50px
+  &.showing
+    display: block
 
 [class^="container"] > [class^="span"],
 [class^="container"] > [class^="row"] > [class^="span"]
@@ -53,11 +60,20 @@ strong, em, .navbar
   +single-box-shadow(rgba(0, 0, 0, 0.5), 5px, 5px, 5px)
   background-color: white
 
+// $footer-w: $gridColumnWidth * $gridColumns
+$footer-w: 250px
 footer
-  padding: $spacing
+  position: fixed
+  width: $footer-w
+  right: $spacing
+  bottom: $spacing
+  z-index: 0
   margin: 0 auto
   text-align: center
-  font-size: 75%
+  p
+    font-size: 75%
+    line-height: 75%
+    color: rgba(black, 0.5)
 
 img[src*="/images/helcross"]
   height: 175px !important
@@ -73,13 +89,18 @@ img[src*="/images/helcross"]
   display: none
   float: right
   padding-top: 9px
+  margin-bottom: 0px !important
+  padding-bottom: 5px
+  .icon-shopping-cart
+    vertical-align: baseline
   li
     display: inline
   &.visible
     display: block
 
 .tooltip
-  font-size: 1em
+  font-size: 75%
+  line-height: 1em
 
 $store-item-w: 260px
 $store-item-h: 180px
@@ -197,17 +218,19 @@ $home-page-w: 1200px
       margin-top: -25px
       color: gray
 
-$home-carousel-w: 300px
-$home-carousel-h: 250px
-#home-carousel-placeholer
-  width: $home-carousel-w
-  height: $home-carousel-h
+$about-carousel-h: 400px
+$about-carousel-w: 400px
+#about-carousel-placeholer
+  width: $about-carousel-w
+  height: $about-carousel-h
   margin-right: 20px
 
-#home-carousel
+#about-carousel
   +single-transition
-  width: $home-carousel-w
-  height: $home-carousel-h
+  width: $about-carousel-w
+  height: $about-carousel-h
+  float: left
+  padding: $spacing
   .carousel
     width: inherit
     height: inherit
@@ -223,20 +246,17 @@ $home-carousel-h: 250px
           margin: 0 auto
           height: inherit
           width: auto
-        .carousel-caption 
-          p
-            color: white
-    .carousel-caption, .carousel-control
-      display: none
+      // line-height: 1em !important
+      
 
-#home-carousel.expanding
-  position: relative
+// #about-carousel.expanding
+//   position: relative
 
-#home-carousel.expanded
-  position: relative !important
-  margin: 0
-  .carousel-caption, .carousel-control
-    display: block
+// #about-carousel.expanded
+//   position: relative !important
+//   margin: 0
+//   .carousel-caption, .carousel-control
+//     display: block
   // margin-left: -420px
   // left: 50%
 
@@ -250,11 +270,15 @@ body
   color: #0d0d0d
   .brand
     +font-cursive
+    font-size: 1.2em !important
+    line-height: 1em
     z-index: $logo-z-index
 
-.navbar .brand
-  font-size: 1.5em
-  padding-bottom: 0px
+// .navbar
+//   padding-bottom: 0px !important
+
+// .brand, ul.nav li a
+//   padding-top: 5px
 
 
 .button:link, .button:visited 

@@ -39,19 +39,21 @@ $(document).ready(function() {
 	// Open external links in a new window
   makeExternalLinksOpenInNewWindow("");
 
+  // $("[id$='page']").hide();
+
   $(".if-error").hide();
 
   $(".carousel").carousel()
 
-  $("#home-carousel img").click(function(e) {
-    var el = $("#home-carousel");
-    if(el.hasClass("expanded")) {
-      unexpand(el);
-    } else {
-      expand(el, 550, 660);
-    }
+  // $("#home-carousel img").click(function(e) {
+  //   var el = $("#home-carousel");
+  //   if(el.hasClass("expanded")) {
+  //     unexpand(el);
+  //   } else {
+  //     expand(el, 550, 660);
+  //   }
 
-  });
+  // });
 
   Modernizr.load([{
     test: Modernizr.input.placeholder,

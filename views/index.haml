@@ -6,18 +6,14 @@
     %span.huge-symbol
       +
     #home-carousel-placeholer
-      #home-carousel
-        .carousel.slide
-          .carousel-inner
-            = each_content_item "home-carousel-images" do |i|
-              .item
-                %img{:src=>s3_link("/images/#{i}")}
-                .carousel-caption
-                  - name = i.rpartition(".")[0]
-                  = content "#{name}"
-          .left.carousel-control(href="#home-carousel" data-slide="prev") &lsaquo;
-          .right.carousel-control(href="#home-carousel" data-slide="next") &rsaquo;
     %span.huge-symbol.hidden-phone
       \=
     %img.hidden-phone(src="/images/helcross.png")
 
+#about-page.container
+  .span9
+    .row-fluid
+      = content "about"
+
+-# %script
+  showPage("home");
