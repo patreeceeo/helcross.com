@@ -276,9 +276,11 @@ textarea.form-carefree {
   width: inherit;
 }
 #about-carousel .carousel .carousel-inner .item img {
+  position: relative;
   margin: 0 auto;
-  height: inherit;
-  width: auto;
+  max-height: inherit;
+  height: auto;
+  width: 100% !important;
 }
 
 #forum-page {
