@@ -32,6 +32,14 @@ function makeExternalLinksOpenInNewWindow(root_stor) {
     .attr('target', '_blank');
 }
 
+jQuery.extend({
+  random: function(X) {
+    return X * Math.random();
+  },
+  randomBetween: function(MinV, MaxV) {
+    return MinV + jQuery.random(MaxV - MinV + 1);
+  }
+});
 
 var cart;
 
@@ -65,6 +73,10 @@ $(document).ready(function() {
   }]);
 
   $("textarea").autosize("form-carefree");
+
+  $.each($("#home-operand-container em"), function(idx, el) {
+    $(el).css("font-size", $.randomBetween(1, 2) + "em");
+  });
 
   cart = {
     count: 0,

@@ -75,9 +75,9 @@ footer
     line-height: 75%
     color: rgba(black, 0.5)
 
-img[src*="/images/helcross"]
-  height: 175px !important
-  width: auto
+// img[src*="/images/helcross"]
+//   height: 150px !important
+//   width: auto
 
 .thumbnail
   border: none
@@ -191,7 +191,7 @@ textarea.form-carefree
 
 $home-page-min-h: 350px 
 $home-page-h: $home-page-min-h - 100px
-$home-page-w: 1200px
+$home-page-w: 100%
 #home-page
   min-height: $home-page-min-h
   position: absolute
@@ -207,16 +207,40 @@ $home-page-w: 1200px
     height: $home-page-h
     margin-top: -$home-page-h/2
     margin-left: -$home-page-w/2
+    text-align: center
     & > *
       vertical-align: middle
       display: inline-block
     .huge-word
-      font-size: 100px
+      font-size: 6em
       color: gray
     .huge-symbol
-      font-size: 200px
+      font-size: 8em
       margin-top: -25px
       color: gray
+    .ldquo, .rdquo
+      font-size: 6em
+      color: gray
+    #home-logo
+      height: 125px
+      width: auto
+
+#home-operand-container
+  height: 300px
+  width: 300px
+  overflow: hidden
+  padding: $spacing
+  .inner
+    position: relative
+    top: -30px
+    left: -30px
+    height: 360px
+    width: 360px
+  p
+    text-align: center
+    font-size: 1.5em
+    color: rgba(black, 0.5)
+    line-height: 66%
 
 $about-carousel-h: 400px
 $about-carousel-w: 400px
