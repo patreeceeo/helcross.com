@@ -78,6 +78,17 @@ $(document).ready(function() {
     $(el).css("font-size", $.randomBetween(1, 2) + "em");
   });
 
+  $("a[id$=link]").click(function(e) {
+    window.location.href = $(this).attr('href');
+  });
+
+  $("#mobile-nav").change(function(e) {
+    var link = $("#"+$(this).val()+"-link");
+    log($(this).val());
+    log(link);
+    link.click();
+  });
+
   cart = {
     count: 0,
     total: 0,
@@ -268,9 +279,12 @@ function bump(thing, type, with_class) {
   $("#"+thing+"-"+type).addClass(with_class);
 }
 
+var page;
 function showPage(page) {
+  this.page = page;
   bump(page, "page", "showing");
   bump(page, "nav", "active");
+  $("#mobile-nav option[value="+page+"]").attr("selected", "selected");
 }
 
 function expand(el, h, w) {

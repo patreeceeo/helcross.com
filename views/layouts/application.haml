@@ -132,31 +132,32 @@
             %ul.nav
               - if page == "home"
                 %li#home-nav
-                  %a(href="#" onClick="showPage('home');") Home
+                  %a#home-link(href="#" onClick="showPage('home');") Home
                 %li#about-nav
-                  %a(href="#" onClick="showPage('about');") About
+                  %a#about-link(href="#" onClick="showPage('about');") About
               - else
                 %li#home-nav
-                  %a(href="/") Home
+                  %a#home-link(href="/") Home
               %li#store-nav
-                %a(href="/store") Store
+                %a#store-link(href="/store") Store
               %li#contact-nav
-                %a(href="/contact") Contact 
+                %a#contact-link(href="/contact") Contact 
               %li#forum-nav
-                %a(href="/forum") Forum
+                %a#forum-link(href="/forum") Forum
             %ul#shopping-cart-bar(rel="tooltip" title="Click here to view items" data-toggle="modal" data-target="#shopping-cart-modal")
               %li#shopping-cart-count
                 %li 
                   %i.icon-shopping-cart.icon-white
                 %li#shopping-cart-total
 
-          .nav-collapse.hidden-desktop
-            %select(name="navmenu")
-              %option(value='/') Home
-              %option(value='/about') About
-              %option(value='/store') Store
-              %option(value='/contact') Contact
-              %option(value='/forum') Forum
+          .nav-collapse
+            %select#mobile-nav.nav(name="navmenu")
+              %option(value='home') Home
+              - if page == "home"
+                %option(value='about') About
+              %option(value='store') Store
+              %option(value='contact') Contact
+              %option(value='forum') Forum
 
     = yield
     %footer

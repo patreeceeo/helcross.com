@@ -5504,7 +5504,7 @@ a.label:hover, a.badge:hover {
 }
 .carousel-control p {
   font-size: 1em;
-  padding-top: 3px;
+  padding-top: 5px;
 }
 .carousel-control.right {
   left: auto;
