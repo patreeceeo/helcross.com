@@ -38,7 +38,7 @@ $header-width: $feature-width - $logo-width/3
 $logo-z-index: 2
 $content-z-index: 1
 
-
+$only-phones: "only screen and (min-device-width : 320px) and (max-device-width : 480px)"
 
 strong, em
   font-weight: bold
@@ -75,7 +75,6 @@ footer
     line-height: 75%
     color: rgba(black, 0.5)
 
-$only-phones: "only screen and (min-device-width : 320px) and (max-device-width : 480px)"
 
 @media #{$only-phones} 
   footer
@@ -233,6 +232,12 @@ $home-page-w: 100%
     #home-logo
       height: 125px
       width: auto
+
+@media #{$only-phones}
+  #home-page, .front-card
+    position: inline
+
+  
 
 #home-operand-container
   $size: 275px

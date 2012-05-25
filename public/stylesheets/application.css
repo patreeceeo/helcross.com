@@ -226,6 +226,11 @@ textarea.form-carefree {
   width: auto;
 }
 
+@media #{$only-phones} {
+  #home-page, .front-card {
+    position: inline;
+  }
+}
 #home-operand-container {
   height: 275px;
   width: 275px;
