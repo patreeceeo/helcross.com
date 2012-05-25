@@ -44,6 +44,11 @@ footer p {
   color: rgba(0, 0, 0, 0.5);
 }
 
+@media #{$only-phones} {
+  footer {
+    position: inline;
+  }
+}
 .thumbnail {
   border: none;
 }
@@ -224,6 +229,8 @@ textarea.form-carefree {
 #home-operand-container {
   height: 300px;
   width: 300px;
+  max-height: 300px;
+  max-width: 300px;
   overflow: hidden;
   padding: 20px;
 }

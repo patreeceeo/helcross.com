@@ -75,6 +75,15 @@ footer
     line-height: 75%
     color: rgba(black, 0.5)
 
+$only-phones: "only screen and (min-device-width : 320px) and (max-device-width : 480px)"
+
+@media #{$only-phones} 
+  footer
+    position: inline
+
+
+
+
 // img[src*="/images/helcross"]
 //   height: 150px !important
 //   width: auto
@@ -228,6 +237,8 @@ $home-page-w: 100%
 #home-operand-container
   height: 300px
   width: 300px
+  max-height: 300px
+  max-width: 300px
   overflow: hidden
   padding: $spacing
   .inner
