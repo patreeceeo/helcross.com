@@ -227,19 +227,19 @@ textarea.form-carefree {
 }
 
 #home-operand-container {
-  height: 300px;
-  width: 300px;
-  max-height: 300px;
-  max-width: 300px;
+  height: 275px;
+  width: 275px;
+  max-height: 275px;
+  max-width: 275px;
   overflow: hidden;
   padding: 20px;
 }
 #home-operand-container .inner {
   position: relative;
-  top: -30px;
-  left: -30px;
-  height: 360px;
-  width: 360px;
+  top: -22px;
+  left: -22px;
+  height: 297px;
+  width: 297px;
 }
 #home-operand-container p {
   text-align: center;

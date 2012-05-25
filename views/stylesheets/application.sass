@@ -235,18 +235,20 @@ $home-page-w: 100%
       width: auto
 
 #home-operand-container
-  height: 300px
-  width: 300px
-  max-height: 300px
-  max-width: 300px
+  $size: 275px
+  $hidden-margin: 22px
+  height: $size
+  width: $size
+  max-height: $size
+  max-width: $size
   overflow: hidden
   padding: $spacing
   .inner
     position: relative
-    top: -30px
-    left: -30px
-    height: 360px
-    width: 360px
+    top: -$hidden-margin
+    left: -$hidden-margin
+    height: $size+$hidden-margin
+    width: $size+$hidden-margin
   p
     text-align: center
     font-size: 1.5em
