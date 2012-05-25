@@ -227,8 +227,11 @@ textarea.form-carefree {
 }
 
 @media #{$only-phones} {
-  #home-page, .front-card {
-    position: inline;
+  #home-page {
+    position: relative;
+  }
+  #home-page .front-card {
+    position: relative;
   }
 }
 #home-operand-container {
