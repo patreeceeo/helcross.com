@@ -46,7 +46,7 @@ footer p {
 
 @media #{$only-phones} {
   footer {
-    position: inline;
+    position: relative;
   }
 }
 .thumbnail {
