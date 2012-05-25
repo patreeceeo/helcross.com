@@ -52,7 +52,7 @@ footer p {
     position: relative !important;
   }
   footer .boo {
-    display: block;
+    display: block !important;
   }
 }
 .thumbnail {
