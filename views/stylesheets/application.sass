@@ -70,6 +70,8 @@ footer
   z-index: 0
   margin: 0 auto
   text-align: center
+  .boo
+    display: none
   p
     font-size: 75%
     line-height: 75%
@@ -79,8 +81,8 @@ footer
 @media #{$only-phones} 
   footer
     position: relative !important
-
-
+    .boo
+      display: block
 
 
 // img[src*="/images/helcross"]
@@ -235,9 +237,9 @@ $home-page-w: 100%
 
 @media #{$only-phones}
   #home-page
-    position: relative
+    position: relative !important
     .front-card
-      position: relative
+      position: relative !important
 
   
 

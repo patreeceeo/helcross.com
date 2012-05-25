@@ -38,6 +38,9 @@ footer {
   margin: 0 auto;
   text-align: center;
 }
+footer .boo {
+  display: none;
+}
 footer p {
   font-size: 75%;
   line-height: 75%;
@@ -47,6 +50,9 @@ footer p {
 @media #{$only-phones} {
   footer {
     position: relative !important;
+  }
+  footer .boo {
+    display: block;
   }
 }
 .thumbnail {
@@ -228,10 +234,10 @@ textarea.form-carefree {
 
 @media #{$only-phones} {
   #home-page {
-    position: relative;
+    position: relative !important;
   }
   #home-page .front-card {
-    position: relative;
+    position: relative !important;
   }
 }
 #home-operand-container {
