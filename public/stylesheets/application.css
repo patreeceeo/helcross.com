@@ -22,10 +22,10 @@ strong, em {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
   background-color: white;
 }
 
@@ -47,7 +47,7 @@ footer p {
   color: rgba(0, 0, 0, 0.5);
 }
 
-@media #{$only-phones} {
+@media (max-width: 767px) {
   footer {
     position: relative !important;
   }
@@ -232,7 +232,7 @@ textarea.form-carefree {
   width: auto;
 }
 
-@media #{$only-phones} {
+@media (max-width: 767px) {
   #home-page {
     position: relative !important;
   }
@@ -320,6 +320,11 @@ body .brand {
   font-size: 1.2em !important;
   line-height: 1em;
   z-index: 2;
+}
+
+.navbar #gplusone {
+  margin-top: 8px;
+  display: inline-block;
 }
 
 .button:link, .button:visited {

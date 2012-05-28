@@ -1,5 +1,5 @@
 !!!
-%html{html_attrs, xmlns:fb="https://ogp.me/ns/fb#"}
+%html{html_attrs, :itemscope=>nil, :itemtype=>"http://schema.org/LocalBusiness"}
   %head
     
     -# METAS #-#-
@@ -21,7 +21,9 @@
     %meta{:property=>"og:site_name", :content=>"#{@app['name']}"}
     %meta{:property=>"og:description", :content=>"Hel+"}
     %meta{:property=>"fb:app_id", :content=>"#{@app['id']}"}
-
+    <meta itemprop="name" content="An end to politics as usual">
+    <meta itemprop="description" content="Hel+ connects people of differing opinions, encouraging the discussion of heavy but important topics such as politics and religion, topics that are tiptoed gently around in normal conversation.">
+    <meta itemprop="image" content="helcross.com/images/helcross.png">
 
     -# TITLE #-#-
 
@@ -94,6 +96,7 @@
     -# SCRIPTS #-#-
     =lib_script "modernizr.custom"
     =lib_script "jquery-1.7.2.min"
+    =lib_script "google-analytics"
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
     - if page == "store"
       %script(type="text/javascript" src="https://js.stripe.com/v1/")
@@ -145,13 +148,8 @@
                 %a#contact-link(href="/contact") Contact 
               %li#forum-nav
                 %a#forum-link(href="/forum") Forum
-            %ul#shopping-cart-bar(rel="tooltip" title="Click here to view items" data-toggle="modal" data-target="#shopping-cart-modal")
-              %li#shopping-cart-count
-                %li 
-                  %i.icon-shopping-cart.icon-white
-                %li#shopping-cart-total
 
-          .nav-collapse
+          .nav-collapse.visible-phone
             %select#mobile-nav.nav(name="navmenu")
               %option(value='home') Home
               - if page == "home"
@@ -159,6 +157,16 @@
               %option(value='store') Store
               %option(value='contact') Contact
               %option(value='forum') Forum
+
+          .nav-collapse
+            #gplusone
+              %g:plusone(annotation="inline")
+            %ul#shopping-cart-bar(rel="tooltip" title="Click here to view items" data-toggle="modal" data-target="#shopping-cart-modal")
+              %li#shopping-cart-count
+                %li 
+                  %i.icon-shopping-cart.icon-white
+                %li#shopping-cart-total
+
 
     = yield
     %footer
@@ -182,6 +190,7 @@
     =lib_script "bootstrap-modal"
     =lib_script "bootstrap-collapse"
     =lib_script "jquery.autosize"
+    =lib_script "ga.plus-one"
     -# =lib_script "jquery.html5form-1.5-min"
     -# =lib_script "handlebars"
     -# =lib_script "json2"
